@@ -56,26 +56,6 @@
   </div>
 </div>
 
-<section id="models3d">
-  <div class="wrap">
-    <h2 class="h2">See the arm it actually drives</h2>
-    <p class="sub">
-      This is not a mock-up — it is the same robot geometry CineArm uses internally.
-      Drag to orbit, scroll to zoom, and switch models below.
-    </p>
-    <div class="viewer-stage" data-arm-viewer data-entry="../assets/viewer.js" data-default="cr10a"
-         data-models="../assets/models/models.json" data-base="../assets/models/">
-      <canvas></canvas>
-      <div class="viewer-buttons" data-models-switch></div>
-      <span class="viewer-hint">Drag to orbit · scroll to zoom</span>
-    </div>
-    <p class="note">
-      Geometry comes from Dobot's official ROS description packages (MIT). It matches the models registered in CineArm.
-      The web copy is decimated and quantized for display, so it preserves shape and assembly, not motion accuracy.
-    </p>
-  </div>
-</section>
-
 <section id="features" class="first">
   <div class="wrap">
     <h2 class="h2">One timeline, one shot</h2>
@@ -303,33 +283,5 @@
 
 <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 
-<script>
-(() => {
-  const stage = document.querySelector("[data-arm-viewer]");
-  if (!stage) return;
-  let started = false;
-  const load = () => {
-    if (started) return;
-    started = true;
-    const tag = document.createElement("script");
-    tag.type = "module";
-    tag.src = stage.dataset.entry;
-    document.body.appendChild(tag);
-  };
-  const near = () => {
-    const box = stage.getBoundingClientRect();
-    return box.top < window.innerHeight + 500 && box.bottom > -400;
-  };
-  if (near()) { load(); return; }
-  if ("IntersectionObserver" in window) {
-    const io = new IntersectionObserver((entries) => {
-      if (entries.some((entry) => entry.isIntersecting)) { io.disconnect(); load(); }
-    }, { rootMargin: "400px" });
-    io.observe(stage);
-  } else {
-    window.addEventListener("scroll", () => { if (near()) load(); }, { passive: true });
-  }
-})();
-</script>
 </body>
 </html>

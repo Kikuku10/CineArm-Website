@@ -54,26 +54,6 @@
   </div>
 </div>
 
-<section id="models3d">
-  <div class="wrap">
-    <h2 class="h2">用真实模型看这套机械臂</h2>
-    <p class="sub">
-      下面渲染的不是示意图，而是 CineArm 里实际使用的机械臂模型 —— 和软件里驱动的是同一份几何。
-      拖拽转视角，滚轮缩放，点下面的按钮切换机型。
-    </p>
-    <div class="viewer-stage" data-arm-viewer data-entry="assets/viewer.js" data-default="cr10a"
-         data-models="assets/models/models.json" data-base="assets/models/">
-      <canvas></canvas>
-      <div class="viewer-buttons" data-models-switch></div>
-      <span class="viewer-hint">拖拽旋转 · 滚轮缩放</span>
-    </div>
-    <p class="note">
-      模型取自越疆官方 ROS 描述包（MIT 许可），与 CineArm 内的机型注册保持一致；网页端为展示做了减面压缩与量化，
-      外形与装配关系保留，但不代表实际运动精度。
-    </p>
-  </div>
-</section>
-
 <section id="features" class="first">
   <div class="wrap">
     <h2 class="h2">一条时间线，装下一个镜头</h2>
@@ -300,33 +280,5 @@
 
 <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 
-<script>
-(() => {
-  const stage = document.querySelector("[data-arm-viewer]");
-  if (!stage) return;
-  let started = false;
-  const load = () => {
-    if (started) return;
-    started = true;
-    const tag = document.createElement("script");
-    tag.type = "module";
-    tag.src = stage.dataset.entry;
-    document.body.appendChild(tag);
-  };
-  const near = () => {
-    const box = stage.getBoundingClientRect();
-    return box.top < window.innerHeight + 500 && box.bottom > -400;
-  };
-  if (near()) { load(); return; }
-  if ("IntersectionObserver" in window) {
-    const io = new IntersectionObserver((entries) => {
-      if (entries.some((entry) => entry.isIntersecting)) { io.disconnect(); load(); }
-    }, { rootMargin: "400px" });
-    io.observe(stage);
-  } else {
-    window.addEventListener("scroll", () => { if (near()) load(); }, { passive: true });
-  }
-})();
-</script>
 </body>
 </html>
