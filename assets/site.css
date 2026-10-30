@@ -165,3 +165,25 @@ footer{border-top:1px solid var(--line);padding:38px 0;color:var(--dim);font-siz
 .foot{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
 .foot a:hover{color:var(--muted)}
 .foot nav{gap:18px;font-size:14px}
+
+/* 3D arm viewer */
+.viewer-stage{position:relative;border:1px solid var(--line);border-radius:18px;overflow:hidden;
+  background:radial-gradient(62% 62% at 50% 12%,rgba(0,169,166,.16),transparent 72%),var(--panel);
+  aspect-ratio:16/9;touch-action:none}
+@media (max-width:700px){ .viewer-stage{aspect-ratio:4/3} }
+.viewer-stage canvas{width:100%;height:100%;display:block;cursor:grab}
+.viewer-stage canvas:active{cursor:grabbing}
+.viewer-buttons{position:absolute;left:16px;bottom:16px;display:flex;flex-wrap:wrap;gap:8px}
+.viewer-buttons button{font:inherit;font-size:13px;color:var(--text);background:rgba(15,23,36,.86);
+  border:1px solid var(--line-strong);border-radius:9px;padding:6px 13px;cursor:pointer;
+  backdrop-filter:blur(8px);transition:.16s}
+.viewer-buttons button:hover{border-color:var(--accent)}
+.viewer-buttons button[aria-pressed="true"]{border-color:var(--accent);color:var(--accent-soft)}
+.viewer-hint{position:absolute;right:16px;bottom:18px;font-size:12.5px;color:var(--dim);pointer-events:none}
+@media (max-width:700px){ .viewer-hint{display:none} }
+
+/* screenshot figure */
+.shot{margin:46px 0 0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel)}
+.shot img{display:block;width:100%;height:auto}
+.shot figcaption{padding:14px 18px;font-size:13px;color:var(--dim);
+  border-top:1px solid var(--line);background:var(--panel-2)}

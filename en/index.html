@@ -56,6 +56,26 @@
   </div>
 </div>
 
+<section id="models3d">
+  <div class="wrap">
+    <h2 class="h2">See the arm it actually drives</h2>
+    <p class="sub">
+      This is not a mock-up — it is the same robot geometry CineArm uses internally.
+      Drag to orbit, scroll to zoom, and switch models below.
+    </p>
+    <div class="viewer-stage" data-arm-viewer data-entry="../assets/viewer.js" data-default="cr10a"
+         data-models="../assets/models/models.json" data-base="../assets/models/">
+      <canvas></canvas>
+      <div class="viewer-buttons" data-models-switch></div>
+      <span class="viewer-hint">Drag to orbit · scroll to zoom</span>
+    </div>
+    <p class="note">
+      Geometry comes from Dobot's official ROS description packages (MIT). It matches the models registered in CineArm.
+      The web copy is decimated and quantized for display, so it preserves shape and assembly, not motion accuracy.
+    </p>
+  </div>
+</section>
+
 <section id="features" class="first">
   <div class="wrap">
     <h2 class="h2">One timeline, one shot</h2>
@@ -92,6 +112,54 @@
         <p>Snapshots remember the framing so you can return to it later. Monitoring feed, guides and virtual sets are all adjustable on set.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="workflow">
+  <div class="wrap">
+    <h2 class="h2">From first position to first take</h2>
+    <p class="sub">This is the order the app works in — and every step can be revisited on its own.</p>
+    <div class="flow">
+      <div class="step">
+        <div class="num">01</div>
+        <div>
+          <h3>Record positions</h3>
+          <p>Move the arm to where you want it, or type the angles, and record the pose. A move segment appears between two positions, and the order is yours to change.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <div>
+          <h3>Shape path and speed</h3>
+          <p>Each segment can be a straight line, a three-point arc, or an arc around a target. The speed curve works as a whole or per segment, with acceleration tuned separately.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <div>
+          <h3>Aim and focus</h3>
+          <p>Create a reusable target so a whole move keeps aiming at it. Focus runs on the timeline — program the curve first, calibrate the motor on set.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">04</div>
+        <div>
+          <h3>Rehearse virtually</h3>
+          <p>Play, pause, nudge and swap versions on the virtual arm without touching hardware. Compare several takes before committing to one.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">05</div>
+        <div>
+          <h3>Send to the arm</h3>
+          <p>Drive the arm to the start of this take, then run. Pause and resume from where you stopped; a dedicated recovery path covers faults without re-blocking the shot.</p>
+        </div>
+      </div>
+    </div>
+    <figure class="shot">
+      <img src="../assets/img/ui-workspace.jpg" alt="CineArm workspace: monitoring, 3D preview, keyframe panel and timeline" loading="lazy" width="1600" height="998">
+      <figcaption>The real workspace: monitoring and guides on the left, 3D preview in the middle, keyframe panel on the right, track-based timeline below.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -234,5 +302,34 @@
 </footer>
 
 <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+<script>
+(() => {
+  const stage = document.querySelector("[data-arm-viewer]");
+  if (!stage) return;
+  let started = false;
+  const load = () => {
+    if (started) return;
+    started = true;
+    const tag = document.createElement("script");
+    tag.type = "module";
+    tag.src = stage.dataset.entry;
+    document.body.appendChild(tag);
+  };
+  const near = () => {
+    const box = stage.getBoundingClientRect();
+    return box.top < window.innerHeight + 500 && box.bottom > -400;
+  };
+  if (near()) { load(); return; }
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) { io.disconnect(); load(); }
+    }, { rootMargin: "400px" });
+    io.observe(stage);
+  } else {
+    window.addEventListener("scroll", () => { if (near()) load(); }, { passive: true });
+  }
+})();
+</script>
 </body>
 </html>

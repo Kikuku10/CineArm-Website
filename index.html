@@ -54,6 +54,26 @@
   </div>
 </div>
 
+<section id="models3d">
+  <div class="wrap">
+    <h2 class="h2">用真实模型看这套机械臂</h2>
+    <p class="sub">
+      下面渲染的不是示意图，而是 CineArm 里实际使用的机械臂模型 —— 和软件里驱动的是同一份几何。
+      拖拽转视角，滚轮缩放，点下面的按钮切换机型。
+    </p>
+    <div class="viewer-stage" data-arm-viewer data-entry="assets/viewer.js" data-default="cr10a"
+         data-models="assets/models/models.json" data-base="assets/models/">
+      <canvas></canvas>
+      <div class="viewer-buttons" data-models-switch></div>
+      <span class="viewer-hint">拖拽旋转 · 滚轮缩放</span>
+    </div>
+    <p class="note">
+      模型取自越疆官方 ROS 描述包（MIT 许可），与 CineArm 内的机型注册保持一致；网页端为展示做了减面压缩与量化，
+      外形与装配关系保留，但不代表实际运动精度。
+    </p>
+  </div>
+</section>
+
 <section id="features" class="first">
   <div class="wrap">
     <h2 class="h2">一条时间线，装下一个镜头</h2>
@@ -90,6 +110,54 @@
         <p>快照帮你记住当时的构图，随时回到那个机位对比；监看画面、构图辅助线和虚拟布景都能按现场需要调。</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="workflow">
+  <div class="wrap">
+    <h2 class="h2">从一个机位到正式开拍</h2>
+    <p class="sub">软件里的顺序是这样的，每一步都能单独回头改，不用推倒重来。</p>
+    <div class="flow">
+      <div class="step">
+        <div class="num">01</div>
+        <div>
+          <h3>记下机位</h3>
+          <p>把机械臂挪到手边的位置，或者直接输入角度，点一下记录当前姿态。两个机位之间会自动生成一段运动区间，先后顺序随时调。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <div>
+          <h3>调路径和速度</h3>
+          <p>每段可以选直线、三点圆弧或围绕目标的圆弧。速度曲线能整体看，也能单段拉；加减速分开调，长距离移动不会一头栽进去。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <div>
+          <h3>定朝向和焦点</h3>
+          <p>建一个可复用的目标点，让整段镜头持续对准它。焦点按时间变化，先编好曲线，到现场接上跟焦马达再标定。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">04</div>
+        <div>
+          <h3>虚拟彩排</h3>
+          <p>在虚拟机械臂上从头走一遍：播放、暂停、微调、换方案都不会碰真机。多套方案可以都走一遍再决定用哪条。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">05</div>
+        <div>
+          <h3>发送到实机</h3>
+          <p>先让机械臂到本次起点，再正式运行。中途能暂停并从当前位置续上，真出异常有专用恢复流程，不必重排整条镜头。</p>
+        </div>
+      </div>
+    </div>
+    <figure class="shot">
+      <img src="assets/img/ui-workspace.jpg" alt="CineArm 工作台：监看、三维预览、关键帧面板与时间线" loading="lazy" width="1600" height="998">
+      <figcaption>真实界面：左侧监看与构图辅助，中间三维预览，右侧关键帧面板，下方按轨道排布的时间线。</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -231,5 +299,34 @@
 </footer>
 
 <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+<script>
+(() => {
+  const stage = document.querySelector("[data-arm-viewer]");
+  if (!stage) return;
+  let started = false;
+  const load = () => {
+    if (started) return;
+    started = true;
+    const tag = document.createElement("script");
+    tag.type = "module";
+    tag.src = stage.dataset.entry;
+    document.body.appendChild(tag);
+  };
+  const near = () => {
+    const box = stage.getBoundingClientRect();
+    return box.top < window.innerHeight + 500 && box.bottom > -400;
+  };
+  if (near()) { load(); return; }
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) { io.disconnect(); load(); }
+    }, { rootMargin: "400px" });
+    io.observe(stage);
+  } else {
+    window.addEventListener("scroll", () => { if (near()) load(); }, { passive: true });
+  }
+})();
+</script>
 </body>
 </html>
