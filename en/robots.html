@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arm Selection — CineArm</title>
+<meta name="description" content="CineArm supports Nova 5, CR5, CR10, CR10A (including CR10V) and CR20A. Compare Dobot CRA, CRAF, CRH and Nova series specs and pick the right arm.">
+<meta name="theme-color" content="#070B11">
+<meta property="og:title" content="Arm Selection — CineArm">
+<meta property="og:description" content="Supported Dobot models and a side-by-side comparison.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cinearm.top/en/robots.html">
+<meta property="og:locale" content="en">
+<link rel="icon" href="../app-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../app-icon.svg">
+<link rel="alternate" hreflang="zh-CN" href="https://cinearm.top/robots.html">
+<link rel="alternate" hreflang="en" href="https://cinearm.top/en/robots.html">
+<link rel="alternate" hreflang="x-default" href="https://cinearm.top/robots.html">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="index.html">
+      <img class="mark" src="../app-icon.svg" alt="" width="28" height="28">
+      CineArm
+    </a>
+    <nav>
+      <a class="hide-sm" href="index.html#features">Features</a>
+      <a class="hide-sm" href="robots.html" aria-current="page">Arms</a>
+      <a class="hide-sm" href="index.html#plans">Licensing</a>
+      <a class="hide-sm" href="index.html#download">Download</a>
+      <a class="lang" href="../robots.html" hreflang="zh-CN">中文</a>
+      <a class="cta" href="https://github.com/Kikuku10/CineArm-Releases/releases">Releases</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow"><span class="dot"></span>Dobot · collaborative arms</span>
+    <h1 class="sm">Choosing an arm</h1>
+    <p class="lede">
+      CineArm currently supports five models, and all of them can be rehearsed virtually with no hardware.
+      Check the “Supported” table first to confirm your arm is covered, then pick payload and reach.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#supported">See supported models</a>
+      <a class="btn btn-ghost" href="#specs">Spec comparison</a>
+    </div>
+  </div>
+</div>
+
+<section id="supported" class="first">
+  <div class="wrap">
+    <h2 class="h2">Supported by CineArm</h2>
+    <p class="sub">These are the models registered in the current release. “Physical robot” means the app can take over a real arm and read its feedback; virtual rehearsal works for every row.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Model</th><th>Max payload</th><th>Protocol</th><th>Physical robot</th><th>Virtual</th><th>J1</th><th>J2</th><th>J3</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="model">Nova 5</td><td class="n">5 kg</td><td>V4</td>
+            <td>Yes</td><td>Yes</td>
+            <td class="n">±359.8°</td><td class="n">±180°</td><td class="n">±160°</td>
+          </tr>
+          <tr>
+            <td class="model">CR5</td><td class="n">5 kg</td><td>V3</td>
+            <td>Yes</td><td>Yes</td>
+            <td class="n">±180°</td><td class="n">±180°</td><td class="n">±160°</td>
+          </tr>
+          <tr>
+            <td class="model">CR10</td><td class="n">10 kg</td><td>V3</td>
+            <td>Yes</td><td>Yes</td>
+            <td class="n">±355°</td><td class="n">±355°</td><td class="n">±160°</td>
+          </tr>
+          <tr>
+            <td class="model">CR10A / CR10V</td><td class="n">10 kg</td><td>V4</td>
+            <td>Yes</td><td>Yes</td>
+            <td class="n">±358°</td><td class="n">±358°</td><td class="n">±162°</td>
+          </tr>
+          <tr>
+            <td class="model">CR20A</td><td class="n">20 kg</td><td>V4</td>
+            <td>No</td><td>Yes</td>
+            <td class="n">±360°</td><td class="n">±360°</td><td class="n">±169°</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">
+      Three notes: CR10V shares its project configuration with CR10A, so treat them as one option when selecting.
+      CR20A currently ships as a virtual model only — no physical feedback yet — which makes it a good fit for blocking in software.
+      CR5 and CR10 are previous-generation models; refer to the manufacturer's older datasheets for full specs.
+    </p>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <h2 class="h2">Three steps to a tier</h2>
+    <p class="sub">The spec sheets look long, but only three things really decide it.</p>
+    <div class="flow">
+      <div class="step">
+        <div class="num">01</div>
+        <div>
+          <h3>Add up the weight, then leave headroom</h3>
+          <p>Body, lens, gimbal, quick-release plate and cabling — add it all, then keep 20–30% in reserve. Long lenses push the centre of mass outward, so torque matters more than weight.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <div>
+          <h3>Reach, not height</h3>
+          <p>Reach decides how far the lens can travel. If the move runs back and forth along a line, the reach has to cover both ends — not just the middle.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <div>
+          <h3>Read the environment</h3>
+          <p>Dust or water: IP68 series. Contact with people or props: CRAF with force sensing. Very fast repositioning: CRH.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="specs">
+  <div class="wrap">
+    <h2 class="h2">Series comparison</h2>
+    <p class="sub">The “Supported” column shows whether the current CineArm release can connect to a physical unit. Everything else can still be blocked out on the virtual arm.</p>
+
+    <div class="series" id="cra">
+      <div class="series-head">
+        <h3>CRA series</h3>
+        <span class="chip">High precision</span>
+        <span class="chip">3–30 kg</span>
+      </div>
+      <p class="desc">The general-purpose line, with repeatability down to ±0.02 mm and IP54 across the range. CR16AL and CR6AL are the extended-reach variants; CR20A supports up to 25 kg for palletising.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Model</th><th>Supported</th><th>Max payload</th><th>Reach</th><th>Weight</th><th>Repeatability</th><th>J1/J2 speed</th><th>J3 range</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="model">CR3A</td><td>—</td><td class="n">3 kg</td><td class="n">620 mm</td><td class="n">16.5 kg</td><td class="n">±0.02 mm</td><td class="n">180°/s</td><td class="n">±155°</td></tr>
+            <tr><td class="model">CR5A</td><td>—</td><td class="n">5 kg</td><td class="n">900 mm</td><td class="n">25 kg</td><td class="n">±0.02 mm</td><td class="n">180°/s</td><td class="n">±160°</td></tr>
+            <tr><td class="model">CR7A</td><td>—</td><td class="n">7 kg</td><td class="n">800 mm</td><td class="n">24.5 kg</td><td class="n">±0.02 mm</td><td class="n">180°/s</td><td class="n">±160°</td></tr>
+            <tr><td class="model">CR10A</td><td class="ok">✓</td><td class="n">10 kg</td><td class="n">1300 mm</td><td class="n">40 kg</td><td class="n">±0.03 mm</td><td class="n">150°/s</td><td class="n">±160°</td></tr>
+            <tr><td class="model">CR12A</td><td>—</td><td class="n">12 kg</td><td class="n">1200 mm</td><td class="n">39.5 kg</td><td class="n">±0.03 mm</td><td class="n">150°/s</td><td class="n">±160°</td></tr>
+            <tr><td class="model">CR16A</td><td>—</td><td class="n">16 kg</td><td class="n">1000 mm</td><td class="n">40 kg</td><td class="n">±0.03 mm</td><td class="n">150°/s</td><td class="n">±160°</td></tr>
+            <tr><td class="model">CR16AL</td><td>—</td><td class="n">16 kg</td><td class="n">1300 mm</td><td class="n">40 kg</td><td class="n">±0.04 mm</td><td class="n">110°/s</td><td class="n">±160°</td></tr>
+            <tr><td class="model">CR20A</td><td class="ok">✓</td><td class="n">20 kg</td><td class="n">1700 mm</td><td class="n">73 kg</td><td class="n">±0.05 mm</td><td class="n">120°/s</td><td class="n">±165°</td></tr>
+            <tr><td class="model">CR30A</td><td>—</td><td class="n">30 kg</td><td class="n">1305 mm</td><td class="n">70 kg</td><td class="n">±0.05 mm</td><td class="n">120°/s</td><td class="n">±165°</td></tr>
+            <tr><td class="model">CR6AL</td><td>—</td><td class="n">6 kg</td><td class="n">1800 mm</td><td class="n">41.5 kg</td><td class="n">±0.05 mm</td><td class="n">150°/s</td><td class="n">±170°</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="series" id="nova">
+      <div class="series-head">
+        <h3>Nova series</h3>
+        <span class="chip">Compact</span>
+        <span class="chip">2 / 5 kg</span>
+      </div>
+      <p class="desc">Built for commercial and light setups. Light enough that one person can reposition it on stage. Nova 5 is the model currently integrated.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Model</th><th>Supported</th><th>Max payload</th><th>Reach</th><th>Weight</th><th>Repeatability</th><th>Noise</th><th>IP rating</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="model">Nova 2</td><td>—</td><td class="n">2 kg</td><td class="n">625 mm</td><td class="n">11 kg</td><td class="n">±0.05 mm</td><td class="n">65 dB(A)</td><td>IP54</td></tr>
+            <tr><td class="model">Nova 2s</td><td>—</td><td class="n">2 kg</td><td class="n">500 mm</td><td class="n">11 kg</td><td class="n">±0.05 mm</td><td class="n">65 dB(A)</td><td>IP54</td></tr>
+            <tr><td class="model">Nova 5</td><td class="ok">✓</td><td class="n">5 kg</td><td class="n">850 mm</td><td class="n">14 kg</td><td class="n">±0.05 mm</td><td class="n">70 dB(A)</td><td>IP54</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="series" id="craf">
+      <div class="series-head">
+        <h3>CRAF series</h3>
+        <span class="chip">Force control</span>
+        <span class="chip">Built-in 6-axis sensor</span>
+      </div>
+      <p class="desc">A high-precision six-axis force sensor sits inside the flange, so force-controlled applications deploy quickly without an external sensor. Suited to compliant contact, hand-guiding and constant pressure.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Model</th><th>Supported</th><th>Max payload</th><th>Reach</th><th>Weight</th><th>Repeatability</th><th>Force / torque range</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="model">CR5AF</td><td>—</td><td class="n">5 kg</td><td class="n">900 mm</td><td class="n">25.5 kg</td><td class="n">±0.02 mm</td><td class="n">150 N / 15 Nm</td></tr>
+            <tr><td class="model">CR10AF</td><td>—</td><td class="n">10 kg</td><td class="n">1300 mm</td><td class="n">40.5 kg</td><td class="n">±0.03 mm</td><td class="n">300 N / 30 Nm</td></tr>
+            <tr><td class="model">CR20AF</td><td>—</td><td class="n">20 kg</td><td class="n">1700 mm</td><td class="n">74 kg</td><td class="n">±0.05 mm</td><td class="n">500 N / 50 Nm</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="series" id="ip68">
+      <div class="series-head">
+        <h3>CRA-IP68 series</h3>
+        <span class="chip">High protection</span>
+        <span class="chip">Dust · moisture</span>
+      </div>
+      <p class="desc">Rated IP68 for dusty and wet environments — exterior work, car rigs, near water, or high-dust stages. Cleaning is also more forgiving than on standard models.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Model</th><th>Supported</th><th>Max payload</th><th>Reach</th><th>Weight</th><th>Repeatability</th><th>IP rating</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="model">CR3AP</td><td>—</td><td class="n">3 kg</td><td class="n">620 mm</td><td class="n">16.5 kg</td><td class="n">±0.02 mm</td><td>IP68</td></tr>
+            <tr><td class="model">CR5AP</td><td>—</td><td class="n">5 kg</td><td class="n">900 mm</td><td class="n">25 kg</td><td class="n">±0.02 mm</td><td>IP68</td></tr>
+            <tr><td class="model">CR10AP</td><td>—</td><td class="n">10 kg</td><td class="n">1300 mm</td><td class="n">40 kg</td><td class="n">±0.03 mm</td><td>IP68</td></tr>
+            <tr><td class="model">CR20AP</td><td>—</td><td class="n">20 kg</td><td class="n">1700 mm</td><td class="n">73 kg</td><td class="n">±0.05 mm</td><td>IP68</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="series" id="crh">
+      <div class="series-head">
+        <h3>CRH series</h3>
+        <span class="chip">300°/s</span>
+        <span class="chip">Heavy and fast</span>
+      </div>
+      <p class="desc">High-speed heavy-lift models: 30 kg payload with 1800 mm reach and joint speeds up to 300°/s, for quick repositioning over long moves.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Model</th><th>Supported</th><th>Max payload</th><th>Reach</th><th>Weight</th><th>Repeatability</th><th>Joint speed</th><th>IP rating</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="model">CR30H</td><td>—</td><td class="n">30 kg</td><td class="n">1800 mm</td><td class="n">100 kg</td><td class="n">±0.05 mm</td><td class="n">300°/s</td><td>IP65</td></tr>
+            <tr><td class="model">CR30HT</td><td>—</td><td class="n">30 kg</td><td class="n">1800 mm</td><td class="n">102 kg</td><td class="n">±0.05 mm</td><td class="n">300°/s</td><td>IP65</td></tr>
+            <tr><td class="model">CR30H-Food</td><td>—</td><td class="n">30 kg</td><td class="n">1800 mm</td><td class="n">100 kg</td><td class="n">±0.05 mm</td><td class="n">300°/s</td><td>IP67</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="series" id="four">
+      <div class="series-head">
+        <h3>Four-axis series</h3>
+        <span class="chip">Desktop industrial</span>
+      </div>
+      <p class="desc">Desktop four-axis units for small-batch, high-variety automation. Not the main choice for six-axis moves, but they save space on fixed push, pull and lift shots.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Model</th><th>Supported</th><th>Rated payload</th><th>Reach</th><th>Axes</th><th>Repeatability</th><th>Weight</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="model">M1 Pro</td><td>—</td><td class="n">1.5 kg</td><td class="n">400 mm</td><td class="n">4</td><td class="n">±0.02 mm</td><td class="n">15.7 kg</td></tr>
+            <tr><td class="model">MG400</td><td>—</td><td class="n">0.5 kg (max 0.75)</td><td class="n">440 mm</td><td class="n">4</td><td class="n">±0.05 mm</td><td class="n">8 kg</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tips">
+  <div class="wrap">
+    <h2 class="h2">Buying and inspection notes</h2>
+    <p class="sub">These do not show up on a datasheet. Worth confirming before you pay.</p>
+    <div class="tips">
+      <div class="tip">
+        <h3><span class="n">1</span>Confirm joint travel first</h3>
+        <p>Some CR units ship with ±180° rather than ±360° on J4/J5/J6, which limits roll and tilt. Confirm the actual configuration with the seller — the model number alone is not enough.</p>
+      </div>
+      <div class="tip">
+        <h3><span class="n">2</span>Brake type changes where it stops</h3>
+        <p>Electromagnetic and plunger brakes behave differently when they come to rest. For film work, prefer the electromagnetic brake version. If you end up with a plunger brake, verify the end position carefully so the arm cannot contact the camera body or lens in motion.</p>
+      </div>
+      <div class="tip">
+        <h3><span class="n">3</span>Test it, don't trust the sheet</h3>
+        <p>Have the arm extend and retract at the wrist and watch for creep or judder at low speed. If you can, bring a mounting plate and counterweight and try the actual unit on site.</p>
+      </div>
+      <div class="tip">
+        <h3><span class="n">4</span>Some vibration is normal</h3>
+        <p>Collaborative joints use harmonic drives, which have inherent compliance. Slight vibration at the long J2 and J3 links in an extended pose is expected. Noticeable vibration is what warrants checking assembly or payload.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="accessories">
+  <div class="wrap">
+    <h2 class="h2">What ships with it</h2>
+    <p class="sub">Not part of the arm spec, but it decides your footprint and power.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Item</th><th>Fits</th><th>Key specs</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="model">Controller CC262 / CC263</td><td>CRA 3–16 kg</td><td class="n">345 × 345 × 145 mm · 9.5 kg (AC) / 8.5 kg (DC)</td></tr>
+          <tr><td class="model">Controller CC262 / CC263</td><td>CRA 20–30 kg</td><td class="n">400 × 400 × 175 mm · 15.5 kg (AC)</td></tr>
+          <tr><td class="model">Controller CC365</td><td>CR30H</td><td class="n">400 × 190 × 400 mm · 19 kg</td></tr>
+          <tr><td class="model">SimBOX</td><td>Nova series</td><td class="n">193 × 122 × 35 mm · 0.8 kg</td></tr>
+          <tr><td class="model">TP10 teach pendant</td><td>Collaborative series</td><td class="n">10.1" · 1920 × 1200 · IP54 · 1.02 kg</td></tr>
+          <tr><td class="model">VX500 smart camera</td><td>Vision</td><td class="n">5 MP · 1/1.7" · global shutter</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">
+      “Supported” reflects the model registry in the current CineArm release. Other figures come from the
+      <em>Dobot Industrial Product Selection Handbook (2026-02, spec edition)</em>.
+      Shipping configurations and specifications are subject to Dobot's latest published data — confirm joint ranges,
+      brake type and interface options with your supplier.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="y">2026</span> CineArm · cinearm.top</span>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="../robots.html" hreflang="zh-CN">中文</a>
+      <a href="https://github.com/Kikuku10/CineArm-Releases">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

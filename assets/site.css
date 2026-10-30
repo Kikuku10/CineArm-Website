@@ -27,6 +27,9 @@ nav a:hover{color:var(--text)}
 nav a[aria-current="page"]{color:var(--accent-soft)}
 nav a.cta{color:var(--text);padding:7px 16px;border:1px solid var(--line-strong);border-radius:999px}
 nav a.cta:hover{border-color:var(--accent);color:var(--accent-soft)}
+nav a.lang{font-size:12.5px;letter-spacing:.06em;padding:4px 11px;border-radius:8px;
+  border:1px solid var(--line);color:var(--muted)}
+nav a.lang:hover{border-color:var(--accent);color:var(--accent-soft)}
 @media (max-width:760px){ nav .hide-sm{display:none} }
 
 /* hero */
