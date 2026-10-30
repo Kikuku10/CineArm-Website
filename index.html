@@ -10,8 +10,8 @@
 <meta property="og:description" content="影视机械臂运动编排软件，macOS · Windows · iPad。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cinearm.top/">
-<link rel="icon" href="/app-icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/app-icon.svg">
+<link rel="icon" href="app-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="app-icon.svg">
 <style>
   :root{
     --bg:#070B11; --panel:#0F1724; --panel-2:#121C2B;
@@ -35,6 +35,7 @@
     background:rgba(7,11,17,.74);border-bottom:1px solid var(--line)}
   .bar{display:flex;align-items:center;justify-content:space-between;height:66px}
   .brand{display:flex;align-items:center;gap:11px;font-weight:650;letter-spacing:-.01em;font-size:17px}
+  .brand .mark{width:28px;height:28px;display:block;border-radius:7px}
   nav{display:flex;align-items:center;gap:28px;font-size:15px;color:var(--muted)}
   nav a:hover{color:var(--text)}
   nav a.cta{color:var(--text);padding:7px 16px;border:1px solid var(--line-strong);border-radius:999px}
@@ -129,18 +130,7 @@
 <header>
   <div class="wrap bar">
     <a class="brand" href="/">
-      <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
-        <rect width="32" height="32" rx="8" fill="#0F1724" stroke="#1C2836"/>
-        <path d="M20.9 9.1A8.6 8.6 0 1 0 20.9 22.9" stroke="url(#markGrad)"
-              stroke-width="3.3" stroke-linecap="round" fill="none"/>
-        <circle cx="20.9" cy="9.1" r="2" fill="#73D0CE"/>
-        <circle cx="20.9" cy="22.9" r="2" fill="#00A9A6"/>
-        <defs>
-          <linearGradient id="markGrad" x1="8" y1="8" x2="26" y2="26" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#73D0CE"/><stop offset="1" stop-color="#00A9A6"/>
-          </linearGradient>
-        </defs>
-      </svg>
+      <img class="mark" src="app-icon.svg" alt="" width="28" height="28">
       CineArm
     </a>
     <nav>
