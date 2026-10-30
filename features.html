@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>功能详解 — CineArm</title>
+<meta name="description" content="CineArm 功能详解：工作台六个区域、项目与场景、时间线轨道、五种路径与五种速度、目标朝向、节点编排、自由操控、负载与相机工具、跟焦、监看、音频节奏、发送与安全。">
+<meta name="theme-color" content="#070B11">
+<meta property="og:title" content="功能详解 — CineArm">
+<meta property="og:description" content="按软件真实模块拆解的 CineArm 功能说明。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cinearm.top/features.html">
+<link rel="icon" href="app-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="app-icon.svg">
+<link rel="alternate" hreflang="zh-CN" href="https://cinearm.top/features.html">
+<link rel="alternate" hreflang="en" href="https://cinearm.top/en/features.html">
+<link rel="alternate" hreflang="x-default" href="https://cinearm.top/features.html">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="index.html">
+      <img class="mark" src="app-icon.svg" alt="" width="28" height="28">
+      CineArm
+    </a>
+    <nav>
+      <a class="hide-sm" href="features.html" aria-current="page">功能</a>
+      <a class="hide-sm" href="robots.html">机型</a>
+      <a class="hide-sm" href="index.html#plans">授权</a>
+      <a class="hide-sm" href="index.html#download">下载</a>
+      <a class="lang" href="en/features.html" hreflang="en">EN</a>
+      <a class="cta" href="https://github.com/Kikuku10/CineArm-Releases/releases">版本记录</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow"><span class="dot"></span>v0.1.46 功能清单</span>
+    <h1 class="sm">功能详解</h1>
+    <p class="lede">
+      按软件里的真实模块拆开讲：工作台怎么分区、时间线有哪些轨道、路径和速度各有几种、
+      跟焦怎么从曲线走到马达、发送到实机要过哪几道关。
+    </p>
+    <nav class="toc">
+      <a href="#workspace">工作台</a>
+      <a href="#project">项目与场景</a>
+      <a href="#timeline">时间线与轨道</a>
+      <a href="#edit">记录与编辑</a>
+      <a href="#path">路径与平滑</a>
+      <a href="#speed">五种速度</a>
+      <a href="#target">目标与朝向</a>
+      <a href="#node">节点编排</a>
+      <a href="#manual">自由操控</a>
+      <a href="#load">负载与相机</a>
+      <a href="#focus">跟焦</a>
+      <a href="#monitor">监看与布景</a>
+      <a href="#audio">音频节奏</a>
+      <a href="#send">发送与安全</a>
+    </nav>
+  </div>
+</div>
+
+<section id="workspace" class="first">
+  <div class="wrap">
+    <h2 class="h2">工作台：六个区域各管一件事</h2>
+    <p class="sub">启动先打开项目管理器，建好或打开项目后进入工作台。六个区域的分工是固定的，记住它们就不用找按钮。</p>
+    <div class="detail-grid">
+      <div class="detail"><b>顶栏</b><span>机械臂状态、运行提示、节点／时间线编排切换、全局速度、当前项目名。每次开拍前先核对这里。</span></div>
+      <div class="detail"><b>镜头监看</b><span>相机、采集卡或虚拟摄像机的画面，也就是摄影机真正看到的那一帧。</span></div>
+      <div class="detail"><b>轨迹预览</b><span>三维机械臂、运动路径、镜头朝向、快照和布景，从一个旁观角度看整条运动范围。</span></div>
+      <div class="detail"><b>时间线／节点区</b><span>点位、时间、连线、运动和音轨，两种编排视图可随时切换。</span></div>
+      <div class="detail"><b>检查器</b><span>选中对象的参数，或自由控制、目标、对焦、预设等页面。先选对象，再改资料。</span></div>
+      <div class="detail"><b>底栏</b><span>当前臂关节角（J1–J6）、位置（XYZ，mm）与姿态（Rx/Ry/Rz，°），以及播放头预览姿态。<b>“—”表示没有数据，不是零。</b></span></div>
+    </div>
+    <p class="note">偏好设置里可以把底栏切换成关节限位显示；工作区各面板可以拖动、折叠、调整宽度。</p>
+  </div>
+</section>
+
+<section id="project">
+  <div class="wrap">
+    <h2 class="h2">项目与场景：一个项目留多套方案</h2>
+    <p class="sub">镜头不是一次就对，所以结构上是「项目 → 场景 → 存点」三层，随时可以并排比较。</p>
+    <div class="detail-grid">
+      <div class="detail"><b>项目</b><span>一个项目对应一次拍摄任务，包含全部场景、机位、音频和设置。支持手动保存、实时保存和另存为。</span></div>
+      <div class="detail"><b>场景</b><span>同一项目里的多条时间线，各场景独立。想试另一种走法，复制一个场景再改，原方案不受影响。</span></div>
+      <div class="detail"><b>存点</b><span>可复用的机位母版。删掉时间线上的卡片不会删掉存点，随时能再插回来。</span></div>
+      <div class="detail"><b>快照</b><span>某一刻的构图图片，用来回忆当时机位。显示开关在三维视图选项和概览轨上。</span></div>
+      <div class="detail"><b>备份</b><span>项目与音频可一并备份；备份是整个项目目录层面的，不依赖软件在运行。</span></div>
+      <div class="detail"><b>撤销边界</b><span>撤销只回退编辑操作，<b>不能撤销已经发生的实体运动</b>。这条界限从第一次接管真机起就该记住。</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="wrap">
+    <h2 class="h2">时间线：五条轨道，各存各的</h2>
+    <p class="sub">轨道是分开的，所以改构图不会顺手改掉跟焦，隐藏轨道也不会删数据。</p>
+    <div class="detail-grid">
+      <div class="detail"><b>概览轨</b><span>保存构图图片和编号，用画面回忆这条镜头经过了哪些机位。</span></div>
+      <div class="detail"><b>姿态轨</b><span>机位本身，以及两点之间的运动区间 —— 整条镜头的主干。</span></div>
+      <div class="detail"><b>目标轨</b><span>目标关联，以及「始终朝向」的生效范围。</span></div>
+      <div class="detail"><b>跟焦轨</b><span>焦点随时间的变化，可以只插入跟焦而不动姿态。</span></div>
+      <div class="detail"><b>音轨</b><span>导入的音频单独摆放，用于对节奏和打节拍标记。</span></div>
+      <div class="detail"><b>曲线视图</b><span>综合速度和跟焦速度是展开的曲线视图，能整体看节奏，也能单独拉某一段。</span></div>
+    </div>
+    <p class="note">
+      工具栏覆盖了日常操作：撤销／重做、多选、三种调平、到播放头、开始／停止拖拽、记录、发送模式、回起点、倒放、停止、正放、回终点、循环、缩放、吸附、轨道显示。
+      设备运行时，工具栏会切换成红色的暂停／继续／结束控件。鼠标悬停可看每个按钮的准确名称。
+    </p>
+  </div>
+</section>
+
+<section id="edit">
+  <div class="wrap">
+    <h2 class="h2">记录与编辑：先摆位，再落点</h2>
+    <p class="sub">录点是最常用的动作，所以它被做成「摆好、看一眼、按一下」的节奏。</p>
+    <div class="detail-grid">
+      <div class="detail"><b>记录追加与插入</b><span>默认追加到末尾；在中间落点会自动插入一段运动区间，后面点位顺延。</span></div>
+      <div class="detail"><b>播放头</b><span>拖播放头只改变查看时刻，不会让机械臂动。要动设备必须显式定位或发送。</span></div>
+      <div class="detail"><b>选择与移动</b><span>支持框选、多选、移动和复制点位；改起点终点时间会连同区间一起重算。</span></div>
+      <div class="detail"><b>普通预览</b><span>不接管设备时的预览，用半透明机械臂显示播放头所在时刻的预想姿态。</span></div>
+      <div class="detail"><b>光心运镜</b><span>以镜头光心为基准整体定位机位，适合需要保持构图、只微调整体的场合。</span></div>
+      <div class="detail"><b>总览表</b><span>用表格逐列检查整条镜头的点位、类型、平滑、对焦和目标，比在时间线上逐个点开快。</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="path">
+  <div class="wrap">
+    <h2 class="h2">路径：五种走法，选对了省一半时间</h2>
+    <p class="sub">同样是「从 A 到 B」，五种方式在原内部位置上差别很大，先想清楚要不要经过。</p>
+    <div class="detail-grid">
+      <div class="detail"><b>平滑·方式一</b><span>连续掠过转角，把路径局部变圆。<b>允许绕过原角点</b>，适合不想在每个角上停的连续运镜。</span></div>
+      <div class="detail"><b>平滑·方式二</b><span>一条连续路径<b>穿过多个保存位置</b>，适合多点串成一条流动的线。</span></div>
+      <div class="detail"><b>三点圆弧</b><span>用起点、经过点、终点确定一段弧。<b>经过中点位置</b>，但中点不单独指定旋转。</span></div>
+      <div class="detail"><b>围绕目标的圆弧</b><span>两个等半径机位围绕同一个目标，沿确定平面的最短圆弧运动，全程持续看向目标。</span></div>
+      <div class="detail"><b>手动三次 Bézier</b><span>用空间拉杆塑造两点之间的路线。<b>不必经过空间控制点</b>，适合要特定弧线的镜头。</span></div>
+      <div class="detail"><b>横滚水平</b><span>可以把路径的横滚约束到水平，避免长距离移动后画面歪掉。</span></div>
+    </div>
+    <p class="note">每次改路径、时间、速度或目标后，等完整重算再看三维预览和运行提示。保存成功不等于可以执行。</p>
+  </div>
+</section>
+
+<section id="speed">
+  <div class="wrap">
+    <h2 class="h2">速度：五种速度，别混着调</h2>
+    <p class="sub">软件里有五个不同的「速度」，各自影响不同的东西。分不清就会觉得「明明调了却没变」。</p>
+    <div class="detail-grid">
+      <div class="detail"><b>微调速度</b><span>自由操控和目标操控下的手动动作速度，只影响当前这一次操作。</span></div>
+      <div class="detail"><b>全局速度</b><span>1%–100% 的滑杆，比例放慢本次发送。不改保存的时间和曲线，适合首次试跑。</span></div>
+      <div class="detail"><b>区间速度曲线</b><span>保存下来的起步、加速、巡航、减速节奏，是镜头本身的节奏。</span></div>
+      <div class="detail"><b>平滑点通过速度</b><span>平滑路径经过内部位置时的连续速度，可自动也可手动指定。</span></div>
+      <div class="detail"><b>节点速度</b><span>节点卡片上的 1%–100%，表示到达该卡的最大速度估算比例，改它会让节点重算时间。</span></div>
+      <div class="detail"><b>百分比的含义</b><span>这些都是估算占比，<b>不是末端的 mm/s，也不是实测反馈</b>。跟焦速度则是焦点变化率。</span></div>
+    </div>
+    <p class="note">结束、停止或重开项目后，全局速度可能恢复 100%，下一次运行前再看一眼当前值。</p>
+  </div>
+</section>
+
+<section id="target">
+  <div class="wrap">
+    <h2 class="h2">目标与朝向：让构图锁在现场那个点</h2>
+    <p class="sub">把「镜头要看向哪里」从每个机位里抽出来，变成一个可复用的目标。</p>
+    <div class="detail-grid">
+      <div class="detail"><b>可复用目标</b><span>在空间里建一个目标点，可被多个机位和多条区间引用，改目标即改整段朝向。</span></div>
+      <div class="detail"><b>围着目标找机位</b><span>目标固定后，在它周围移动机械臂寻找机位，构图始终对着同一个点。</span></div>
+      <div class="detail"><b>持续看向</b><span>给目标设定生效范围，整段运动期间都对准它，而不是只在两个端点朝向正确。</span></div>
+      <div class="detail"><b>分配给多个区间</b><span>同一条镜头可以分段使用不同目标，也可以中途解除朝向，做「看向别处」的运镜。</span></div>
+      <div class="detail"><b>与圆弧配合</b><span>围绕目标的圆弧要求两个机位到目标等半径，这样弧线才稳、速度才好控。</span></div>
+      <div class="detail"><b>节点里的目标</b><span>节点编排里可以按卡片设置目标和跟焦，走哪条路线就继承哪条路线的朝向。</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="node">
+  <div class="wrap">
+    <h2 class="h2">节点编排：换一种看镜头的方式</h2>
+    <p class="sub">时间线按时间排，节点按「去向」排。复杂镜头用卡片连线会更清楚。</p>
+    <div class="detail-grid">
+      <div class="detail"><b>卡片与连线</b><span>每张卡是一个机位，连线就是路线。可以记录、连线、选择路线，不用编号排序。</span></div>
+      <div class="detail"><b>运动方式</b><span>卡片上直接标出关节、直线、目标圆弧、三点圆弧等类型，一眼看出这一段怎么走。</span></div>
+      <div class="detail"><b>平滑 0–100</b><span>方式一的强度。0 会恢复成在原角点停止，圆弧中点的效果受限。</span></div>
+      <div class="detail"><b>速度预设</b><span>匀速运镜或全程缓入缓出，二选一。继承高级曲线时可以显示「保留原曲线」。</span></div>
+      <div class="detail"><b>经过时停止</b><span>让平滑路径实际经过的位置零速通过，但它不等于回到原角点，也不会增加驻留时间。</span></div>
+      <div class="detail"><b>纸飞机定位</b><span>单击沿当前可用路线把机械臂移到该节点，松手停止，Esc 中止。未接入设备时不可用。</span></div>
+    </div>
+    <p class="note">改卡片速度会重算时间；平滑大于 0 时单改速度会采用全程缓入缓出重定时，想要匀速请明确选预设。</p>
+  </div>
+</section>
+
+<section id="manual">
+  <div class="wrap">
+    <h2 class="h2">自由操控：四种输入，哪种顺手用哪种</h2>
+    <p class="sub">找机位的时候不该被工具限制，所以同一件事给了四条路。</p>
+    <div class="detail-grid">
+      <div class="detail"><b>数字输入</b><span>直接输入关节角或末端位置，适合需要精确重复的场合，也用于相机调平。</span></div>
+      <div class="detail"><b>拖拽</b><span>在三维视图里直接拖动机械臂，边走边看画面，找感觉最快。</span></div>
+      <div class="detail"><b>键盘与手柄</b><span>键盘做微调，手柄做推摇连续控制；两者都支持连续输入，适合长距离平滑移动。</span></div>
+      <div class="detail"><b>微调并写回</b><span>在所选点位附近做小范围调整，确认后写回该点，不必重新记录一个新机位。</span></div>
+      <div class="detail"><b>预设姿态</b><span>默认初始姿态和 CR5 打包姿态可预览后执行，收工和运输时按一键回位。</span></div>
+      <div class="detail"><b>速度与限位</b><span>自由操控的速度受微调速度控制；接近关节限位时底栏会给出对应提示。</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="load">
+  <div class="wrap">
+    <h2 class="h2">负载与相机工具：先填对数据，再谈精度</h2>
+    <p class="sub">机械臂带着不同的负载，运动表现会变。软件把这件事做成配置，而不是让你靠感觉补偿。</p>
+    <div class="detail-grid">
+      <div class="detail"><b>四类数据</b><span>负载重量、重心、相机与镜头的基本参数，以及夹具信息 —— 先填对，后面的路径和速度才有意义。</span></div>
+      <div class="detail"><b>新建与编辑</b><span>可以新建、选择、复制、编辑多套配置，按现场换机不换项目。</span></div>
+      <div class="detail"><b>Nova5 空法兰基线</b><span>Nova5 提供空法兰基准配置，从零开始搭负载时以此为起点。</span></div>
+      <div class="detail"><b>带载自动辨识</b><span>装上实际负载后可以做一次自动辨识，让软件按真实惯性参数计算，而不是套标称值。</span></div>
+      <div class="detail"><b>相机调平</b><span>配合数字输入把相机调到水平，横滚和俯仰都在界面上可读。</span></div>
+      <div class="detail"><b>预设管理</b><span>配置可保存复用，换镜头或换机身时改一套即可，不影响其他方案。</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="focus">
+  <div class="wrap">
+    <h2 class="h2">跟焦：先在软件里编，再到现场接马达</h2>
+    <p class="sub">焦点是一条独立的时间线，不接线也能先排好，接线后再标定接管。</p>
+    <div class="detail-grid">
+      <div class="detail"><b>两种表示</b><span>百分比 0%–100%，或逻辑编码 0–16383。两者是同一标定行程上的位置，<b>不是米数，也不是焦距</b>。</span></div>
+      <div class="detail"><b>方向可切</b><span>正常／反向适配不同安装方式。接管前设定，播放、接管、标定过程中不可改。</span></div>
+      <div class="detail"><b>只插跟焦</b><span>在有效整数帧插入一个「仅跟焦」关键帧，不动姿态也能让焦点变化。</span></div>
+      <div class="detail"><b>跟焦速度曲线</b><span>可以改平台的停留和过渡段；%/秒表示项目焦点变化率，不是实测镜头速度。</span></div>
+      <div class="detail"><b>自动标定</b><span>接上马达后点一次自动标定，立即完整扫程。要亲眼看两端学完再确认结束，确认动作会接管当前目标。</span></div>
+      <div class="detail"><b>多台马达</b><span>发现蓝牙设备后按完整身份区分（同名设备不能只凭显示名判断），逐台添加、分别标定和接管。</span></div>
+    </div>
+    <p class="note">项目重开保留绑定关系，但不恢复连接或授权；换电脑或 iPad 后要先核对身份再重新绑定。撤销项目不保证真实马达回到旧位置。</p>
+  </div>
+</section>
+
+<section id="monitor">
+  <div class="wrap">
+    <h2 class="h2">监看与虚拟布景：构图这件事，先看清楚</h2>
+    <p class="sub">监看负责「拍到的画面」，布景负责「要拍的关系」，两者都在同一个三维视图里对得上。</p>
+    <div class="detail-grid">
+      <div class="detail"><b>画面来源</b><span>相机、采集卡或虚拟摄像机，按现场条件切换。虚拟摄像机仅虚拟模式提供。</span></div>
+      <div class="detail"><b>变换</b><span>采集与整体缩放的 X/Y、旋转角度、水平／垂直翻转。<b>只改变显示，不改变录制</b>。</span></div>
+      <div class="detail"><b>三分网格与中央标记</b><span>九宫格与中心十字，颜色可调，用来快速判断构图平衡。</span></div>
+      <div class="detail"><b>安全区</b><span>50%–100% 范围加遮罩不透明度，检查构图边缘。注意它是画框参考，<b>不是物理避障</b>。</span></div>
+      <div class="detail"><b>峰值辅助</b><span>高亮清晰边缘，灵敏度和颜色可调。它不替代自动对焦或测距。</span></div>
+      <div class="detail"><b>虚拟布景</b><span>摆桌子、被摄主体和虚拟镜头焦距，在没进场前就能看出机位与被摄体的空间关系。</span></div>
+    </div>
+    <p class="note">当前没有伪色、斑马、波形示波器、监看录像和镜头库入口 —— 这些是已知边界，不是隐藏功能。</p>
+  </div>
+</section>
+
+<section id="audio">
+  <div class="wrap">
+    <h2 class="h2">音频与节奏：让运镜卡在鼓点上</h2>
+    <p class="sub">音乐进得来，节拍标得下，运动就能对着拍子排。</p>
+    <div class="detail-grid">
+      <div class="detail"><b>导入与试听</b><span>音频导入后可直接在时间线上试听，和播放头同步。</span></div>
+      <div class="detail"><b>片段操作</b><span>支持片段的裁剪、移动和删除，与画面节奏对齐后再排镜头。</span></div>
+      <div class="detail"><b>节拍标记</b><span>在波形上打标记，把关键机位对到拍点上，改音乐不必重排全部时间。</span></div>
+      <div class="detail"><b>素材保留</b><span>音频随项目保存，备份项目时一并带走，换机器不用重新找素材。</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="send">
+  <div class="wrap">
+    <h2 class="h2">发送与安全：到这一步，软件说了不算</h2>
+    <p class="sub">前三步都是准备，只有发送才会让机械臂真的动。所以这里的每一步都有明确的前置条件。</p>
+    <div class="detail-grid">
+      <div class="detail"><b>发送轨迹（默认）</b><span>把整段轨迹生成文件上传，由控制柜自己播放。链路最短，节奏最稳。</span></div>
+      <div class="detail"><b>全程 ServoJ</b><span>由 CineArm 持续逐点发送目标，适合需要和软件实时联动的场合。</span></div>
+      <div class="detail"><b>回起点两种</b><span>「沿轨迹」走已有路线；「关节运动」直接规划关节到目标，但<b>不保证空间上沿原拍摄路径</b>。</span></div>
+      <div class="detail"><b>控制柜上传认证</b><span>厂商默认账号或自定义账号，读取并核对主机指纹后验证保存。指纹变了先查原因，别直接覆盖。</span></div>
+      <div class="detail"><b>必须先到本次起点</b><span>发送前机械臂要处在这次运行的起点，否则会被拦下 —— 这条拦的不是权限，是安全。</span></div>
+      <div class="detail"><b>暂停 · 停止 · 恢复</b><span>运行中可暂停并从当前位置继续；异常有故障锁和专用恢复流程，不会让机械臂停在半路无解。</span></div>
+    </div>
+    <p class="note">
+      还有两条容易忽略的边界：上传轨迹不等于保存项目，别把 <code>.cinearm</code> 手动塞进控制柜；
+      文件播放会用 DO1–DO6 标记进度，如果这些输出接了外设，先核对接线用途。
+    </p>
+  </div>
+</section>
+
+<section id="more">
+  <div class="wrap">
+    <h2 class="h2">还有这些</h2>
+    <p class="sub">剩下的是日常用得到、但不太会注意的细节。</p>
+    <div class="detail-grid">
+      <div class="detail"><b>偏好设置</b><span>通用操作与保存边界、六类设置的完整清单、自动追加时间与提示音、运动实验参数、导入导出与窗口布局。</span></div>
+      <div class="detail"><b>快捷键与输入</b><span>软件快捷键与预设、键盘连续控制、手柄连续控制、末端按钮单击触发。</span></div>
+      <div class="detail"><b>运行提示</b><span>顶栏的运行提示会保留具体原因，失败时可直接从提示跳到对应设置页。</span></div>
+      <div class="detail"><b>三端一致</b><span>macOS、Windows x64 与 iPad 共用编辑器与计算核心；各平台独立管理项目、连接与授权。</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="y">2026</span> CineArm · cinearm.top</span>
+    <nav>
+      <a href="index.html">首页</a>
+      <a href="robots.html">机型选型</a>
+      <a href="https://github.com/Kikuku10/CineArm-Releases">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

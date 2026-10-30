@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Features in detail — CineArm</title>
+<meta name="description" content="A module-by-module walkthrough of CineArm: workspace areas, projects and scenes, timeline tracks, five path types and five speed concepts, targets, node editing, manual control, payload tools, follow focus, monitoring, audio and safe sending.">
+<meta name="theme-color" content="#070B11">
+<meta property="og:title" content="Features in detail — CineArm">
+<meta property="og:description" content="How CineArm actually works, module by module.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cinearm.top/en/features.html">
+<meta property="og:locale" content="en">
+<link rel="icon" href="../app-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../app-icon.svg">
+<link rel="alternate" hreflang="zh-CN" href="https://cinearm.top/features.html">
+<link rel="alternate" hreflang="en" href="https://cinearm.top/en/features.html">
+<link rel="alternate" hreflang="x-default" href="https://cinearm.top/features.html">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="index.html">
+      <img class="mark" src="../app-icon.svg" alt="" width="28" height="28">
+      CineArm
+    </a>
+    <nav>
+      <a class="hide-sm" href="features.html" aria-current="page">Features</a>
+      <a class="hide-sm" href="robots.html">Arms</a>
+      <a class="hide-sm" href="index.html#plans">Licensing</a>
+      <a class="hide-sm" href="index.html#download">Download</a>
+      <a class="lang" href="../features.html" hreflang="zh-CN">中文</a>
+      <a class="cta" href="https://github.com/Kikuku10/CineArm-Releases/releases">Releases</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow"><span class="dot"></span>v0.1.46 feature sheet</span>
+    <h1 class="sm">Features in detail</h1>
+    <p class="lede">
+      How the app is actually structured: what each workspace area does, which tracks exist on the timeline,
+      the path and speed concepts, how focus gets from a curve to a motor, and what it takes to send a move safely.
+    </p>
+    <nav class="toc">
+      <a href="#workspace">Workspace</a>
+      <a href="#project">Projects</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#edit">Recording</a>
+      <a href="#path">Paths</a>
+      <a href="#speed">Speeds</a>
+      <a href="#target">Targets</a>
+      <a href="#node">Nodes</a>
+      <a href="#manual">Manual</a>
+      <a href="#load">Payload</a>
+      <a href="#focus">Focus</a>
+      <a href="#monitor">Monitoring</a>
+      <a href="#audio">Audio</a>
+      <a href="#send">Sending</a>
+    </nav>
+  </div>
+</div>
+
+<section id="workspace" class="first">
+  <div class="wrap">
+    <h2 class="h2">Six workspace areas, one job each</h2>
+    <p class="sub">The app opens the project manager first; once a project is open you land in the workspace. The six areas never change role, so you stop hunting for controls.</p>
+    <div class="detail-grid">
+      <div class="detail"><b>Top bar</b><span>Arm status, run messages, node/timeline switching, global speed and the project name. Check it before every take.</span></div>
+      <div class="detail"><b>Monitor</b><span>The camera, capture card or virtual camera feed — the frame the camera actually sees.</span></div>
+      <div class="detail"><b>Trajectory preview</b><span>The 3D arm, its path, lens aim, snapshots and set, seen from a bystander's angle.</span></div>
+      <div class="detail"><b>Timeline / node area</b><span>Positions, timing, connections, motion and audio — switch between the two views freely.</span></div>
+      <div class="detail"><b>Inspector</b><span>Parameters for the selected object, or the free control, target, focus and preset pages. Select first, then edit.</span></div>
+      <div class="detail"><b>Status bar</b><span>Joint angles (J1–J6), position (XYZ, mm) and orientation (Rx/Ry/Rz, °), plus the playhead pose. <b>“—” means no data, not zero.</b></span></div>
+    </div>
+    <p class="note">Preferences can switch the status bar to joint-limit readout; panels can be dragged, collapsed and resized.</p>
+  </div>
+</section>
+
+<section id="project">
+  <div class="wrap">
+    <h2 class="h2">Projects and scenes: keep more than one answer</h2>
+    <p class="sub">A shot is rarely right the first time, so the structure is project → scene → saved position.</p>
+    <div class="detail-grid">
+      <div class="detail"><b>Project</b><span>One shoot, holding every scene, position, audio file and setting. Manual save, live save and save-as are all available.</span></div>
+      <div class="detail"><b>Scene</b><span>Multiple timelines inside one project. Copy a scene to test another route without touching the original.</span></div>
+      <div class="detail"><b>Saved positions</b><span>Reusable position masters. Deleting a card on the timeline does not delete the saved position — you can insert it again.</span></div>
+      <div class="detail"><b>Snapshots</b><span>A still of the framing at one moment, for remembering where the camera was. Visibility is a preview option.</span></div>
+      <div class="detail"><b>Backup</b><span>Project and audio back up together at directory level, independent of the app running.</span></div>
+      <div class="detail"><b>Undo boundary</b><span>Undo reverts edits only — <b>it cannot undo motion that already happened on the arm</b>. Worth remembering from the first time you take over a real robot.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="wrap">
+    <h2 class="h2">Five tracks, each holding its own thing</h2>
+    <p class="sub">Because the tracks are separate, changing the framing will not silently change focus, and hiding a track never deletes data.</p>
+    <div class="detail-grid">
+      <div class="detail"><b>Overview track</b><span>Snapshots and numbers — remember a shot by the frames it passed through.</span></div>
+      <div class="detail"><b>Pose track</b><span>The positions themselves and the move between them; the backbone of the shot.</span></div>
+      <div class="detail"><b>Target track</b><span>Target assignments and the range where “always aim at” is active.</span></div>
+      <div class="detail"><b>Focus track</b><span>Focus over time. You can insert focus-only keys without touching pose.</span></div>
+      <div class="detail"><b>Audio track</b><span>Imported audio, used for timing and beat markers.</span></div>
+      <div class="detail"><b>Curve views</b><span>Combined speed and focus speed expand into curve views — read the whole rhythm or pull a single segment.</span></div>
+    </div>
+    <p class="note">
+      The toolbar covers daily work: undo/redo, multi-select, three levelling modes, go to playhead, start/stop drag,
+      record, send mode, back to start, reverse play, stop, play, jump to end, loop, zoom, snap and track visibility.
+      While the arm is running it becomes red pause / continue / end controls. Hover for exact names.
+    </p>
+  </div>
+</section>
+
+<section id="edit">
+  <div class="wrap">
+    <h2 class="h2">Recording: place it, look at it, press once</h2>
+    <p class="sub">Recording is the most repeated action, so it is built as a rhythm rather than a dialog.</p>
+    <div class="detail-grid">
+      <div class="detail"><b>Append or insert</b><span>New records append by default; dropping one in the middle inserts a move segment and shifts later points.</span></div>
+      <div class="detail"><b>Playhead</b><span>Dragging the playhead only changes what you are looking at. The arm moves only on an explicit positioning or send.</span></div>
+      <div class="detail"><b>Select and move</b><span>Box select, multi-select, move and copy points; changing start or end time recomputes the segment.</span></div>
+      <div class="detail"><b>Plain preview</b><span>Without taking over hardware, a semi-transparent arm shows the intended pose at the playhead.</span></div>
+      <div class="detail"><b>Optical-centre positioning</b><span>Reposition the whole rig around the lens's optical centre — useful when framing must hold while the rig shifts.</span></div>
+      <div class="detail"><b>Overview table</b><span>Scan every point's type, smoothing, focus and target in one table instead of opening cards one by one.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="path">
+  <div class="wrap">
+    <h2 class="h2">Paths: five ways from A to B</h2>
+    <p class="sub">They differ mainly in whether the path still passes through the original intermediate positions.</p>
+    <div class="detail-grid">
+      <div class="detail"><b>Smoothing · mode 1</b><span>Rounds off corners as the path sweeps through them — <b>allowed to bypass the original corner points</b>.</span></div>
+      <div class="detail"><b>Smoothing · mode 2</b><span>One continuous path that <b>passes through several saved positions</b>, for multi-point flowing moves.</span></div>
+      <div class="detail"><b>Three-point arc</b><span>Start, a via point and end define the arc. It <b>passes through the via position</b>, which does not set rotation on its own.</span></div>
+      <div class="detail"><b>Arc around a target</b><span>Two equal-radius positions orbit a shared target along the shortest arc in a fixed plane, aiming at it throughout.</span></div>
+      <div class="detail"><b>Manual cubic Bézier</b><span>Shape the route between two points with spatial handles; the path <b>need not pass through the control points</b>.</span></div>
+      <div class="detail"><b>Roll to horizontal</b><span>Constrain a saved path's roll to level so long moves do not end up tilted.</span></div>
+    </div>
+    <p class="note">After changing path, timing, speed or target, wait for the full recompute before trusting the preview. A successful save does not mean a safe run.</p>
+  </div>
+</section>
+
+<section id="speed">
+  <div class="wrap">
+    <h2 class="h2">Five speeds that are not interchangeable</h2>
+    <p class="sub">There are five distinct speed concepts in the app. Mixing them up is the usual reason “I changed it but nothing happened”.</p>
+    <div class="detail-grid">
+      <div class="detail"><b>Jog speed</b><span>Manual speed for free and target control; affects only the current manual action.</span></div>
+      <div class="detail"><b>Global speed</b><span>A 1%–100% slider that scales this send proportionally without altering saved timing — made for a first run.</span></div>
+      <div class="detail"><b>Segment speed curve</b><span>The saved ramp: start, accelerate, cruise, decelerate. This is the shot's own rhythm.</span></div>
+      <div class="detail"><b>Smoothing pass-through speed</b><span>The continuous speed while crossing an intermediate position — automatic or manual.</span></div>
+      <div class="detail"><b>Node speed</b><span>The 1%–100% on a node card: an estimate of maximum speed arriving there. Changing it re-times the node.</span></div>
+      <div class="detail"><b>What the percentage means</b><span>All of these are estimated ratios, <b>not tip mm/s and not measured feedback</b>. Focus speed is a rate of focus change.</span></div>
+    </div>
+    <p class="note">Global speed can return to 100% after ending, stopping or reopening a project — check the current value before the next run.</p>
+  </div>
+</section>
+
+<section id="target">
+  <div class="wrap">
+    <h2 class="h2">Targets: keep the framing locked to one point</h2>
+    <p class="sub">“Where the lens should look” is pulled out of each position and turned into a reusable target.</p>
+    <div class="detail-grid">
+      <div class="detail"><b>Reusable target</b><span>A point in space that several positions and segments can reference. Change the target and the whole move re-aims.</span></div>
+      <div class="detail"><b>Hunting positions</b><span>With the target fixed, move the arm around it until the framing is right — it always looks at the same point.</span></div>
+      <div class="detail"><b>Always aim</b><span>Set the range where a target applies, so the lens aims at it for the whole move, not just at the endpoints.</span></div>
+      <div class="detail"><b>Multiple assignments</b><span>Different segments can use different targets, or release the lock for a deliberate look-away move.</span></div>
+      <div class="detail"><b>With arcs</b><span>The arc-around-target mode expects both positions at equal radius, which keeps the curve and speed well behaved.</span></div>
+      <div class="detail"><b>In node editing</b><span>Node cards can carry their own target and focus, and inherit the route's aim.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="node">
+  <div class="wrap">
+    <h2 class="h2">Node editing: a different way to read a shot</h2>
+    <p class="sub">The timeline sorts by time; nodes sort by where you go next. Complex shots read better as connected cards.</p>
+    <div class="detail-grid">
+      <div class="detail"><b>Cards and links</b><span>Each card is a position; links are routes. Record, connect and choose a route without renumbering anything.</span></div>
+      <div class="detail"><b>Motion type</b><span>Cards show joint, straight, target arc or three-point arc, so a segment's behaviour is visible at a glance.</span></div>
+      <div class="detail"><b>Smoothing 0–100</b><span>Strength of mode 1. Zero restores a stop at the original corner; arc via points are limited.</span></div>
+      <div class="detail"><b>Speed presets</b><span>Constant move or ease-in-out across the whole move. Inherited curves can show “keep original curve”.</span></div>
+      <div class="detail"><b>Stop when passing</b><span>Pass the actual smoothed position at zero speed — not the same as returning to the corner, and it adds no dwell.</span></div>
+      <div class="detail"><b>Paper-plane positioning</b><span>Click to drive the arm to that node along the currently available route, release to stop, Esc to abort. Disabled without a device.</span></div>
+    </div>
+    <p class="note">Changing card speed re-times the node; with smoothing above zero a speed-only change re-times with full ease-in-out — pick the preset explicitly if you want constant speed.</p>
+  </div>
+</section>
+
+<section id="manual">
+  <div class="wrap">
+    <h2 class="h2">Manual control: four inputs, pick what fits</h2>
+    <p class="sub">Finding a position should not depend on which tool you happen to be holding.</p>
+    <div class="detail-grid">
+      <div class="detail"><b>Numeric entry</b><span>Type joint angles or tip position directly — for exact repeatability and for levelling the camera.</span></div>
+      <div class="detail"><b>Dragging</b><span>Drag the arm in the 3D view and watch the frame as you go; the quickest way to find a look.</span></div>
+      <div class="detail"><b>Keyboard and gamepad</b><span>Keyboard for nudges, gamepad for continuous pushes. Both feed continuous control for long, smooth moves.</span></div>
+      <div class="detail"><b>Nudge and write back</b><span>Adjust slightly around a selected point, then write the result back — no need to record a new position.</span></div>
+      <div class="detail"><b>Preset poses</b><span>Default initial pose and the CR5 packing pose can be previewed then executed — one press to park the rig.</span></div>
+      <div class="detail"><b>Speed and limits</b><span>Manual motion follows jog speed; near a joint limit the status bar tells you which axis is close.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="load">
+  <div class="wrap">
+    <h2 class="h2">Payload and camera tools: data first, precision second</h2>
+    <p class="sub">The same arm behaves differently with different loads, so this is a configuration — not something you compensate for by feel.</p>
+    <div class="detail-grid">
+      <div class="detail"><b>Four inputs</b><span>Payload weight, centre of mass, camera and lens basics, and rig info. Fill these in and path and speed start to mean something.</span></div>
+      <div class="detail"><b>Create and edit</b><span>Build, select, duplicate and edit several configurations, so changing bodies on set does not mean changing projects.</span></div>
+      <div class="detail"><b>Nova 5 bare-flange baseline</b><span>Nova 5 ships a baseline configuration to start building a load from zero.</span></div>
+      <div class="detail"><b>Loaded auto-identification</b><span>With the real load mounted, run an identification pass so the software uses measured inertia rather than nominal figures.</span></div>
+      <div class="detail"><b>Camera levelling</b><span>Level the camera with numeric entry; roll and pitch stay readable in the interface.</span></div>
+      <div class="detail"><b>Presets</b><span>Configurations are saveable and reusable — swap a lens or body by editing one entry.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="focus">
+  <div class="wrap">
+    <h2 class="h2">Follow focus: program it here, connect the motor there</h2>
+    <p class="sub">Focus is its own timeline. You can program it without any hardware, then calibrate and take over on set.</p>
+    <div class="detail-grid">
+      <div class="detail"><b>Two representations</b><span>Percentage 0%–100% or logical code 0–16383 — both are positions along the same calibrated travel, <b>not metres and not focal length</b>.</span></div>
+      <div class="detail"><b>Direction</b><span>Normal or reversed for different mounts. Set before takeover; locked during playback, takeover and calibration.</span></div>
+      <div class="detail"><b>Focus-only keys</b><span>Insert a focus-only keyframe at a valid integer frame so focus changes without touching pose.</span></div>
+      <div class="detail"><b>Focus speed curve</b><span>Flatten or ramp the platform and transitions. %/s is a project focus rate, not measured lens speed.</span></div>
+      <div class="detail"><b>Auto-calibration</b><span>One press sweeps the full travel. Watch both ends finish, then confirm — confirming takes over the current target and the motor may move.</span></div>
+      <div class="detail"><b>Multiple motors</b><span>Bluetooth devices are distinguished by full identity, not display name. Add, calibrate and take over each one separately.</span></div>
+    </div>
+    <p class="note">Reopening a project keeps the binding but not the connection or authorisation; after switching machines, verify identity and rebind. Undoing a project does not guarantee the motor returns to its previous position.</p>
+  </div>
+</section>
+
+<section id="monitor">
+  <div class="wrap">
+    <h2 class="h2">Monitoring and virtual set: see it before you shoot it</h2>
+    <p class="sub">Monitoring covers the frame you capture; the virtual set covers the spatial relationship. Both live in the same 3D view.</p>
+    <div class="detail-grid">
+      <div class="detail"><b>Source</b><span>Camera, capture card or virtual camera, switchable per setup. The virtual camera exists in virtual mode only.</span></div>
+      <div class="detail"><b>Transform</b><span>Capture and output scale X/Y, rotation, horizontal and vertical flip. <b>Display only — it does not change the recording.</b></span></div>
+      <div class="detail"><b>Grid and centre mark</b><span>Rule-of-thirds grid and a centre cross, both recolourable, for judging balance quickly.</span></div>
+      <div class="detail"><b>Safe area</b><span>50%–100% range with mask opacity to check frame edges. It is a framing reference, <b>not physical collision avoidance</b>.</span></div>
+      <div class="detail"><b>Peaking</b><span>Highlights sharp edges with adjustable sensitivity and colour. It does not replace autofocus or rangefinding.</span></div>
+      <div class="detail"><b>Virtual set</b><span>Place a table, a subject and a virtual focal length to judge the arm-to-subject geometry before you arrive on set.</span></div>
+    </div>
+    <p class="note">There is currently no false colour, zebras, waveform, monitor recording or lens library — those are known boundaries, not hidden features.</p>
+  </div>
+</section>
+
+<section id="audio">
+  <div class="wrap">
+    <h2 class="h2">Audio and rhythm: cut the move to the beat</h2>
+    <p class="sub">Bring the track in, mark the beats, and time the movement against them.</p>
+    <div class="detail-grid">
+      <div class="detail"><b>Import and audition</b><span>Audio plays back on the timeline in sync with the playhead.</span></div>
+      <div class="detail"><b>Clip editing</b><span>Trim, move and delete clips, then place movement against the cut.</span></div>
+      <div class="detail"><b>Beat markers</b><span>Drop markers on the waveform and align key positions to them; changing the track does not force a full re-time.</span></div>
+      <div class="detail"><b>Kept with the project</b><span>Audio is stored in the project and travels with the backup, so nothing needs re-linking on another machine.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="send">
+  <div class="wrap">
+    <h2 class="h2">Sending: this is where the software stops deciding</h2>
+    <p class="sub">Everything before this is preparation. Only sending moves the arm, so each step has explicit preconditions.</p>
+    <div class="detail-grid">
+      <div class="detail"><b>Send trajectory (default)</b><span>Generates the whole trajectory file and uploads it for the controller to play. Shortest link, steadiest rhythm.</span></div>
+      <div class="detail"><b>ServoJ throughout</b><span>CineArm streams targets point by point — for setups that need live coupling with the software.</span></div>
+      <div class="detail"><b>Two ways back to start</b><span>Along the trajectory, or a pure joint move — the joint move <b>does not guarantee retracing the shot's spatial path</b>.</span></div>
+      <div class="detail"><b>Controller upload authentication</b><span>Vendor default or custom credentials, read and verify the host fingerprint, then validate and save. If the fingerprint changes, investigate before overwriting.</span></div>
+      <div class="detail"><b>Must be at this run's start</b><span>The arm has to be at the start position this run expects; otherwise it is refused. That gate is about safety, not permissions.</span></div>
+      <div class="detail"><b>Pause, stop, recover</b><span>Pause mid-run and continue from where you stopped; faults get a dedicated recovery path so the arm is never stranded mid-move.</span></div>
+    </div>
+    <p class="note">
+      Two boundaries worth stating: uploading a trajectory is not the same as saving a project — do not copy a <code>.cinearm</code> file into the controller;
+      and file playback marks progress on DO1–DO6, so check what those outputs are wired to before relying on them.
+    </p>
+  </div>
+</section>
+
+<section id="more">
+  <div class="wrap">
+    <h2 class="h2">Also there</h2>
+    <p class="sub">The parts you use daily but rarely notice.</p>
+    <div class="detail-grid">
+      <div class="detail"><b>Preferences</b><span>General behaviour and save boundaries, six setting categories, auto-append timing and cues, motion experiment parameters, import/export and window layout.</span></div>
+      <div class="detail"><b>Shortcuts and inputs</b><span>Software shortcuts and presets, keyboard jog, gamepad jog, and single-press triggering from the end-effector button.</span></div>
+      <div class="detail"><b>Run messages</b><span>The top bar keeps the concrete reason for a failure and links straight to the setting that fixes it.</span></div>
+      <div class="detail"><b>Three platforms</b><span>macOS, Windows x64 and iPad share the editor and calculation core; each manages projects, connections and licensing independently.</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="y">2026</span> CineArm · cinearm.top</span>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="robots.html">Arm selection</a>
+      <a href="https://github.com/Kikuku10/CineArm-Releases">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
