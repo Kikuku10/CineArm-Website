@@ -3,18 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CineArm — 影视机械臂运动编排与控制</title>
-<meta name="description" content="CineArm 是面向影视机械臂的跨平台运动编排与控制软件，macOS、Windows、iPad 同源，支持 Nova5、CR5、CR10/CR10A 与 Air4 BLE。">
-<meta name="theme-color" content="#0a0a0b">
-<meta property="og:title" content="CineArm — 影视机械臂运动编排与控制">
-<meta property="og:description" content="跨平台运动编排与控制软件，macOS · Windows · iPad 同源。">
+<title>CineArm — 让机械臂拍出你想要的镜头</title>
+<meta name="description" content="CineArm 把机位、顺序、时间、路径、朝向和焦点放进同一条时间线，先用虚拟机械臂练熟，再到现场接管设备。">
+<meta name="theme-color" content="#070B11">
+<meta property="og:title" content="CineArm — 让机械臂拍出你想要的镜头">
+<meta property="og:description" content="影视机械臂运动编排软件，macOS · Windows · iPad。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cinearm.top/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a0a0b'/%3E%3Cpath d='M22 10.5A8 8 0 1 0 22 21.5' stroke='%23f5a524' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="/app-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/app-icon.svg">
 <style>
   :root{
-    --bg:#0a0a0b; --panel:#121214; --line:#26262b; --line-strong:#3a3a42;
-    --text:#f2f2f4; --muted:#9b9ba4; --dim:#6c6c76; --accent:#f5a524;
+    --bg:#070B11; --panel:#0F1724; --panel-2:#121C2B;
+    --line:#1C2836; --line-strong:#2B3B4E;
+    --text:#E9F0FF; --muted:#94A6BC; --dim:#6B7F96;
+    --accent:#00A9A6; --accent-soft:#73D0CE;
     color-scheme:dark;
   }
   *{box-sizing:border-box}
@@ -27,50 +30,82 @@
   a{color:inherit;text-decoration:none}
   .wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 24px}
 
+  /* ---------- header ---------- */
   header{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);
-    background:rgba(10,10,11,.72);border-bottom:1px solid var(--line)}
-  .bar{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:650;letter-spacing:-.01em;font-size:17px}
-  .brand svg{display:block}
+    background:rgba(7,11,17,.74);border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:650;letter-spacing:-.01em;font-size:17px}
   nav{display:flex;align-items:center;gap:28px;font-size:15px;color:var(--muted)}
   nav a:hover{color:var(--text)}
   nav a.cta{color:var(--text);padding:7px 16px;border:1px solid var(--line-strong);border-radius:999px}
-  nav a.cta:hover{border-color:var(--accent);color:var(--accent)}
+  nav a.cta:hover{border-color:var(--accent);color:var(--accent-soft)}
   @media (max-width:720px){ nav .hide-sm{display:none} }
 
-  .hero{position:relative;padding:104px 0 88px;overflow:hidden}
-  .hero::before{content:"";position:absolute;inset:-40% -20% auto -20%;height:120%;
-    background:radial-gradient(50% 46% at 50% 0%,rgba(245,165,36,.11),transparent 70%);
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:100px 0 84px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:-45% -20% auto -20%;height:125%;
+    background:radial-gradient(46% 44% at 50% 0%,rgba(0,169,166,.17),transparent 70%);
     pointer-events:none}
   .hero-inner{position:relative}
-  .eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:22px;
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:24px;
     padding:5px 13px;border:1px solid var(--line);border-radius:999px;
     font-size:13px;color:var(--muted);background:var(--panel)}
-  .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
-  h1{font-size:clamp(34px,5.4vw,58px);line-height:1.12;margin:0 0 22px;
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--accent-soft);
+    box-shadow:0 0 10px rgba(115,208,206,.9)}
+  h1{font-size:clamp(34px,5.2vw,56px);line-height:1.14;margin:0 0 24px;
     letter-spacing:-.03em;font-weight:700}
-  h1 em{font-style:normal;color:var(--accent)}
-  .lede{font-size:clamp(16px,2vw,19px);color:var(--muted);max-width:62ch;margin:0 0 34px}
-  .actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:10px;
-    font-size:15px;font-weight:550;border:1px solid transparent;transition:.18s}
-  .btn-primary{background:var(--accent);color:#17130a}
-  .btn-primary:hover{background:#ffb63d;transform:translateY(-1px)}
+  h1 em{font-style:normal;background:linear-gradient(100deg,#73D0CE,#00A9A6);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .lede{font-size:clamp(16px,2vw,19px);color:var(--muted);max-width:60ch;margin:0 0 34px}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:10px;
+    font-size:15px;font-weight:600;border:1px solid transparent;transition:.18s}
+  .btn-primary{background:linear-gradient(135deg,#73D0CE,#00A9A6);color:#04191A}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 24px -8px rgba(0,169,166,.8)}
   .btn-ghost{border-color:var(--line-strong);color:var(--text)}
-  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent-soft)}
   .compat{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:14px;color:var(--dim)}
 
-  section{padding:76px 0;border-top:1px solid var(--line)}
-  .h2{font-size:clamp(24px,3vw,32px);letter-spacing:-.02em;margin:0 0 10px;font-weight:650}
-  .sub{color:var(--muted);margin:0 0 44px;font-size:16px}
+  /* ---------- sections ---------- */
+  section{padding:78px 0;border-top:1px solid var(--line)}
+  .h2{font-size:clamp(24px,3vw,32px);letter-spacing:-.02em;margin:0 0 12px;font-weight:650}
+  .sub{color:var(--muted);margin:0 0 46px;font-size:16px;max-width:60ch}
   .grid{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
   @media (max-width:900px){ .grid{grid-template-columns:repeat(2,1fr)} }
   @media (max-width:600px){ .grid{grid-template-columns:1fr} }
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px}
-  .card h3{margin:0 0 8px;font-size:16px;font-weight:600;letter-spacing:-.01em}
-  .card p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.7}
-  .card .k{font-size:20px;margin-bottom:14px;color:var(--accent)}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px;
+    transition:.2s}
+  .card:hover{border-color:var(--line-strong);transform:translateY(-2px)}
+  .card h3{margin:0 0 9px;font-size:16px;font-weight:600;letter-spacing:-.01em}
+  .card p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.72}
+  .ico{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;margin-bottom:16px;
+    background:rgba(0,169,166,.12);border:1px solid rgba(0,169,166,.28)}
+  .ico svg{display:block;stroke:var(--accent-soft);fill:none;stroke-width:1.7;
+    stroke-linecap:round;stroke-linejoin:round}
 
+  /* ---------- workflow list ---------- */
+  .flow{display:grid;gap:0;grid-template-columns:1fr 1fr}
+  @media (max-width:760px){ .flow{grid-template-columns:1fr} }
+  .step{display:flex;gap:16px;padding:22px 22px 22px 0}
+  .step .num{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
+    font-size:13px;font-weight:650;color:var(--accent-soft);
+    background:rgba(0,169,166,.1);border:1px solid rgba(0,169,166,.3)}
+  .step h3{margin:2px 0 6px;font-size:15.5px;font-weight:600}
+  .step p{margin:0;color:var(--muted);font-size:14.5px}
+
+  /* ---------- pricing ---------- */
+  .plans{display:grid;gap:16px;grid-template-columns:1fr 1fr}
+  @media (max-width:760px){ .plans{grid-template-columns:1fr} }
+  .plan{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:28px}
+  .plan.hi{border-color:rgba(0,169,166,.45);
+    background:linear-gradient(180deg,rgba(0,169,166,.08),var(--panel) 55%)}
+  .plan .tag{font-size:13px;color:var(--dim);letter-spacing:.06em;text-transform:uppercase}
+  .plan .price{font-size:22px;font-weight:650;margin:6px 0 18px}
+  .plan ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px}
+  .plan li{margin-bottom:8px}
+  .plan li::marker{color:var(--accent)}
+
+  /* ---------- download ---------- */
   .dl-grid{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
   @media (max-width:900px){ .dl-grid{grid-template-columns:1fr} }
   .dl{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);
@@ -82,10 +117,10 @@
   .dl .btn{margin-top:auto;justify-content:center}
   .note{margin-top:26px;font-size:14px;color:var(--dim)}
   .note a{color:var(--muted);text-decoration:underline;text-underline-offset:3px}
-  .note a:hover{color:var(--accent)}
+  .note a:hover{color:var(--accent-soft)}
 
   footer{border-top:1px solid var(--line);padding:38px 0;color:var(--dim);font-size:14px}
-  .foot{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between}
+  .foot{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
   .foot a:hover{color:var(--muted)}
 </style>
 </head>
@@ -94,15 +129,23 @@
 <header>
   <div class="wrap bar">
     <a class="brand" href="/">
-      <svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <rect width="32" height="32" rx="8" fill="#121214" stroke="#26262b"/>
-        <path d="M22 10.5A8 8 0 1 0 22 21.5" stroke="#f5a524" stroke-width="2.6"
-              stroke-linecap="round" fill="none"/>
+      <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#0F1724" stroke="#1C2836"/>
+        <path d="M20.9 9.1A8.6 8.6 0 1 0 20.9 22.9" stroke="url(#markGrad)"
+              stroke-width="3.3" stroke-linecap="round" fill="none"/>
+        <circle cx="20.9" cy="9.1" r="2" fill="#73D0CE"/>
+        <circle cx="20.9" cy="22.9" r="2" fill="#00A9A6"/>
+        <defs>
+          <linearGradient id="markGrad" x1="8" y1="8" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#73D0CE"/><stop offset="1" stop-color="#00A9A6"/>
+          </linearGradient>
+        </defs>
       </svg>
       CineArm
     </a>
     <nav>
       <a class="hide-sm" href="#features">功能</a>
+      <a class="hide-sm" href="#plans">授权</a>
       <a class="hide-sm" href="#download">下载</a>
       <a class="cta" href="https://github.com/Kikuku10/CineArm-Releases/releases">版本记录</a>
     </nav>
@@ -111,68 +154,130 @@
 
 <div class="hero">
   <div class="wrap hero-inner">
-    <span class="eyebrow"><span class="dot"></span>v0.1.46 · 三端同步更新</span>
-    <h1>为影视机械臂而生的<br><em>运动编排与控制</em></h1>
+    <span class="eyebrow"><span class="dot"></span>v0.1.46 · macOS · Windows · iPad</span>
+    <h1>让机械臂<br><em>拍出你想要的镜头</em></h1>
     <p class="lede">
-      CineArm 把运动编排、跟焦与相机控制放进同一个编辑器，让机械臂的每一次运动都可预览、可撤销、可复现。
-      macOS、Windows 与 iPad 共用编辑器与计算核心，现场换设备不用重学。
+      把机位、顺序、到达时间、运动路径、镜头朝向和焦点，放进同一条时间线。
+      一个项目能存下好几套镜头方案，先在虚拟机械臂上练到顺手，再到现场接上设备。
     </p>
     <div class="actions">
       <a class="btn btn-primary" href="#download">下载 CineArm</a>
       <a class="btn btn-ghost" href="https://github.com/Kikuku10/CineArm-Releases/releases">查看全部版本</a>
     </div>
     <div class="compat">
-      <span>macOS 14+ · Apple Silicon</span>
-      <span>Windows x64</span>
-      <span>iPad（自签安装）</span>
+      <span>macOS 14+</span><span>Windows 10/11</span><span>iPad</span><span>没有真机也能练</span>
     </div>
   </div>
 </div>
 
 <section id="features">
   <div class="wrap">
-    <h2 class="h2">三端同源，一套工作流</h2>
-    <p class="sub">各平台独立管理项目、连接与授权，共用编辑器、计算与核心执行逻辑。</p>
+    <h2 class="h2">一条时间线，装下一个镜头</h2>
+    <p class="sub">从第一个机位到最后一次停稳，整个过程都在同一个画布上完成。</p>
     <div class="grid">
       <div class="card">
-        <div class="k">◆</div>
-        <h3>跨平台一致</h3>
-        <p>macOS、Windows x64 与 iPad 使用同一套编辑器与计算核心，工程文件与操作习惯保持一致。</p>
+        <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h13"/></svg></div>
+        <h3>机位编排</h3>
+        <p>记下几个机位，决定先走哪个、每个机位几秒到达。改错了随时撤回，一个项目可以同时留好几套方案。</p>
       </div>
       <div class="card">
-        <div class="k">◆</div>
-        <h3>可撤销的运动编排</h3>
-        <p>点位编辑明确开始后才进入调整，Undo/Redo 覆盖编辑过程；打开、编辑项目本身不发送运动命令。</p>
+        <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 17c4 0 4-10 8-10s4 10 8 10"/></svg></div>
+        <h3>路径与速度</h3>
+        <p>直线、圆弧或自定义过渡都能选，每一段单独调速和加减速，长镜头也不会忽快忽慢。</p>
       </div>
       <div class="card">
-        <div class="k">◆</div>
-        <h3>跟焦与光学编辑</h3>
-        <p>外部输入接管时保持状态协调，跟焦与光学编辑结果在接管结束后依然保留。</p>
+        <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="12" r="8"/></svg></div>
+        <h3>始终看向目标</h3>
+        <p>把镜头要看的那个位置存成目标，整段运动自动对准它。机位怎么挪，构图都不会跑。</p>
       </div>
       <div class="card">
-        <div class="k">◆</div>
-        <h3>多机型支持</h3>
-        <p>已接入 Nova5、CR5、CR10/CR10A 运动实验参数，以及 Air4 BLE 与末端有线连接。</p>
+        <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div>
+        <h3>跟焦</h3>
+        <p>让焦点跟着画面时间变化，接上跟焦马达一起跑。也可以先编好焦点，再到现场连设备。</p>
       </div>
       <div class="card">
-        <div class="k">◆</div>
-        <h3>相机配对</h3>
-        <p>Windows 端相机配对流程已优化，机位与画面参数就近管理，减少现场调试往返。</p>
+        <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M7 4v6a5 5 0 0 0 10 0V4"/><path d="M7 20h10"/></svg></div>
+        <h3>虚拟机械臂</h3>
+        <p>手上没有真机也能练完整流程：模拟一台可以接管、可以微调、可以记录的机械臂，流程一步不少。</p>
       </div>
       <div class="card">
-        <div class="k">◆</div>
-        <h3>安全边界明确</h3>
-        <p>原生运动复用安全门禁与唯一 Stop。真机操作前关闭 DobotStudio，并完成现场安全确认。</p>
+        <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3"/></svg></div>
+        <h3>构图与监看</h3>
+        <p>快照帮你记住当时的构图，随时回到那个机位对比；监看画面和构图辅助线都能按现场需要调。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="flow">
+  <div class="wrap">
+    <h2 class="h2">顺手的几个地方</h2>
+    <p class="sub">不靠背命令，靠手感和画面做决定。</p>
+    <div class="flow">
+      <div class="step">
+        <div class="num">01</div>
+        <div>
+          <h3>四种操控方式</h3>
+          <p>输入数字、直接拖拽、键盘微调、手柄推摇 —— 哪种顺手用哪种，找机位不用来回切工具。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <div>
+          <h3>按音乐排镜头</h3>
+          <p>导入音频，在波形上打节拍标记，卡着鼓点安排运镜节奏，画面和声音一次对上。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <div>
+          <h3>多套方案随便比</h3>
+          <p>同一个项目里可以放多套镜头方案，拍之前先都走一遍，选最像的那条。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">04</div>
+        <div>
+          <h3>运行中有兜底</h3>
+          <p>跑到一半可以暂停、从刚才的位置继续；真出异常有专门的恢复流程，不会卡在现场。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="plans">
+  <div class="wrap">
+    <h2 class="h2">免费够用，需要再加</h2>
+    <p class="sub">练习和准备都不花钱，只有正式开拍才可能用到上限。</p>
+    <div class="plans">
+      <div class="plan">
+        <div class="tag">免费</div>
+        <div class="price">不限项目 · 不限练习</div>
+        <ul>
+          <li>项目数量、虚拟机械臂、编辑预览和保存都不限</li>
+          <li>实机连接、手动控制、跟焦全部开放</li>
+          <li>正式开拍时：整个项目 1 条时间线、最多 4 个机位点</li>
+        </ul>
+      </div>
+      <div class="plan hi">
+        <div class="tag">Studio</div>
+        <div class="price">解除开拍上限</div>
+        <ul>
+          <li>一个项目可以排多条时间线</li>
+          <li>机位点数量不再受限制</li>
+          <li>适合需要反复彩排、多机位接力的现场</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
 <section id="download">
-  <!-- 发新版时：把下面 4 处 0.1.46 与文件名里的版本号一起替换即可 -->
+  <!-- 发新版时：把下面 4 处 0.1.46 换成新版本号，并更新文件大小 -->
   <div class="wrap">
     <h2 class="h2">下载</h2>
-    <p class="sub">当前版本 v0.1.46。三端版本同步递增，应用内可直接检查更新。</p>
+    <p class="sub">当前版本 v0.1.46，三端同步更新，App 里可以直接检查更新。</p>
     <div class="dl-grid">
       <div class="dl">
         <div class="os">macOS</div>
@@ -200,7 +305,6 @@
       校验文件：<a href="https://github.com/Kikuku10/CineArm-Releases/releases/download/v0.1.46/SHA256SUMS.txt">SHA256SUMS.txt</a>
       · 全部历史版本与更新说明见
       <a href="https://github.com/Kikuku10/CineArm-Releases/releases">CineArm-Releases</a>。
-      虚拟功能免费使用；连接实体机械臂进行控制需要相应授权。
     </p>
   </div>
 </section>
