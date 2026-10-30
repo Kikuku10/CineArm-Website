@@ -1,11 +1,21 @@
-# cinearm.top
+# CineArm 官网
 
-`cinearm.top` 的站点源码，由 GitHub Pages 托管。
+`https://cinearm.top` 的站点源码，由 GitHub Pages 托管。
 
-- 仓库：`Kikuku10/Kikuku10.github.io`（`<用户名>.github.io` 仓库，Pages 会自动开启）
+- 仓库：`Kikuku10/CineArm-Website`（public —— 免费账号的 Pages 需要 public）
 - 分支：`main`，根目录发布
 - 自定义域名：`cinearm.top`（记录在 `CNAME` 文件里）
-- 站点文件：`index.html` 单文件，无外部依赖；`.nojekyll` 让 GitHub 跳过 Jekyll 构建
+- 站点文件：`index.html` 单文件，无外部依赖（不引用 CDN，国内访问不依赖第三方）；`.nojekyll` 让 GitHub 跳过 Jekyll 构建
+
+## 发新版后要做的事
+
+下载按钮是直链到 `CineArm-Releases` 的发布附件，**发新版后需要手动改版本号**：
+
+1. 打开 `index.html`，搜 `0.1.46`，全部替换成新版本号（badge、下载链接共 5 处）；
+2. 顺手更新每端的文件大小；
+3. `git commit && git push`。
+
+如果嫌麻烦，可以把下载区改成读 `release-manifest.json` 动态渲染，但那要多一次网络请求。
 
 ## DNS 记录（Dynadot）
 
@@ -23,13 +33,9 @@
 
 DNS 模式必须是「Dynadot DNS」，不能是「域名停放」或「域名转发」。
 
-## 改站点的流程
+## 本地预览
 
 ```bash
-# 编辑 index.html 后
-git add -A
-git commit -m "Update site"
-git push
+python3 -m http.server 8000
+# 打开 http://127.0.0.1:8000
 ```
-
-推送后 GitHub Actions 会自动构建，通常 30 秒内生效。

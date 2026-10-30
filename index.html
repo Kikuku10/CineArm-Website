@@ -3,47 +3,215 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kikuku10</title>
-<meta name="description" content="Kikuku10 的个人主页">
+<title>CineArm — 影视机械臂运动编排与控制</title>
+<meta name="description" content="CineArm 是面向影视机械臂的跨平台运动编排与控制软件，macOS、Windows、iPad 同源，支持 Nova5、CR5、CR10/CR10A 与 Air4 BLE。">
+<meta name="theme-color" content="#0a0a0b">
+<meta property="og:title" content="CineArm — 影视机械臂运动编排与控制">
+<meta property="og:description" content="跨平台运动编排与控制软件，macOS · Windows · iPad 同源。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cinearm.top/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a0a0b'/%3E%3Cpath d='M9 22V10h5a4 4 0 0 1 0 8H9' stroke='%23f5a524' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <style>
-  :root { color-scheme: dark; }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 32px;
-    font: 16px/1.7 -apple-system, BlinkMacSystemFont, "SF Pro SC", "PingFang SC",
-          "Helvetica Neue", Arial, sans-serif;
-    color: #e8e8ed; background: #0b0b0d;
-    background-image: radial-gradient(60ch 60ch at 50% -10%, rgba(94,129,244,.18), transparent 70%);
+  :root{
+    --bg:#0a0a0b; --panel:#121214; --line:#26262b; --line-strong:#3a3a42;
+    --text:#f2f2f4; --muted:#9b9ba4; --dim:#6c6c76; --accent:#f5a524;
+    color-scheme:dark;
   }
-  main { width: 100%; max-width: 44rem; }
-  .avatar {
-    width: 72px; height: 72px; border-radius: 50%; display: grid; place-items: center;
-    background: linear-gradient(135deg, #5e81f4, #a06bf5);
-    font-weight: 700; font-size: 28px; color: #fff; margin-bottom: 24px;
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font:16px/1.75 -apple-system,BlinkMacSystemFont,"SF Pro SC","PingFang SC","Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
   }
-  h1 { font-size: clamp(28px, 5vw, 40px); margin: 0 0 8px; letter-spacing: -.02em; }
-  p.tag { margin: 0 0 32px; color: #a1a1aa; font-size: 18px; }
-  .links { display: flex; flex-wrap: wrap; gap: 12px; }
-  a.link {
-    display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px;
-    border-radius: 999px; text-decoration: none; color: #e8e8ed;
-    background: #18181b; border: 1px solid #27272a; transition: .18s;
-  }
-  a.link:hover { background: #27272a; border-color: #3f3f46; transform: translateY(-1px); }
-  footer { margin-top: 56px; color: #52525b; font-size: 14px; }
+  a{color:inherit;text-decoration:none}
+  .wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 24px}
+
+  header{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);
+    background:rgba(10,10,11,.72);border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:650;letter-spacing:-.01em;font-size:17px}
+  .brand svg{display:block}
+  nav{display:flex;align-items:center;gap:28px;font-size:15px;color:var(--muted)}
+  nav a:hover{color:var(--text)}
+  nav a.cta{color:var(--text);padding:7px 16px;border:1px solid var(--line-strong);border-radius:999px}
+  nav a.cta:hover{border-color:var(--accent);color:var(--accent)}
+  @media (max-width:720px){ nav .hide-sm{display:none} }
+
+  .hero{position:relative;padding:104px 0 88px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:-40% -20% auto -20%;height:120%;
+    background:radial-gradient(50% 46% at 50% 0%,rgba(245,165,36,.11),transparent 70%);
+    pointer-events:none}
+  .hero-inner{position:relative}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:22px;
+    padding:5px 13px;border:1px solid var(--line);border-radius:999px;
+    font-size:13px;color:var(--muted);background:var(--panel)}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  h1{font-size:clamp(34px,5.4vw,58px);line-height:1.12;margin:0 0 22px;
+    letter-spacing:-.03em;font-weight:700}
+  h1 em{font-style:normal;color:var(--accent)}
+  .lede{font-size:clamp(16px,2vw,19px);color:var(--muted);max-width:62ch;margin:0 0 34px}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:10px;
+    font-size:15px;font-weight:550;border:1px solid transparent;transition:.18s}
+  .btn-primary{background:var(--accent);color:#17130a}
+  .btn-primary:hover{background:#ffb63d;transform:translateY(-1px)}
+  .btn-ghost{border-color:var(--line-strong);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .compat{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:14px;color:var(--dim)}
+
+  section{padding:76px 0;border-top:1px solid var(--line)}
+  .h2{font-size:clamp(24px,3vw,32px);letter-spacing:-.02em;margin:0 0 10px;font-weight:650}
+  .sub{color:var(--muted);margin:0 0 44px;font-size:16px}
+  .grid{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
+  @media (max-width:900px){ .grid{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:600px){ .grid{grid-template-columns:1fr} }
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px}
+  .card h3{margin:0 0 8px;font-size:16px;font-weight:600;letter-spacing:-.01em}
+  .card p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.7}
+  .card .k{font-size:20px;margin-bottom:14px;color:var(--accent)}
+
+  .dl-grid{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
+  @media (max-width:900px){ .dl-grid{grid-template-columns:1fr} }
+  .dl{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);
+    border-radius:14px;padding:26px;transition:.2s}
+  .dl:hover{border-color:var(--line-strong);transform:translateY(-2px)}
+  .dl .os{font-size:13px;color:var(--dim);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+  .dl .name{font-size:17px;font-weight:600;margin-bottom:6px}
+  .dl .meta{font-size:13.5px;color:var(--muted);margin-bottom:22px}
+  .dl .btn{margin-top:auto;justify-content:center}
+  .note{margin-top:26px;font-size:14px;color:var(--dim)}
+  .note a{color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+  .note a:hover{color:var(--accent)}
+
+  footer{border-top:1px solid var(--line);padding:38px 0;color:var(--dim);font-size:14px}
+  .foot{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between}
+  .foot a:hover{color:var(--muted)}
 </style>
 </head>
 <body>
-<main>
-  <div class="avatar">K</div>
-  <h1>Kikuku10</h1>
-  <p class="tag">开发者 · 做一些小工具</p>
-  <div class="links">
-    <a class="link" href="https://github.com/Kikuku10">GitHub</a>
-    <a class="link" href="https://github.com/Kikuku10/CineArm-Releases">CineArm 下载</a>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="/">
+      <svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#121214" stroke="#26262b"/>
+        <path d="M9 22V10h5a4 4 0 0 1 0 8H9" stroke="#f5a524" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      CineArm
+    </a>
+    <nav>
+      <a class="hide-sm" href="#features">功能</a>
+      <a class="hide-sm" href="#download">下载</a>
+      <a class="cta" href="https://github.com/Kikuku10/CineArm-Releases/releases">版本记录</a>
+    </nav>
   </div>
-  <footer>© <span id="y"></span> Kikuku10</footer>
-</main>
+</header>
+
+<div class="hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow"><span class="dot"></span>v0.1.46 · 三端同步更新</span>
+    <h1>为影视机械臂而生的<br><em>运动编排与控制</em></h1>
+    <p class="lede">
+      CineArm 把运动编排、跟焦与相机控制放进同一个编辑器，让机械臂的每一次运动都可预览、可撤销、可复现。
+      macOS、Windows 与 iPad 共用编辑器与计算核心，现场换设备不用重学。
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#download">下载 CineArm</a>
+      <a class="btn btn-ghost" href="https://github.com/Kikuku10/CineArm-Releases/releases">查看全部版本</a>
+    </div>
+    <div class="compat">
+      <span>macOS 14+ · Apple Silicon</span>
+      <span>Windows x64</span>
+      <span>iPad（自签安装）</span>
+    </div>
+  </div>
+</div>
+
+<section id="features">
+  <div class="wrap">
+    <h2 class="h2">三端同源，一套工作流</h2>
+    <p class="sub">各平台独立管理项目、连接与授权，共用编辑器、计算与核心执行逻辑。</p>
+    <div class="grid">
+      <div class="card">
+        <div class="k">◆</div>
+        <h3>跨平台一致</h3>
+        <p>macOS、Windows x64 与 iPad 使用同一套编辑器与计算核心，工程文件与操作习惯保持一致。</p>
+      </div>
+      <div class="card">
+        <div class="k">◆</div>
+        <h3>可撤销的运动编排</h3>
+        <p>点位编辑明确开始后才进入调整，Undo/Redo 覆盖编辑过程；打开、编辑项目本身不发送运动命令。</p>
+      </div>
+      <div class="card">
+        <div class="k">◆</div>
+        <h3>跟焦与光学编辑</h3>
+        <p>外部输入接管时保持状态协调，跟焦与光学编辑结果在接管结束后依然保留。</p>
+      </div>
+      <div class="card">
+        <div class="k">◆</div>
+        <h3>多机型支持</h3>
+        <p>已接入 Nova5、CR5、CR10/CR10A 运动实验参数，以及 Air4 BLE 与末端有线连接。</p>
+      </div>
+      <div class="card">
+        <div class="k">◆</div>
+        <h3>相机配对</h3>
+        <p>Windows 端相机配对流程已优化，机位与画面参数就近管理，减少现场调试往返。</p>
+      </div>
+      <div class="card">
+        <div class="k">◆</div>
+        <h3>安全边界明确</h3>
+        <p>原生运动复用安全门禁与唯一 Stop。真机操作前关闭 DobotStudio，并完成现场安全确认。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="download">
+  <!-- 发新版时：把下面 4 处 0.1.46 与文件名里的版本号一起替换即可 -->
+  <div class="wrap">
+    <h2 class="h2">下载</h2>
+    <p class="sub">当前版本 v0.1.46。三端版本同步递增，应用内可直接检查更新。</p>
+    <div class="dl-grid">
+      <div class="dl">
+        <div class="os">macOS</div>
+        <div class="name">Apple Silicon</div>
+        <div class="meta">macOS 14 或更高 · 约 109 MB</div>
+        <a class="btn btn-ghost"
+           href="https://github.com/Kikuku10/CineArm-Releases/releases/download/v0.1.46/CineArm-macOS-AppleSilicon-0.1.46.zip">下载 .zip</a>
+      </div>
+      <div class="dl">
+        <div class="os">Windows</div>
+        <div class="name">x64 安装包</div>
+        <div class="meta">Windows 10/11 x64 · 约 346 MB</div>
+        <a class="btn btn-ghost"
+           href="https://github.com/Kikuku10/CineArm-Releases/releases/download/v0.1.46/CineArm-Windows-0.1.46-x64-setup.exe">下载 .exe</a>
+      </div>
+      <div class="dl">
+        <div class="os">iPad</div>
+        <div class="name">自签安装包</div>
+        <div class="meta">需自行签名 · 约 94 MB</div>
+        <a class="btn btn-ghost"
+           href="https://github.com/Kikuku10/CineArm-Releases/releases/download/v0.1.46/CineArm-iPad-0.1.46-Sideload.ipa">下载 .ipa</a>
+      </div>
+    </div>
+    <p class="note">
+      校验文件：<a href="https://github.com/Kikuku10/CineArm-Releases/releases/download/v0.1.46/SHA256SUMS.txt">SHA256SUMS.txt</a>
+      · 全部历史版本与更新说明见
+      <a href="https://github.com/Kikuku10/CineArm-Releases/releases">CineArm-Releases</a>。
+      虚拟功能免费使用；连接实体机械臂进行控制需要相应授权。
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="y">2026</span> CineArm · cinearm.top</span>
+    <span><a href="https://github.com/Kikuku10/CineArm-Releases">GitHub</a></span>
+  </div>
+</footer>
+
 <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
