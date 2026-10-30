@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>跟焦：先编曲线，再连马达 — CineArm</title>
+<meta name="theme-color" content="#070B11">
+<link rel="icon" href="../app-icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css?v=3">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="../index.html">
+      <img class="mark" src="../app-icon.svg" alt="" width="28" height="28">
+      CineArm
+    </a>
+    <nav>
+      <a class="hide-sm" href="../features.html" aria-current="page">功能</a>
+      <a class="hide-sm" href="../robots.html">机型</a>
+      <a class="hide-sm" href="../index.html#plans">授权</a>
+      <a class="hide-sm" href="../index.html#download">下载</a>
+      <a class="lang" href="../en/docs/focus.html" hreflang="en">EN</a>
+      <a class="cta" href="https://github.com/Kikuku10/CineArm-Releases/releases">版本记录</a>
+    </nav>
+  </div>
+</header>
+
+<div class="docs">
+      <aside class="docs-nav">
+        <p class="docs-nav__label">全部板块</p>
+        <ol>
+        <li><a href="workspace.html"><span class="num">01</span>工作台：六个区域，各管一件事</a></li>
+        <li><a href="project.html"><span class="num">02</span>项目与场景：一个项目留多套方案</a></li>
+        <li><a href="gallery.html"><span class="num">03</span>存点与实例：机位母版可以反复用</a></li>
+        <li><a href="timeline.html"><span class="num">04</span>时间线：五条轨道，各存各的</a></li>
+        <li><a href="edit.html"><span class="num">05</span>记录与编辑：先摆位，再落点</a></li>
+        <li><a href="path.html"><span class="num">06</span>路径：五种走法，差别在「经不经过」</a></li>
+        <li><a href="speed.html"><span class="num">07</span>速度：五个概念，别混着调</a></li>
+        <li><a href="target.html"><span class="num">08</span>目标与朝向：把构图锁在现场那个点</a></li>
+        <li><a href="node.html"><span class="num">09</span>节点编排：换一种看镜头的方式</a></li>
+        <li><a href="manual.html"><span class="num">10</span>自由操控：四种输入，哪种顺手用哪种</a></li>
+        <li><a href="load.html"><span class="num">11</span>负载与相机工具：先填对数据，再谈精度</a></li>
+        <li><a href="focus.html" aria-current="page"><span class="num">12</span>跟焦：先编曲线，再连马达</a></li>
+        <li><a href="monitor.html"><span class="num">13</span>监看与虚拟布景：先把关系看清楚</a></li>
+        <li><a href="audio.html"><span class="num">14</span>音频与节奏：让运镜卡在鼓点上</a></li>
+        <li><a href="send.html"><span class="num">15</span>发送与安全：到这一步，软件说了不算</a></li>
+        <li><a href="shortcuts.html"><span class="num">16</span>快捷键与输入设备</a></li>
+        <li><a href="settings.html"><span class="num">17</span>偏好设置：六类，改完要保存</a></li>
+        <li><a href="trouble.html"><span class="num">18</span>排错与收工</a></li>
+        <li><a href="glossary.html"><span class="num">19</span>术语速查</a></li>
+        </ol>
+      </aside>
+  <main class="docs-main">
+    <p class="crumb"><a href="../features.html">功能详解</a> / 跟焦：先编曲线，再连马达</p>
+    <h1>跟焦：先编曲线，再连马达</h1>
+    <p class="lede">焦点是独立的时间线，不接线也能先排好。</p>
+    <div class="docs-body">
+<div class="detail-grid">
+      <div class="detail"><b>两种表示</b><span>百分比 0%–100% 或逻辑编码 0–16383，是同一标定行程上的位置，<b>不是米数也不是焦距</b>。</span></div>
+      <div class="detail"><b>方向</b><span>正常／反向适配不同安装；接管前设定，播放、接管、标定中不可改。</span></div>
+      <div class="detail"><b>只插跟焦</b><span>在有效整数帧插入「仅跟焦」关键帧，不动姿态也能让焦点变化。</span></div>
+      <div class="detail"><b>跟焦速度曲线</b><span>可改平台停留与过渡；%/秒是项目焦点变化率，不是实测镜头速度。</span></div>
+      <div class="detail"><b>自动标定</b><span>点一次立即完整扫程，要亲眼看两端学完再点「已确认标定结束」—— 这次点击会接管当前目标，马达可能立即移动。</span></div>
+      <div class="detail"><b>多台马达</b><span>蓝牙设备按完整身份区分（同名设备不能只看显示名），逐台添加、分别标定和接管。</span></div>
+      <div class="detail"><b>有线末端</b><span>末端控制器支持有线连接，与蓝牙方式并存，按现场条件选择。</span></div>
+      <div class="detail"><b>运行中</b><span>可暂停、继续，也可「仅发送机械臂」放弃跟焦；关闭提示不等于联合成功。</span></div>
+    </div>
+    <p class="note">项目重开保留绑定但不恢复连接或授权；换电脑或 iPad 后先核对身份再重新绑定。</p>
+    <figure class="shot">
+      <img src="../assets/img/features/focus.jpg" alt="对焦面板区分当前焦点、所选关键帧与 Air4 连接状态。" loading="lazy" width="1100" height="687">
+      <figcaption>对焦面板区分当前焦点、所选关键帧与 Air4 连接状态。</figcaption>
+    </figure>
+    </div>
+    <nav class="pager">
+      <a href="load.html">← 上一页 · 负载与相机工具：先填对数据，再谈精度</a>
+      <a href="monitor.html">下一页 · 监看与虚拟布景：先把关系看清楚 →</a>
+    </nav>
+    <p class="note">本页内容来自 CineArm v0.1.46 的软件行为。</p>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="y">2026</span> CineArm · cinearm.top</span>
+    <nav>
+      <a href="../index.html">首页</a>
+      <a href="../robots.html">机型选型</a>
+      <a href="https://github.com/Kikuku10/CineArm-Releases">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

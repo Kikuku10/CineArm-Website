@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Node editing: a different way to read a shot — CineArm</title>
+<meta name="theme-color" content="#070B11">
+<link rel="icon" href="../../app-icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/site.css?v=3">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="../index.html">
+      <img class="mark" src="../../app-icon.svg" alt="" width="28" height="28">
+      CineArm
+    </a>
+    <nav>
+      <a class="hide-sm" href="../features.html" aria-current="page">Features</a>
+      <a class="hide-sm" href="../robots.html">Arms</a>
+      <a class="hide-sm" href="../index.html#plans">Licensing</a>
+      <a class="hide-sm" href="../index.html#download">Download</a>
+      <a class="lang" href="../../docs/node.html" hreflang="zh-CN">中文</a>
+      <a class="cta" href="https://github.com/Kikuku10/CineArm-Releases/releases">Releases</a>
+    </nav>
+  </div>
+</header>
+
+<div class="docs">
+      <aside class="docs-nav">
+        <p class="docs-nav__label">All sections</p>
+        <ol>
+        <li><a href="workspace.html"><span class="num">01</span>Six workspace areas, one job each</a></li>
+        <li><a href="project.html"><span class="num">02</span>Projects and scenes: keep more than one answer</a></li>
+        <li><a href="gallery.html"><span class="num">03</span>Saved positions: one master, many instances</a></li>
+        <li><a href="timeline.html"><span class="num">04</span>Five tracks, each holding its own thing</a></li>
+        <li><a href="edit.html"><span class="num">05</span>Recording: place it, look at it, press once</a></li>
+        <li><a href="path.html"><span class="num">06</span>Paths: five ways, differing in what they pass through</a></li>
+        <li><a href="speed.html"><span class="num">07</span>Five speed concepts, not interchangeable</a></li>
+        <li><a href="target.html"><span class="num">08</span>Targets: lock the framing to one point</a></li>
+        <li><a href="node.html" aria-current="page"><span class="num">09</span>Node editing: a different way to read a shot</a></li>
+        <li><a href="manual.html"><span class="num">10</span>Manual control: four inputs, pick what fits</a></li>
+        <li><a href="load.html"><span class="num">11</span>Payload and camera tools: data first, precision second</a></li>
+        <li><a href="focus.html"><span class="num">12</span>Follow focus: program the curve, then connect the motor</a></li>
+        <li><a href="monitor.html"><span class="num">13</span>Monitoring and virtual set</a></li>
+        <li><a href="audio.html"><span class="num">14</span>Audio and rhythm: cut the move to the beat</a></li>
+        <li><a href="send.html"><span class="num">15</span>Sending: this is where the software stops deciding</a></li>
+        <li><a href="shortcuts.html"><span class="num">16</span>Shortcuts and input devices</a></li>
+        <li><a href="settings.html"><span class="num">17</span>Preferences: six categories, save to apply</a></li>
+        <li><a href="trouble.html"><span class="num">18</span>Troubleshooting and wrap-up</a></li>
+        <li><a href="glossary.html"><span class="num">19</span>Glossary</a></li>
+        </ol>
+      </aside>
+  <main class="docs-main">
+    <p class="crumb"><a href="../features.html">Features in detail</a> / Node editing: a different way to read a shot</p>
+    <h1>Node editing: a different way to read a shot</h1>
+    <p class="lede">The timeline sorts by time; nodes sort by where you go next.</p>
+    <div class="docs-body">
+<div class="detail-grid">
+      <div class="detail"><b>Cards and links</b><span>Each card is a position, each link a route; record, connect and choose a route without renumbering.</span></div>
+      <div class="detail"><b>Motion type</b><span>Cards show joint, straight, target arc or three-point arc at a glance.</span></div>
+      <div class="detail"><b>Smoothing 0–100</b><span>Strength of mode 1; zero restores a stop at the original corner and arc via points are limited.</span></div>
+      <div class="detail"><b>Speed presets</b><span>Constant move or full ease-in-out; inherited curves can show “keep original curve”.</span></div>
+      <div class="detail"><b>Stop when passing</b><span>Pass the actual smoothed position at zero speed — not a return to the corner, and no added dwell.</span></div>
+      <div class="detail"><b>Paper-plane positioning</b><span>Click to drive along the currently available route, release to stop, Esc to abort; disabled without a device.</span></div>
+      <div class="detail"><b>Arc roles</b><span>Mark start, middle and end roles in the motion menu; roles must be consecutive along the links, and a partial set blocks playback and sending.</span></div>
+      <div class="detail"><b>Tidy and copy</b><span>“Tidy nodes” auto-lays out; copy, cut and paste — pasting onto another card copies properties, pasting on empty space makes a new card.</span></div>
+      <div class="detail"><b>Update from the arm</b><span>“Update keyframe from current arm position” overwrites with the live pose — it is not a positioning button.</span></div>
+      <div class="detail"><b>Saving and undo</b><span>Links, endpoints, parameters and layout save with the project and participate in undo; rewiring can invalidate inherited timing and reconnecting does not guarantee a restore.</span></div>
+    </div>
+    <figure class="shot">
+      <img src="../../assets/img/features/node.jpg" alt="Node workbench: cards are positions, links are routes." loading="lazy" width="1100" height="687">
+      <figcaption>Node workbench: cards are positions, links are routes.</figcaption>
+    </figure>
+    </div>
+    <nav class="pager">
+      <a href="target.html">← Previous · Targets: lock the framing to one point</a>
+      <a href="manual.html">Next · Manual control: four inputs, pick what fits →</a>
+    </nav>
+    <p class="note">Describes CineArm v0.1.46 behaviour.</p>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="y">2026</span> CineArm · cinearm.top</span>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../robots.html">Arm selection</a>
+      <a href="https://github.com/Kikuku10/CineArm-Releases">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

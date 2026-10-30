@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paths: five ways, differing in what they pass through — CineArm</title>
+<meta name="theme-color" content="#070B11">
+<link rel="icon" href="../../app-icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/site.css?v=3">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="../index.html">
+      <img class="mark" src="../../app-icon.svg" alt="" width="28" height="28">
+      CineArm
+    </a>
+    <nav>
+      <a class="hide-sm" href="../features.html" aria-current="page">Features</a>
+      <a class="hide-sm" href="../robots.html">Arms</a>
+      <a class="hide-sm" href="../index.html#plans">Licensing</a>
+      <a class="hide-sm" href="../index.html#download">Download</a>
+      <a class="lang" href="../../docs/path.html" hreflang="zh-CN">中文</a>
+      <a class="cta" href="https://github.com/Kikuku10/CineArm-Releases/releases">Releases</a>
+    </nav>
+  </div>
+</header>
+
+<div class="docs">
+      <aside class="docs-nav">
+        <p class="docs-nav__label">All sections</p>
+        <ol>
+        <li><a href="workspace.html"><span class="num">01</span>Six workspace areas, one job each</a></li>
+        <li><a href="project.html"><span class="num">02</span>Projects and scenes: keep more than one answer</a></li>
+        <li><a href="gallery.html"><span class="num">03</span>Saved positions: one master, many instances</a></li>
+        <li><a href="timeline.html"><span class="num">04</span>Five tracks, each holding its own thing</a></li>
+        <li><a href="edit.html"><span class="num">05</span>Recording: place it, look at it, press once</a></li>
+        <li><a href="path.html" aria-current="page"><span class="num">06</span>Paths: five ways, differing in what they pass through</a></li>
+        <li><a href="speed.html"><span class="num">07</span>Five speed concepts, not interchangeable</a></li>
+        <li><a href="target.html"><span class="num">08</span>Targets: lock the framing to one point</a></li>
+        <li><a href="node.html"><span class="num">09</span>Node editing: a different way to read a shot</a></li>
+        <li><a href="manual.html"><span class="num">10</span>Manual control: four inputs, pick what fits</a></li>
+        <li><a href="load.html"><span class="num">11</span>Payload and camera tools: data first, precision second</a></li>
+        <li><a href="focus.html"><span class="num">12</span>Follow focus: program the curve, then connect the motor</a></li>
+        <li><a href="monitor.html"><span class="num">13</span>Monitoring and virtual set</a></li>
+        <li><a href="audio.html"><span class="num">14</span>Audio and rhythm: cut the move to the beat</a></li>
+        <li><a href="send.html"><span class="num">15</span>Sending: this is where the software stops deciding</a></li>
+        <li><a href="shortcuts.html"><span class="num">16</span>Shortcuts and input devices</a></li>
+        <li><a href="settings.html"><span class="num">17</span>Preferences: six categories, save to apply</a></li>
+        <li><a href="trouble.html"><span class="num">18</span>Troubleshooting and wrap-up</a></li>
+        <li><a href="glossary.html"><span class="num">19</span>Glossary</a></li>
+        </ol>
+      </aside>
+  <main class="docs-main">
+    <p class="crumb"><a href="../features.html">Features in detail</a> / Paths: five ways, differing in what they pass through</p>
+    <h1>Paths: five ways, differing in what they pass through</h1>
+    <p class="lede">Same A to B, but the intermediate positions behave completely differently.</p>
+    <div class="docs-body">
+<div class="detail-grid">
+      <div class="detail"><b>Smoothing · mode 1</b><span>Rounds corners as the path sweeps through them — <b>allowed to bypass the original corner points</b>.</span></div>
+      <div class="detail"><b>Smoothing · mode 2</b><span>One continuous path that <b>passes through several saved positions</b>.</span></div>
+      <div class="detail"><b>Three-point arc</b><span>Start, via point and end define the arc; it <b>passes through the via position</b>, which does not set rotation on its own.</span></div>
+      <div class="detail"><b>Arc around a target</b><span>Two equal-radius positions orbit a shared target along the shortest arc in a fixed plane, aiming at it throughout.</span></div>
+      <div class="detail"><b>Manual cubic Bézier</b><span>Spatial handles shape the route and the path <b>need not pass through control points</b>; spatial handles decide where, speed handles decide how fast.</span></div>
+      <div class="detail"><b>AUTO pass-through speed</b><span>Planned from the whole path by default; right-click an inner point to type a value. <b>Restoring AUTO means clearing the input, not entering 0.</b></span></div>
+      <div class="detail"><b>Inner handles</b><span>Adjust entry and exit length and the shared speed slope; editing one point can affect its neighbour — dashed is reference, solid is the result.</span></div>
+      <div class="detail"><b>Failures and rollback</b><span>Collinear or degenerate points, mismatched radii, or a 180° opposition that leaves no plane will fail; “restore normal path” cancels at any time.</span></div>
+    </div>
+    <p class="note">After changing path, timing, speed or target, wait for the full recompute. A successful save does not mean a safe run.</p>
+    <figure class="shot">
+      <img src="../../assets/img/features/path.jpg" alt="Path type and smoothing live in the pose menu, beside the speed curve." loading="lazy" width="1100" height="687">
+      <figcaption>Path type and smoothing live in the pose menu, beside the speed curve.</figcaption>
+    </figure>
+    </div>
+    <nav class="pager">
+      <a href="edit.html">← Previous · Recording: place it, look at it, press once</a>
+      <a href="speed.html">Next · Five speed concepts, not interchangeable →</a>
+    </nav>
+    <p class="note">Describes CineArm v0.1.46 behaviour.</p>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="y">2026</span> CineArm · cinearm.top</span>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../robots.html">Arm selection</a>
+      <a href="https://github.com/Kikuku10/CineArm-Releases">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

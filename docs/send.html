@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>发送与安全：到这一步，软件说了不算 — CineArm</title>
+<meta name="theme-color" content="#070B11">
+<link rel="icon" href="../app-icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css?v=3">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="../index.html">
+      <img class="mark" src="../app-icon.svg" alt="" width="28" height="28">
+      CineArm
+    </a>
+    <nav>
+      <a class="hide-sm" href="../features.html" aria-current="page">功能</a>
+      <a class="hide-sm" href="../robots.html">机型</a>
+      <a class="hide-sm" href="../index.html#plans">授权</a>
+      <a class="hide-sm" href="../index.html#download">下载</a>
+      <a class="lang" href="../en/docs/send.html" hreflang="en">EN</a>
+      <a class="cta" href="https://github.com/Kikuku10/CineArm-Releases/releases">版本记录</a>
+    </nav>
+  </div>
+</header>
+
+<div class="docs">
+      <aside class="docs-nav">
+        <p class="docs-nav__label">全部板块</p>
+        <ol>
+        <li><a href="workspace.html"><span class="num">01</span>工作台：六个区域，各管一件事</a></li>
+        <li><a href="project.html"><span class="num">02</span>项目与场景：一个项目留多套方案</a></li>
+        <li><a href="gallery.html"><span class="num">03</span>存点与实例：机位母版可以反复用</a></li>
+        <li><a href="timeline.html"><span class="num">04</span>时间线：五条轨道，各存各的</a></li>
+        <li><a href="edit.html"><span class="num">05</span>记录与编辑：先摆位，再落点</a></li>
+        <li><a href="path.html"><span class="num">06</span>路径：五种走法，差别在「经不经过」</a></li>
+        <li><a href="speed.html"><span class="num">07</span>速度：五个概念，别混着调</a></li>
+        <li><a href="target.html"><span class="num">08</span>目标与朝向：把构图锁在现场那个点</a></li>
+        <li><a href="node.html"><span class="num">09</span>节点编排：换一种看镜头的方式</a></li>
+        <li><a href="manual.html"><span class="num">10</span>自由操控：四种输入，哪种顺手用哪种</a></li>
+        <li><a href="load.html"><span class="num">11</span>负载与相机工具：先填对数据，再谈精度</a></li>
+        <li><a href="focus.html"><span class="num">12</span>跟焦：先编曲线，再连马达</a></li>
+        <li><a href="monitor.html"><span class="num">13</span>监看与虚拟布景：先把关系看清楚</a></li>
+        <li><a href="audio.html"><span class="num">14</span>音频与节奏：让运镜卡在鼓点上</a></li>
+        <li><a href="send.html" aria-current="page"><span class="num">15</span>发送与安全：到这一步，软件说了不算</a></li>
+        <li><a href="shortcuts.html"><span class="num">16</span>快捷键与输入设备</a></li>
+        <li><a href="settings.html"><span class="num">17</span>偏好设置：六类，改完要保存</a></li>
+        <li><a href="trouble.html"><span class="num">18</span>排错与收工</a></li>
+        <li><a href="glossary.html"><span class="num">19</span>术语速查</a></li>
+        </ol>
+      </aside>
+  <main class="docs-main">
+    <p class="crumb"><a href="../features.html">功能详解</a> / 发送与安全：到这一步，软件说了不算</p>
+    <h1>发送与安全：到这一步，软件说了不算</h1>
+    <p class="lede">前面都是准备，只有发送会让机械臂真的动。</p>
+    <div class="docs-body">
+<div class="detail-grid">
+      <div class="detail"><b>发送轨迹（默认）</b><span>整段轨迹生成文件上传，由控制柜播放，链路最短、节奏最稳。</span></div>
+      <div class="detail"><b>全程 ServoJ</b><span>CineArm 持续逐点发送目标，适合需要与软件实时联动的场合。</span></div>
+      <div class="detail"><b>回起点两种</b><span>「沿轨迹」走已有路线；「关节运动」直接规划关节，<b>不保证空间上沿原拍摄路径</b>。</span></div>
+      <div class="detail"><b>上传认证</b><span>厂商默认或自定义账号，读取并核对主机指纹后验证保存；指纹变化先查原因。</span></div>
+      <div class="detail"><b>必须先到起点</b><span>正放先回 I、倒放先回 O，等真实机械臂到位；<b>拖播放头不能代替到位</b>。</span></div>
+      <div class="detail"><b>运行顺序</b><span>停预览 → 核对项目与 I/O 和运镜检查 → 选全局速度、首次关循环 → 开发送模式回起点 → 点正放／倒放 → 处理跟焦确认 → 观察到位。</span></div>
+      <div class="detail"><b>暂停与结束</b><span>准备或运行中按钮变红色「暂停发送」；可「继续发送」接剩余，或「结束发送」放弃剩余并等解锁。</span></div>
+      <div class="detail"><b>故障锁</b><span>「停止状态待核验」时按「检查并恢复控制」重新核对；清除控制柜报警不会清掉本地未确认状态。</span></div>
+      <div class="detail"><b>四个恢复入口</b><span>恢复控制、安全退出并关闭运动控制、清除报警、关节箭头点动 —— 各适用不同状态，未知或多重报警不放行动作。</span></div>
+      <div class="detail"><b>两条边界</b><span>上传轨迹不是保存项目，别把 <code>.cinearm</code> 塞进控制柜；文件播放用 DO1–DO6 标进度，先核对外设接线。</span></div>
+    </div>
+    <figure class="shot">
+      <img src="../assets/img/features/send.jpg" alt="发送模式开启后，I／O 对应机械臂回播放起点与终点。" loading="lazy" width="1100" height="687">
+      <figcaption>发送模式开启后，I／O 对应机械臂回播放起点与终点。</figcaption>
+    </figure>
+    </div>
+    <nav class="pager">
+      <a href="audio.html">← 上一页 · 音频与节奏：让运镜卡在鼓点上</a>
+      <a href="shortcuts.html">下一页 · 快捷键与输入设备 →</a>
+    </nav>
+    <p class="note">本页内容来自 CineArm v0.1.46 的软件行为。</p>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="y">2026</span> CineArm · cinearm.top</span>
+    <nav>
+      <a href="../index.html">首页</a>
+      <a href="../robots.html">机型选型</a>
+      <a href="https://github.com/Kikuku10/CineArm-Releases">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

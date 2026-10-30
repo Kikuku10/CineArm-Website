@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>路径：五种走法，差别在「经不经过」 — CineArm</title>
+<meta name="theme-color" content="#070B11">
+<link rel="icon" href="../app-icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css?v=3">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="../index.html">
+      <img class="mark" src="../app-icon.svg" alt="" width="28" height="28">
+      CineArm
+    </a>
+    <nav>
+      <a class="hide-sm" href="../features.html" aria-current="page">功能</a>
+      <a class="hide-sm" href="../robots.html">机型</a>
+      <a class="hide-sm" href="../index.html#plans">授权</a>
+      <a class="hide-sm" href="../index.html#download">下载</a>
+      <a class="lang" href="../en/docs/path.html" hreflang="en">EN</a>
+      <a class="cta" href="https://github.com/Kikuku10/CineArm-Releases/releases">版本记录</a>
+    </nav>
+  </div>
+</header>
+
+<div class="docs">
+      <aside class="docs-nav">
+        <p class="docs-nav__label">全部板块</p>
+        <ol>
+        <li><a href="workspace.html"><span class="num">01</span>工作台：六个区域，各管一件事</a></li>
+        <li><a href="project.html"><span class="num">02</span>项目与场景：一个项目留多套方案</a></li>
+        <li><a href="gallery.html"><span class="num">03</span>存点与实例：机位母版可以反复用</a></li>
+        <li><a href="timeline.html"><span class="num">04</span>时间线：五条轨道，各存各的</a></li>
+        <li><a href="edit.html"><span class="num">05</span>记录与编辑：先摆位，再落点</a></li>
+        <li><a href="path.html" aria-current="page"><span class="num">06</span>路径：五种走法，差别在「经不经过」</a></li>
+        <li><a href="speed.html"><span class="num">07</span>速度：五个概念，别混着调</a></li>
+        <li><a href="target.html"><span class="num">08</span>目标与朝向：把构图锁在现场那个点</a></li>
+        <li><a href="node.html"><span class="num">09</span>节点编排：换一种看镜头的方式</a></li>
+        <li><a href="manual.html"><span class="num">10</span>自由操控：四种输入，哪种顺手用哪种</a></li>
+        <li><a href="load.html"><span class="num">11</span>负载与相机工具：先填对数据，再谈精度</a></li>
+        <li><a href="focus.html"><span class="num">12</span>跟焦：先编曲线，再连马达</a></li>
+        <li><a href="monitor.html"><span class="num">13</span>监看与虚拟布景：先把关系看清楚</a></li>
+        <li><a href="audio.html"><span class="num">14</span>音频与节奏：让运镜卡在鼓点上</a></li>
+        <li><a href="send.html"><span class="num">15</span>发送与安全：到这一步，软件说了不算</a></li>
+        <li><a href="shortcuts.html"><span class="num">16</span>快捷键与输入设备</a></li>
+        <li><a href="settings.html"><span class="num">17</span>偏好设置：六类，改完要保存</a></li>
+        <li><a href="trouble.html"><span class="num">18</span>排错与收工</a></li>
+        <li><a href="glossary.html"><span class="num">19</span>术语速查</a></li>
+        </ol>
+      </aside>
+  <main class="docs-main">
+    <p class="crumb"><a href="../features.html">功能详解</a> / 路径：五种走法，差别在「经不经过」</p>
+    <h1>路径：五种走法，差别在「经不经过」</h1>
+    <p class="lede">同样从 A 到 B，五种方式的内部位置处理完全不同。</p>
+    <div class="docs-body">
+<div class="detail-grid">
+      <div class="detail"><b>平滑·方式一</b><span>连续掠过转角、局部变圆，<b>允许绕过原角点</b>，适合不在每个角上停的连续运镜。</span></div>
+      <div class="detail"><b>平滑·方式二</b><span>一条连续路径<b>穿过多个保存位置</b>，适合多点串成一条流动的线。</span></div>
+      <div class="detail"><b>三点圆弧</b><span>起点、经过点、终点确定一段弧，<b>经过中点位置</b>，但中点不单独指定旋转。</span></div>
+      <div class="detail"><b>围绕目标的圆弧</b><span>两个等半径机位围绕同一目标，沿确定平面的最短圆弧运动，全程看向目标。</span></div>
+      <div class="detail"><b>手动三次 Bézier</b><span>用空间拉杆塑造路线，<b>不必经过控制点</b>；空间拉杆管「从哪里走」，速度拉杆管「怎么快慢」。</span></div>
+      <div class="detail"><b>通过速度 AUTO</b><span>默认由整条路径自动规划通过速度；右键内部点可手动填值，<b>恢复自动要清空输入再提交，不是填 0</b>。</span></div>
+      <div class="detail"><b>内部拉杆</b><span>改进入／离开侧长度与共同速度斜率，改一处可能影响邻段；虚线是参考，实线才是结果。</span></div>
+      <div class="detail"><b>失败与回退</b><span>共线、退化、半径不一致或正对 180° 无法确定平面时会失败；「恢复为普通路径」可随时取消。</span></div>
+    </div>
+    <p class="note">每次改路径、时间、速度或目标后，等完整重算再看三维图和运行提示 —— 保存成功不等于可以执行。</p>
+    <figure class="shot">
+      <img src="../assets/img/features/path.jpg" alt="路径类型与平滑方式在姿态点菜单里切换，旁边是速度曲线。" loading="lazy" width="1100" height="687">
+      <figcaption>路径类型与平滑方式在姿态点菜单里切换，旁边是速度曲线。</figcaption>
+    </figure>
+    </div>
+    <nav class="pager">
+      <a href="edit.html">← 上一页 · 记录与编辑：先摆位，再落点</a>
+      <a href="speed.html">下一页 · 速度：五个概念，别混着调 →</a>
+    </nav>
+    <p class="note">本页内容来自 CineArm v0.1.46 的软件行为。</p>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="y">2026</span> CineArm · cinearm.top</span>
+    <nav>
+      <a href="../index.html">首页</a>
+      <a href="../robots.html">机型选型</a>
+      <a href="https://github.com/Kikuku10/CineArm-Releases">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

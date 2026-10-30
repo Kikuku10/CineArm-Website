@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sending: this is where the software stops deciding — CineArm</title>
+<meta name="theme-color" content="#070B11">
+<link rel="icon" href="../../app-icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/site.css?v=3">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="../index.html">
+      <img class="mark" src="../../app-icon.svg" alt="" width="28" height="28">
+      CineArm
+    </a>
+    <nav>
+      <a class="hide-sm" href="../features.html" aria-current="page">Features</a>
+      <a class="hide-sm" href="../robots.html">Arms</a>
+      <a class="hide-sm" href="../index.html#plans">Licensing</a>
+      <a class="hide-sm" href="../index.html#download">Download</a>
+      <a class="lang" href="../../docs/send.html" hreflang="zh-CN">中文</a>
+      <a class="cta" href="https://github.com/Kikuku10/CineArm-Releases/releases">Releases</a>
+    </nav>
+  </div>
+</header>
+
+<div class="docs">
+      <aside class="docs-nav">
+        <p class="docs-nav__label">All sections</p>
+        <ol>
+        <li><a href="workspace.html"><span class="num">01</span>Six workspace areas, one job each</a></li>
+        <li><a href="project.html"><span class="num">02</span>Projects and scenes: keep more than one answer</a></li>
+        <li><a href="gallery.html"><span class="num">03</span>Saved positions: one master, many instances</a></li>
+        <li><a href="timeline.html"><span class="num">04</span>Five tracks, each holding its own thing</a></li>
+        <li><a href="edit.html"><span class="num">05</span>Recording: place it, look at it, press once</a></li>
+        <li><a href="path.html"><span class="num">06</span>Paths: five ways, differing in what they pass through</a></li>
+        <li><a href="speed.html"><span class="num">07</span>Five speed concepts, not interchangeable</a></li>
+        <li><a href="target.html"><span class="num">08</span>Targets: lock the framing to one point</a></li>
+        <li><a href="node.html"><span class="num">09</span>Node editing: a different way to read a shot</a></li>
+        <li><a href="manual.html"><span class="num">10</span>Manual control: four inputs, pick what fits</a></li>
+        <li><a href="load.html"><span class="num">11</span>Payload and camera tools: data first, precision second</a></li>
+        <li><a href="focus.html"><span class="num">12</span>Follow focus: program the curve, then connect the motor</a></li>
+        <li><a href="monitor.html"><span class="num">13</span>Monitoring and virtual set</a></li>
+        <li><a href="audio.html"><span class="num">14</span>Audio and rhythm: cut the move to the beat</a></li>
+        <li><a href="send.html" aria-current="page"><span class="num">15</span>Sending: this is where the software stops deciding</a></li>
+        <li><a href="shortcuts.html"><span class="num">16</span>Shortcuts and input devices</a></li>
+        <li><a href="settings.html"><span class="num">17</span>Preferences: six categories, save to apply</a></li>
+        <li><a href="trouble.html"><span class="num">18</span>Troubleshooting and wrap-up</a></li>
+        <li><a href="glossary.html"><span class="num">19</span>Glossary</a></li>
+        </ol>
+      </aside>
+  <main class="docs-main">
+    <p class="crumb"><a href="../features.html">Features in detail</a> / Sending: this is where the software stops deciding</p>
+    <h1>Sending: this is where the software stops deciding</h1>
+    <p class="lede">Everything before this is preparation. Only sending moves the arm.</p>
+    <div class="docs-body">
+<div class="detail-grid">
+      <div class="detail"><b>Send trajectory (default)</b><span>Generate the whole trajectory file and upload it for the controller to play — shortest link, steadiest rhythm.</span></div>
+      <div class="detail"><b>ServoJ throughout</b><span>CineArm streams targets point by point for setups that need live coupling.</span></div>
+      <div class="detail"><b>Two ways back to start</b><span>Along the trajectory, or a pure joint move that <b>does not guarantee the shot's spatial path</b>.</span></div>
+      <div class="detail"><b>Upload authentication</b><span>Vendor default or custom credentials, read and verify the host fingerprint, then validate and save; if it changes, investigate first.</span></div>
+      <div class="detail"><b>Must be at this run's start</b><span>Forward play needs the arm back at I, reverse at O, and it must actually arrive — <b>dragging the playhead is not arriving</b>.</span></div>
+      <div class="detail"><b>Run order</b><span>Stop preview → check project, I/O and the motion check → pick global speed, disable looping on the first run → enable send mode and return to start → play → answer focus prompts → observe until settled.</span></div>
+      <div class="detail"><b>Pause and end</b><span>The button becomes red “pause send”; continue to resume the remainder, or end to abandon it and wait for the unlock.</span></div>
+      <div class="detail"><b>Fault lock</b><span>When stop state is unverified, use “check and recover control”; clearing a controller alarm does not clear the local unverified state.</span></div>
+      <div class="detail"><b>Four recovery entries</b><span>Recover control, exit safely and disable motion, clear alarms, joint arrow jog — each for a different state; unknown or multiple alarms release no motion.</span></div>
+      <div class="detail"><b>Two boundaries</b><span>Uploading a trajectory is not saving a project (never copy a <code>.cinearm</code> into the controller); file playback marks progress on DO1–DO6, so check those outputs' wiring.</span></div>
+    </div>
+    <figure class="shot">
+      <img src="../../assets/img/features/send.jpg" alt="With send mode on, I/O map to the arm returning to start and end." loading="lazy" width="1100" height="687">
+      <figcaption>With send mode on, I/O map to the arm returning to start and end.</figcaption>
+    </figure>
+    </div>
+    <nav class="pager">
+      <a href="audio.html">← Previous · Audio and rhythm: cut the move to the beat</a>
+      <a href="shortcuts.html">Next · Shortcuts and input devices →</a>
+    </nav>
+    <p class="note">Describes CineArm v0.1.46 behaviour.</p>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="y">2026</span> CineArm · cinearm.top</span>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../robots.html">Arm selection</a>
+      <a href="https://github.com/Kikuku10/CineArm-Releases">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
