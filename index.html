@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kikuku10</title>
+<meta name="description" content="Kikuku10 的个人主页">
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 32px;
+    font: 16px/1.7 -apple-system, BlinkMacSystemFont, "SF Pro SC", "PingFang SC",
+          "Helvetica Neue", Arial, sans-serif;
+    color: #e8e8ed; background: #0b0b0d;
+    background-image: radial-gradient(60ch 60ch at 50% -10%, rgba(94,129,244,.18), transparent 70%);
+  }
+  main { width: 100%; max-width: 44rem; }
+  .avatar {
+    width: 72px; height: 72px; border-radius: 50%; display: grid; place-items: center;
+    background: linear-gradient(135deg, #5e81f4, #a06bf5);
+    font-weight: 700; font-size: 28px; color: #fff; margin-bottom: 24px;
+  }
+  h1 { font-size: clamp(28px, 5vw, 40px); margin: 0 0 8px; letter-spacing: -.02em; }
+  p.tag { margin: 0 0 32px; color: #a1a1aa; font-size: 18px; }
+  .links { display: flex; flex-wrap: wrap; gap: 12px; }
+  a.link {
+    display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px;
+    border-radius: 999px; text-decoration: none; color: #e8e8ed;
+    background: #18181b; border: 1px solid #27272a; transition: .18s;
+  }
+  a.link:hover { background: #27272a; border-color: #3f3f46; transform: translateY(-1px); }
+  footer { margin-top: 56px; color: #52525b; font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="avatar">K</div>
+  <h1>Kikuku10</h1>
+  <p class="tag">开发者 · 做一些小工具</p>
+  <div class="links">
+    <a class="link" href="https://github.com/Kikuku10">GitHub</a>
+    <a class="link" href="https://github.com/Kikuku10/CineArm-Releases">CineArm 下载</a>
+  </div>
+  <footer>© <span id="y"></span> Kikuku10</footer>
+</main>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
