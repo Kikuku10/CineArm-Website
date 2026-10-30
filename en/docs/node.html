@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Node editing: a different way to read a shot — CineArm</title>
+<title>Node editing: read a complex shot as cards — CineArm</title>
 <meta name="theme-color" content="#070B11">
 <link rel="icon" href="../../app-icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../assets/site.css?v=7">
@@ -53,32 +53,27 @@
         </ol>
       </aside>
   <main class="docs-main">
-    <p class="crumb"><a href="../features.html">Features in detail</a> / Node editing: a different way to read a shot</p>
-    <h1>Node editing: a different way to read a shot</h1>
-    <p class="lede">The timeline sorts by time; nodes sort by where you go next.</p>
+    <p class="crumb"><a href="../features.html">Features in detail</a> / Node editing: read a complex shot as cards</p>
+    <h1>Node editing: read a complex shot as cards</h1>
+    <p class="lede">Read a complicated shot as linked cards instead of counting points on a timeline.</p>
     <div class="docs-body">
-<div class="detail-grid">
-      <div class="detail"><b>Cards and links</b><span>Each card is a position, each link a route; record, connect and choose a route without renumbering.</span></div>
-      <div class="detail"><b>Motion type</b><span>Cards show joint, straight, target arc or three-point arc at a glance.</span></div>
-      <div class="detail"><b>Smoothing 0–100</b><span>Strength of mode 1; zero restores a stop at the original corner and arc via points are limited.</span></div>
-      <div class="detail"><b>Speed presets</b><span>Constant move or full ease-in-out; inherited curves can show “keep original curve”.</span></div>
-      <div class="detail"><b>Stop when passing</b><span>Pass the actual smoothed position at zero speed — not a return to the corner, and no added dwell.</span></div>
-      <div class="detail"><b>Paper-plane positioning</b><span>Click to drive along the currently available route, release to stop, Esc to abort; disabled without a device.</span></div>
-      <div class="detail"><b>Arc roles</b><span>Mark start, middle and end roles in the motion menu; roles must be consecutive along the links, and a partial set blocks playback and sending.</span></div>
-      <div class="detail"><b>Tidy and copy</b><span>“Tidy nodes” auto-lays out; copy, cut and paste — pasting onto another card copies properties, pasting on empty space makes a new card.</span></div>
-      <div class="detail"><b>Update from the arm</b><span>“Update keyframe from current arm position” overwrites with the live pose — it is not a positioning button.</span></div>
-      <div class="detail"><b>Saving and undo</b><span>Links, endpoints, parameters and layout save with the project and participate in undo; rewiring can invalidate inherited timing and reconnecting does not guarantee a restore.</span></div>
+      <div class="detail-grid">
+      <div class="detail"><b>A card is a position</b><span>One card per position; the links are the routes.</span></div>
+      <div class="detail"><b>Type at a glance</b><span>Each card shows whether the segment is joint, straight or an arc.</span></div>
+      <div class="detail"><b>Per-card speed</b><span>Give any card its own arrival speed.</span></div>
+      <div class="detail"><b>Stop on the way</b><span>Pause at that position when needed, without returning to the corner.</span></div>
+      <div class="detail"><b>Send it there</b><span>One press drives the arm to that node along the available route.</span></div>
+      <div class="detail"><b>Tidy and reuse</b><span>Auto-layout and copy properties; rewiring keeps working afterwards.</span></div>
+      </div>
     </div>
     <figure class="shot">
-      <img src="../../assets/img/features/node.jpg" alt="Node workbench: cards are positions, links are routes." loading="lazy" width="1100" height="687">
-      <figcaption>Node workbench: cards are positions, links are routes.</figcaption>
+      <img src="../../assets/img/features/node.jpg" alt="Node editing: read a complex shot as cards · 界面" loading="lazy" width="1100" height="687">
     </figure>
-    </div>
     <nav class="pager">
-      <a href="target.html">← Previous · Targets: lock the framing to one point</a>
-      <a href="manual.html">Next · Manual control: four inputs, pick what fits →</a>
+      <a href="target.html">← Previous · Targets: the lens keeps aiming itself</a>
+      <a href="manual.html">Next · Manual control: four ways to find the position →</a>
     </nav>
-    <p class="note">Describes CineArm v0.1.46 behaviour.</p>
+    <p class="note">Describes CineArm v0.1.46.</p>
   </main>
 </div>
 

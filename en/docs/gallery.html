@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Saved positions: one master, many instances — CineArm</title>
+<title>Saved positions: the shots you already found — CineArm</title>
 <meta name="theme-color" content="#070B11">
 <link rel="icon" href="../../app-icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../assets/site.css?v=7">
@@ -53,29 +53,27 @@
         </ol>
       </aside>
   <main class="docs-main">
-    <p class="crumb"><a href="../features.html">Features in detail</a> / Saved positions: one master, many instances</p>
-    <h1>Saved positions: one master, many instances</h1>
-    <p class="lede">Recording a pose creates both a reusable master and one use of it — two different things.</p>
+    <p class="crumb"><a href="../features.html">Features in detail</a> / Saved positions: the shots you already found</p>
+    <h1>Saved positions: the shots you already found</h1>
+    <p class="lede">The positions you found do not disappear, and editing one does not disturb the rest.</p>
     <div class="docs-body">
-<div class="detail-grid">
-      <div class="detail"><b>Master and instance</b><span>The master is the reusable position; the instance is one placement on a timeline or node. They undo together.</span></div>
-      <div class="detail"><b>Labels</b><span>Timeline labels use numbers for order and letters for the saved position; cards show the ID, snapshot and usage count.</span></div>
-      <div class="detail"><b>Creating references</b><span>Drag a card onto a track or the node canvas to create an instance; right-click “show on timeline” to find who references it.</span></div>
-      <div class="detail"><b>What the master stores</b><span>Optical-centre position and full orientation, plus the last successful arm pose; dropping it in re-solves for the current arm and confirmed camera mount.</span></div>
-      <div class="detail"><b>Delete instance vs master</b><span>Deleting a timeline point or node card keeps the master; <b>deleting the saved position</b> removes the master and every reference, with a confirmation listing the impact.</span></div>
-      <div class="detail"><b>Batch housekeeping</b><span>“Delete unused saved positions” clears unreferenced masters; “renumber in order” relabels A, B, C… continuing past Z as AA, AB.</span></div>
+      <div class="detail-grid">
+      <div class="detail"><b>Masters and uses</b><span>Save a position once, reuse it across as many timelines as you like.</span></div>
+      <div class="detail"><b>At a glance</b><span>Every position carries an ID, a thumbnail and a usage count.</span></div>
+      <div class="detail"><b>Drag to place</b><span>Drop a position onto a timeline or a node to add another use.</span></div>
+      <div class="detail"><b>Independent edits</b><span>Changing a position on one timeline leaves the others alone.</span></div>
+      <div class="detail"><b>Safe deletion</b><span>Deleting a timeline point removes only that use; the master stays until you clear it.</span></div>
+      <div class="detail"><b>Housekeeping</b><span>Clear unused positions in one go and renumber the rest in order.</span></div>
+      </div>
     </div>
-    <p class="note">Editing one instance keeps the other uses — “same saved position” does not mean every instance moves together.</p>
     <figure class="shot">
-      <img src="../../assets/img/features/gallery.jpg" alt="Saved-position panel: ID, snapshot and usage count per master." loading="lazy" width="1100" height="687">
-      <figcaption>Saved-position panel: ID, snapshot and usage count per master.</figcaption>
+      <img src="../../assets/img/features/gallery.jpg" alt="Saved positions: the shots you already found · 界面" loading="lazy" width="1100" height="687">
     </figure>
-    </div>
     <nav class="pager">
       <a href="project.html">← Previous · Projects and scenes: keep more than one answer</a>
-      <a href="timeline.html">Next · Five tracks, each holding its own thing →</a>
+      <a href="timeline.html">Next · Timeline: picture, aim and focus on separate tracks →</a>
     </nav>
-    <p class="note">Describes CineArm v0.1.46 behaviour.</p>
+    <p class="note">Describes CineArm v0.1.46.</p>
   </main>
 </div>
 

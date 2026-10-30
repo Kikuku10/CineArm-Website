@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>发送与安全：到这一步，软件说了不算 — CineArm</title>
+<title>发送：真的动机械臂时，每一步都有退路 — CineArm</title>
 <meta name="theme-color" content="#070B11">
 <link rel="icon" href="../app-icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/site.css?v=7">
@@ -53,32 +53,28 @@
         </ol>
       </aside>
   <main class="docs-main">
-    <p class="crumb"><a href="../features.html">功能详解</a> / 发送与安全：到这一步，软件说了不算</p>
-    <h1>发送与安全：到这一步，软件说了不算</h1>
-    <p class="lede">前面都是准备，只有发送会让机械臂真的动。</p>
+    <p class="crumb"><a href="../features.html">功能详解</a> / 发送：真的动机械臂时，每一步都有退路</p>
+    <h1>发送：真的动机械臂时，每一步都有退路</h1>
+    <p class="lede">真的要动机械臂时，每一步都有明确的确认和回退。</p>
     <div class="docs-body">
-<div class="detail-grid">
-      <div class="detail"><b>发送轨迹（默认）</b><span>整段轨迹生成文件上传，由控制柜播放，链路最短、节奏最稳。</span></div>
-      <div class="detail"><b>全程 ServoJ</b><span>CineArm 持续逐点发送目标，适合需要与软件实时联动的场合。</span></div>
-      <div class="detail"><b>回起点两种</b><span>「沿轨迹」走已有路线；「关节运动」直接规划关节，<b>不保证空间上沿原拍摄路径</b>。</span></div>
-      <div class="detail"><b>上传认证</b><span>厂商默认或自定义账号，读取并核对主机指纹后验证保存；指纹变化先查原因。</span></div>
-      <div class="detail"><b>必须先到起点</b><span>正放先回 I、倒放先回 O，等真实机械臂到位；<b>拖播放头不能代替到位</b>。</span></div>
-      <div class="detail"><b>运行顺序</b><span>停预览 → 核对项目与 I/O 和运镜检查 → 选全局速度、首次关循环 → 开发送模式回起点 → 点正放／倒放 → 处理跟焦确认 → 观察到位。</span></div>
-      <div class="detail"><b>暂停与结束</b><span>准备或运行中按钮变红色「暂停发送」；可「继续发送」接剩余，或「结束发送」放弃剩余并等解锁。</span></div>
-      <div class="detail"><b>故障锁</b><span>「停止状态待核验」时按「检查并恢复控制」重新核对；清除控制柜报警不会清掉本地未确认状态。</span></div>
-      <div class="detail"><b>四个恢复入口</b><span>恢复控制、安全退出并关闭运动控制、清除报警、关节箭头点动 —— 各适用不同状态，未知或多重报警不放行动作。</span></div>
-      <div class="detail"><b>两条边界</b><span>上传轨迹不是保存项目，别把 <code>.cinearm</code> 塞进控制柜；文件播放用 DO1–DO6 标进度，先核对外设接线。</span></div>
+      <div class="detail-grid">
+      <div class="detail"><b>先彩排再发</b><span>正式发送前，所有内容都能在虚拟机械臂上走一遍。</span></div>
+      <div class="detail"><b>两种发送方式</b><span>交给控制柜自己播放，或由软件实时逐点发送。</span></div>
+      <div class="detail"><b>先回到起点</b><span>正放倒放都先回到本次起点，不会从任意位置起步。</span></div>
+      <div class="detail"><b>换机先核对</b><span>换控制柜要先核对身份，轨迹不会发错机器。</span></div>
+      <div class="detail"><b>中途可暂停</b><span>跑到一半能停，从当前位置接着走。</span></div>
+      <div class="detail"><b>异常可恢复</b><span>真出问题有专门的检查与恢复入口，不必重排整条镜头。</span></div>
+      </div>
+    <p class="note">上传轨迹不等于保存项目；文件播放会占用几个输出位，接外设前先核对。</p>
     </div>
     <figure class="shot">
-      <img src="../assets/img/features/send.jpg" alt="发送模式开启后，I／O 对应机械臂回播放起点与终点。" loading="lazy" width="1100" height="687">
-      <figcaption>发送模式开启后，I／O 对应机械臂回播放起点与终点。</figcaption>
+      <img src="../assets/img/features/send.jpg" alt="发送：真的动机械臂时，每一步都有退路 · 界面" loading="lazy" width="1100" height="687">
     </figure>
-    </div>
     <nav class="pager">
-      <a href="audio.html">← 上一页 · 音频与节奏：让运镜卡在鼓点上</a>
-      <a href="shortcuts.html">下一页 · 快捷键与输入设备 →</a>
+      <a href="audio.html">← 上一页 · 音频：让运镜卡着拍子走</a>
+      <a href="shortcuts.html">下一页 · 快捷键：常用动作都有默认键 →</a>
     </nav>
-    <p class="note">本页内容来自 CineArm v0.1.46 的软件行为。</p>
+    <p class="note">本页内容对应 CineArm v0.1.46。</p>
   </main>
 </div>
 

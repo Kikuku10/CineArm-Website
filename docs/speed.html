@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>速度：五个概念，别混着调 — CineArm</title>
+<title>速度：整条放慢，或只改某一段 — CineArm</title>
 <meta name="theme-color" content="#070B11">
 <link rel="icon" href="../app-icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/site.css?v=7">
@@ -53,30 +53,27 @@
         </ol>
       </aside>
   <main class="docs-main">
-    <p class="crumb"><a href="../features.html">功能详解</a> / 速度：五个概念，别混着调</p>
-    <h1>速度：五个概念，别混着调</h1>
-    <p class="lede">分不清就会觉得「明明调了却没变」。</p>
+    <p class="crumb"><a href="../features.html">功能详解</a> / 速度：整条放慢，或只改某一段</p>
+    <h1>速度：整条放慢，或只改某一段</h1>
+    <p class="lede">同一条镜头可以整体放慢试跑，也能只调某一段的节奏，互不干扰。</p>
     <div class="docs-body">
-<div class="detail-grid">
-      <div class="detail"><b>微调速度</b><span>自由操控和目标操控的手动速度，只影响当前这次操作。</span></div>
-      <div class="detail"><b>全局速度</b><span>1%–100% 滑杆，比例放慢本次发送，<b>不改保存的时间和曲线</b>，适合首次试跑。</span></div>
-      <div class="detail"><b>区间速度曲线</b><span>保存下来的起步、加速、巡航、减速节奏，是镜头本身的节奏。</span></div>
-      <div class="detail"><b>平滑点通过速度</b><span>平滑路径经过内部位置时的连续速度，可自动也可手动指定。</span></div>
-      <div class="detail"><b>节点速度</b><span>节点卡片的 1%–100%，到达该卡的最大速度估算比例，改它会让节点重算时间。</span></div>
-      <div class="detail"><b>百分比是什么</b><span>都是估算占比，<b>不是末端 mm/s，也不是实测反馈</b>；跟焦速度是焦点变化率。</span></div>
-      <div class="detail"><b>循环两个方向</b><span>首发方向按全局速度，<b>反向每圈按原编排 100%</b>；正放 20% 不代表回程也 20%。</span></div>
-      <div class="detail"><b>全局速度复位</b><span>结束、停止或重开项目后可能恢复 100%，下次运行前再看一眼当前值。</span></div>
+      <div class="detail-grid">
+      <div class="detail"><b>先慢跑一遍</b><span>整体降到 20% 走一次，保存的时间不用改。</span></div>
+      <div class="detail"><b>段内节奏</b><span>起步、加速、匀速、减速按镜头需要排。</span></div>
+      <div class="detail"><b>经过不停</b><span>穿过中间点时保持速度，不用刹停。</span></div>
+      <div class="detail"><b>单独限速</b><span>给某一张卡片单独限速，其余不受影响。</span></div>
+      <div class="detail"><b>循环两个方向</b><span>来回分开算，回程不会被首发速度拖慢。</span></div>
+      <div class="detail"><b>开拍前看一眼</b><span>结束或重开后速度会回默认，下次开拍前确认当前值。</span></div>
+      </div>
     </div>
     <figure class="shot">
-      <img src="../assets/img/features/speed.jpg" alt="区间设置里可以分别设定速度曲线与平滑。" loading="lazy" width="1100" height="687">
-      <figcaption>区间设置里可以分别设定速度曲线与平滑。</figcaption>
+      <img src="../assets/img/features/speed.jpg" alt="速度：整条放慢，或只改某一段 · 界面" loading="lazy" width="1100" height="687">
     </figure>
-    </div>
     <nav class="pager">
-      <a href="path.html">← 上一页 · 路径：五种走法，差别在「经不经过」</a>
-      <a href="target.html">下一页 · 目标与朝向：把构图锁在现场那个点 →</a>
+      <a href="path.html">← 上一页 · 路径：想要怎么走，五种走法都行</a>
+      <a href="target.html">下一页 · 目标：被摄对象不动，镜头自己对着它 →</a>
     </nav>
-    <p class="note">本页内容来自 CineArm v0.1.46 的软件行为。</p>
+    <p class="note">本页内容对应 CineArm v0.1.46。</p>
   </main>
 </div>
 

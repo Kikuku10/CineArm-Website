@@ -4,18 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Features in detail — CineArm</title>
-<meta name="description" content="A module-by-module walkthrough of CineArm: workspace and 3D view, projects, scenes and saved positions, timeline tracks, paths and speeds, targets, node editing, manual control, payload, follow focus, monitoring, audio, sending safely, shortcuts, preferences, troubleshooting and a glossary.">
 <meta name="theme-color" content="#070B11">
-<meta property="og:title" content="Features in detail — CineArm">
-<meta property="og:description" content="How CineArm actually works, module by module.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://cinearm.top/en/features.html">
-<meta property="og:locale" content="en">
-<link rel="icon" href="../app-icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="../app-icon.svg">
+<link rel="icon" href="app-icon.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="zh-CN" href="https://cinearm.top/features.html">
 <link rel="alternate" hreflang="en" href="https://cinearm.top/en/features.html">
-<link rel="alternate" hreflang="x-default" href="https://cinearm.top/features.html">
 <link rel="stylesheet" href="../../assets/site.css?v=7">
 </head>
 <body>
@@ -23,7 +15,7 @@
 <header>
   <div class="wrap bar">
     <a class="brand" href="index.html">
-      <img class="mark" src="../app-icon.svg" alt="" width="28" height="28">
+      <img class="mark" src="app-icon.svg" alt="" width="28" height="28">
       CineArm
     </a>
     <nav>
@@ -31,7 +23,7 @@
       <a class="hide-sm" href="robots.html">Arms</a>
       <a class="hide-sm" href="index.html#plans">Licensing</a>
       <a class="hide-sm" href="index.html#download">Download</a>
-      <a class="lang" href="../features.html" hreflang="zh-CN">中文</a>
+      <a class="lang" href="../en/features.html" hreflang="en">EN</a>
       <a class="cta" href="https://github.com/Kikuku10/CineArm-Releases/releases">Releases</a>
     </nav>
   </div>
@@ -41,11 +33,7 @@
   <div class="wrap hero-inner">
     <span class="eyebrow"><span class="dot"></span>v0.1.46 feature sheet</span>
     <h1 class="sm">Features in detail</h1>
-    <p class="lede">
-      How the app is structured: what each area does, what each track holds, the five path types and five speed
-      concepts, how focus gets from a curve to a motor, what it takes to send safely — plus shortcuts,
-      preferences and where to look when something refuses to run.
-    </p>
+    <p class="lede">What each area gives you, what every track holds, the five path shapes and five speed controls, how focus gets from a curve to a motor, and what has to be true before the arm is allowed to move.</p>
   </div>
 </div>
 
@@ -54,116 +42,116 @@
     <div class="doc-grid">
       <a class="doc-card" href="docs/workspace.html">
         <span class="doc-card__num">01</span>
-        <b>Six workspace areas, one job each</b>
-        <span>The app opens the project manager first; inside the workspace these six areas never change role.</span>
+        <b>Workspace: six areas, one job each</b>
+        <span>Open the app and you know where to look; nothing to memorise.</span>
         <span class="doc-card__more">Read →</span>
       </a>
       <a class="doc-card" href="docs/project.html">
         <span class="doc-card__num">02</span>
         <b>Projects and scenes: keep more than one answer</b>
-        <span>Project → scene → saved position, so comparing options never means copying the whole job.</span>
+        <span>Keep several answers to the same shot in one project and decide after comparing.</span>
         <span class="doc-card__more">Read →</span>
       </a>
       <a class="doc-card" href="docs/gallery.html">
         <span class="doc-card__num">03</span>
-        <b>Saved positions: one master, many instances</b>
-        <span>Recording a pose creates both a reusable master and one use of it — two different things.</span>
+        <b>Saved positions: the shots you already found</b>
+        <span>The positions you found do not disappear, and editing one does not disturb the rest.</span>
         <span class="doc-card__more">Read →</span>
       </a>
       <a class="doc-card" href="docs/timeline.html">
         <span class="doc-card__num">04</span>
-        <b>Five tracks, each holding its own thing</b>
-        <span>Separate tracks mean changing framing cannot silently change focus.</span>
+        <b>Timeline: picture, aim and focus on separate tracks</b>
+        <span>Picture, aim, focus and sound each get their own track, so changing one never breaks another.</span>
         <span class="doc-card__more">Read →</span>
       </a>
       <a class="doc-card" href="docs/edit.html">
         <span class="doc-card__num">05</span>
-        <b>Recording: place it, look at it, press once</b>
-        <span>Recording is the most repeated action, so it is a rhythm rather than a dialog.</span>
+        <b>Recording: place it, press once</b>
+        <span>Place it, look at it, press once — the shot takes shape.</span>
         <span class="doc-card__more">Read →</span>
       </a>
       <a class="doc-card" href="docs/path.html">
         <span class="doc-card__num">06</span>
-        <b>Paths: five ways, differing in what they pass through</b>
-        <span>Same A to B, but the intermediate positions behave completely differently.</span>
+        <b>Paths: five ways to get from one shot to the next</b>
+        <span>Sweep past, pass through, or orbit a point — five shapes cover it.</span>
         <span class="doc-card__more">Read →</span>
       </a>
       <a class="doc-card" href="docs/speed.html">
         <span class="doc-card__num">07</span>
-        <b>Five speed concepts, not interchangeable</b>
-        <span>Mixing them up is the usual reason “I changed it but nothing happened”.</span>
+        <b>Speed: slow the whole take, or just one segment</b>
+        <span>Slow the whole take for a rehearsal, or reshape one segment — the two never interfere.</span>
         <span class="doc-card__more">Read →</span>
       </a>
       <a class="doc-card" href="docs/target.html">
         <span class="doc-card__num">08</span>
-        <b>Targets: lock the framing to one point</b>
-        <span>“Where the lens looks” becomes a reusable object instead of being baked into every position.</span>
+        <b>Targets: the lens keeps aiming itself</b>
+        <span>Hold the subject still and the lens keeps aiming at it by itself.</span>
         <span class="doc-card__more">Read →</span>
       </a>
       <a class="doc-card" href="docs/node.html">
         <span class="doc-card__num">09</span>
-        <b>Node editing: a different way to read a shot</b>
-        <span>The timeline sorts by time; nodes sort by where you go next.</span>
+        <b>Node editing: read a complex shot as cards</b>
+        <span>Read a complicated shot as linked cards instead of counting points on a timeline.</span>
         <span class="doc-card__more">Read →</span>
       </a>
       <a class="doc-card" href="docs/manual.html">
         <span class="doc-card__num">10</span>
-        <b>Manual control: four inputs, pick what fits</b>
-        <span>Finding a position should not depend on which tool you are holding.</span>
+        <b>Manual control: four ways to find the position</b>
+        <span>Four ways to find a position — pick whichever fits the moment.</span>
         <span class="doc-card__more">Read →</span>
       </a>
       <a class="doc-card" href="docs/load.html">
         <span class="doc-card__num">11</span>
-        <b>Payload and camera tools: data first, precision second</b>
-        <span>The same arm behaves differently with different loads, so this is configuration, not feel.</span>
+        <b>Payload and camera: fill it in, and motion stays true</b>
+        <span>Get the body, lens and rig weights right, and the motion stays true.</span>
         <span class="doc-card__more">Read →</span>
       </a>
       <a class="doc-card" href="docs/focus.html">
         <span class="doc-card__num">12</span>
-        <b>Follow focus: program the curve, then connect the motor</b>
-        <span>Focus is its own timeline — you can program it before any hardware is connected.</span>
+        <b>Follow focus: program it first, connect the motor later</b>
+        <span>Program focus like any other track; connect the motor when you are on set.</span>
         <span class="doc-card__more">Read →</span>
       </a>
       <a class="doc-card" href="docs/monitor.html">
         <span class="doc-card__num">13</span>
-        <b>Monitoring and virtual set</b>
-        <span>Monitoring is the frame you capture; the virtual set is the spatial relationship. Both live in the same 3D view.</span>
+        <b>Monitoring and set: see the frame before you shoot</b>
+        <span>See the framing and the geometry before you shoot.</span>
         <span class="doc-card__more">Read →</span>
       </a>
       <a class="doc-card" href="docs/audio.html">
         <span class="doc-card__num">14</span>
-        <b>Audio and rhythm: cut the move to the beat</b>
-        <span>Bring the track in, mark the beats, time the movement against them.</span>
+        <b>Audio: cut the move to the beat</b>
+        <span>Bring the track in and time the moves to it.</span>
         <span class="doc-card__more">Read →</span>
       </a>
       <a class="doc-card" href="docs/send.html">
         <span class="doc-card__num">15</span>
-        <b>Sending: this is where the software stops deciding</b>
-        <span>Everything before this is preparation. Only sending moves the arm.</span>
+        <b>Sending: every step on the way to real motion</b>
+        <span>When the arm really moves, every step has a confirmation and a way back.</span>
         <span class="doc-card__more">Read →</span>
       </a>
       <a class="doc-card" href="docs/shortcuts.html">
         <span class="doc-card__num">16</span>
-        <b>Shortcuts and input devices</b>
-        <span>Defaults cover the frequent actions, and everything can be rebound and saved as a preset.</span>
+        <b>Shortcuts: the frequent moves already have keys</b>
+        <span>The frequent moves already have keys — and all of them can be changed.</span>
         <span class="doc-card__more">Read →</span>
       </a>
       <a class="doc-card" href="docs/settings.html">
         <span class="doc-card__num">17</span>
-        <b>Preferences: six categories, save to apply</b>
-        <span>Open from the gear in the status bar; the search filters by name or keyword.</span>
+        <b>Preferences: tune it to the way you work</b>
+        <span>Tune the defaults to the way you work; save and it takes effect.</span>
         <span class="doc-card__more">Read →</span>
       </a>
       <a class="doc-card" href="docs/trouble.html">
         <span class="doc-card__num">18</span>
-        <b>Troubleshooting and wrap-up</b>
-        <span>Most refusals have a concrete reason in the run messages — read it before changing anything.</span>
+        <b>Troubleshooting and wrap-up: read first, then act</b>
+        <span>Most refusals tell you why in the run messages.</span>
         <span class="doc-card__more">Read →</span>
       </a>
       <a class="doc-card" href="docs/glossary.html">
         <span class="doc-card__num">19</span>
         <b>Glossary</b>
-        <span>These words recur throughout the interface with fixed meanings.</span>
+        <span>Words that recur throughout the interface, with fixed meanings.</span>
         <span class="doc-card__more">Read →</span>
       </a>
     </div>
@@ -174,15 +162,13 @@
   <div class="wrap foot">
     <span>© <span id="y">2026</span> CineArm · cinearm.top</span>
     <nav>
-      <a href="../index.html">Home</a>
-      <a href="../robots.html">Arm selection</a>
-      <a href="shortcuts.html">Shortcut card (printable)</a>
+      <a href="shortcuts.html">Shortcut card</a>
+      <a href="robots.html">Arm selection</a>
       <a href="https://github.com/Kikuku10/CineArm-Releases">GitHub</a>
     </nav>
   </div>
 </footer>
 
 <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-
 </body>
 </html>

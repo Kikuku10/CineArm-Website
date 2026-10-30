@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Follow focus: program the curve, then connect the motor — CineArm</title>
+<title>Follow focus: program it first, connect the motor later — CineArm</title>
 <meta name="theme-color" content="#070B11">
 <link rel="icon" href="../../app-icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../assets/site.css?v=7">
@@ -53,31 +53,27 @@
         </ol>
       </aside>
   <main class="docs-main">
-    <p class="crumb"><a href="../features.html">Features in detail</a> / Follow focus: program the curve, then connect the motor</p>
-    <h1>Follow focus: program the curve, then connect the motor</h1>
-    <p class="lede">Focus is its own timeline — you can program it before any hardware is connected.</p>
+    <p class="crumb"><a href="../features.html">Features in detail</a> / Follow focus: program it first, connect the motor later</p>
+    <h1>Follow focus: program it first, connect the motor later</h1>
+    <p class="lede">Program focus like any other track; connect the motor when you are on set.</p>
     <div class="docs-body">
-<div class="detail-grid">
-      <div class="detail"><b>Two representations</b><span>Percentage 0%–100% or logical code 0–16383 — positions along one calibrated travel, <b>not metres and not focal length</b>.</span></div>
-      <div class="detail"><b>Direction</b><span>Normal or reversed for different mounts; set before takeover, locked during playback, takeover and calibration.</span></div>
-      <div class="detail"><b>Focus-only keys</b><span>Insert a focus-only key at a valid integer frame so focus changes without touching pose.</span></div>
-      <div class="detail"><b>Focus speed curve</b><span>Flatten the platform and ramp the transitions; %/s is a project focus rate, not measured lens speed.</span></div>
-      <div class="detail"><b>Auto-calibration</b><span>One press sweeps the full travel; watch both ends finish, then confirm — confirming takes over the current target and the motor may move immediately.</span></div>
-      <div class="detail"><b>Multiple motors</b><span>Bluetooth devices are distinguished by full identity, not display name; add, calibrate and take over each separately.</span></div>
-      <div class="detail"><b>Wired end-effector</b><span>The end-effector controller supports a wired connection alongside Bluetooth.</span></div>
-      <div class="detail"><b>While running</b><span>Pause and continue, or choose “send arm only” to drop focus; dismissing a prompt is not the same as a successful joint run.</span></div>
+      <div class="detail-grid">
+      <div class="detail"><b>Its own track</b><span>Edit focus without touching a single position.</span></div>
+      <div class="detail"><b>Exact repeats</b><span>Focus positions are saved and can be found again on another stage.</span></div>
+      <div class="detail"><b>Focus-only keys</b><span>Change focus at one frame without adding a position.</span></div>
+      <div class="detail"><b>Ramp it</b><span>Control how quickly focus travels between values.</span></div>
+      <div class="detail"><b>Auto-calibration</b><span>One press sweeps the full travel; confirm both ends and take over.</span></div>
+      <div class="detail"><b>Several motors</b><span>One machine can drive multiple motors, each bound and controlled separately.</span></div>
+      </div>
     </div>
-    <p class="note">Reopening a project keeps bindings but not connections or authorisation; after switching machines, verify identity and rebind.</p>
     <figure class="shot">
-      <img src="../../assets/img/features/focus.jpg" alt="The focus panel separates current focus, the selected key and Air4 state." loading="lazy" width="1100" height="687">
-      <figcaption>The focus panel separates current focus, the selected key and Air4 state.</figcaption>
+      <img src="../../assets/img/features/focus.jpg" alt="Follow focus: program it first, connect the motor later · 界面" loading="lazy" width="1100" height="687">
     </figure>
-    </div>
     <nav class="pager">
-      <a href="load.html">← Previous · Payload and camera tools: data first, precision second</a>
-      <a href="monitor.html">Next · Monitoring and virtual set →</a>
+      <a href="load.html">← Previous · Payload and camera: fill it in, and motion stays true</a>
+      <a href="monitor.html">Next · Monitoring and set: see the frame before you shoot →</a>
     </nav>
-    <p class="note">Describes CineArm v0.1.46 behaviour.</p>
+    <p class="note">Describes CineArm v0.1.46.</p>
   </main>
 </div>
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sending: this is where the software stops deciding — CineArm</title>
+<title>Sending: every step on the way to real motion — CineArm</title>
 <meta name="theme-color" content="#070B11">
 <link rel="icon" href="../../app-icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../assets/site.css?v=7">
@@ -53,32 +53,28 @@
         </ol>
       </aside>
   <main class="docs-main">
-    <p class="crumb"><a href="../features.html">Features in detail</a> / Sending: this is where the software stops deciding</p>
-    <h1>Sending: this is where the software stops deciding</h1>
-    <p class="lede">Everything before this is preparation. Only sending moves the arm.</p>
+    <p class="crumb"><a href="../features.html">Features in detail</a> / Sending: every step on the way to real motion</p>
+    <h1>Sending: every step on the way to real motion</h1>
+    <p class="lede">When the arm really moves, every step has a confirmation and a way back.</p>
     <div class="docs-body">
-<div class="detail-grid">
-      <div class="detail"><b>Send trajectory (default)</b><span>Generate the whole trajectory file and upload it for the controller to play — shortest link, steadiest rhythm.</span></div>
-      <div class="detail"><b>ServoJ throughout</b><span>CineArm streams targets point by point for setups that need live coupling.</span></div>
-      <div class="detail"><b>Two ways back to start</b><span>Along the trajectory, or a pure joint move that <b>does not guarantee the shot's spatial path</b>.</span></div>
-      <div class="detail"><b>Upload authentication</b><span>Vendor default or custom credentials, read and verify the host fingerprint, then validate and save; if it changes, investigate first.</span></div>
-      <div class="detail"><b>Must be at this run's start</b><span>Forward play needs the arm back at I, reverse at O, and it must actually arrive — <b>dragging the playhead is not arriving</b>.</span></div>
-      <div class="detail"><b>Run order</b><span>Stop preview → check project, I/O and the motion check → pick global speed, disable looping on the first run → enable send mode and return to start → play → answer focus prompts → observe until settled.</span></div>
-      <div class="detail"><b>Pause and end</b><span>The button becomes red “pause send”; continue to resume the remainder, or end to abandon it and wait for the unlock.</span></div>
-      <div class="detail"><b>Fault lock</b><span>When stop state is unverified, use “check and recover control”; clearing a controller alarm does not clear the local unverified state.</span></div>
-      <div class="detail"><b>Four recovery entries</b><span>Recover control, exit safely and disable motion, clear alarms, joint arrow jog — each for a different state; unknown or multiple alarms release no motion.</span></div>
-      <div class="detail"><b>Two boundaries</b><span>Uploading a trajectory is not saving a project (never copy a <code>.cinearm</code> into the controller); file playback marks progress on DO1–DO6, so check those outputs' wiring.</span></div>
+      <div class="detail-grid">
+      <div class="detail"><b>Rehearse first</b><span>Run the whole thing on the virtual arm before any real motion.</span></div>
+      <div class="detail"><b>Two send modes</b><span>Let the controller play the file, or stream targets from the software.</span></div>
+      <div class="detail"><b>Back to the start</b><span>Forward and reverse both begin from this run's start, never from wherever the arm happens to be.</span></div>
+      <div class="detail"><b>Verify a new controller</b><span>Check identity before sending, so a trajectory cannot land on the wrong machine.</span></div>
+      <div class="detail"><b>Pause mid-move</b><span>Stop halfway and continue from where you stopped.</span></div>
+      <div class="detail"><b>Recoverable faults</b><span>A dedicated check-and-recover path, without re-blocking the whole shot.</span></div>
+      </div>
+    <p class="note">Uploading a trajectory is not saving a project; file playback occupies a few outputs, so check the wiring first.</p>
     </div>
     <figure class="shot">
-      <img src="../../assets/img/features/send.jpg" alt="With send mode on, I/O map to the arm returning to start and end." loading="lazy" width="1100" height="687">
-      <figcaption>With send mode on, I/O map to the arm returning to start and end.</figcaption>
+      <img src="../../assets/img/features/send.jpg" alt="Sending: every step on the way to real motion · 界面" loading="lazy" width="1100" height="687">
     </figure>
-    </div>
     <nav class="pager">
-      <a href="audio.html">← Previous · Audio and rhythm: cut the move to the beat</a>
-      <a href="shortcuts.html">Next · Shortcuts and input devices →</a>
+      <a href="audio.html">← Previous · Audio: cut the move to the beat</a>
+      <a href="shortcuts.html">Next · Shortcuts: the frequent moves already have keys →</a>
     </nav>
-    <p class="note">Describes CineArm v0.1.46 behaviour.</p>
+    <p class="note">Describes CineArm v0.1.46.</p>
   </main>
 </div>
 
