@@ -1,8 +1,9 @@
 :root{
-  --bg:#070B11; --panel:#0F1724; --panel-2:#121C2B;
-  --line:#1C2836; --line-strong:#2B3B4E;
-  --text:#E9F0FF; --muted:#94A6BC; --dim:#6B7F96;
-  --accent:#00A9A6; --accent-soft:#73D0CE;
+  /* CineArm workbench palette (packages/editor/src/lib/theme.ts) */
+  --bg:#212126; --panel:#28282e; --panel-2:#2d2d34;
+  --line:#3a3a42; --line-strong:#4c4c56;
+  --text:#d6d6d8; --muted:#a3a3ab; --dim:#8f8f97;
+  --accent:#00a9a6; --accent-soft:#73d0ce;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -18,7 +19,7 @@ a{color:inherit;text-decoration:none}
 
 /* header */
 header{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);
-  background:rgba(7,11,17,.74);border-bottom:1px solid var(--line)}
+  background:rgba(33,33,38,.78);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;justify-content:space-between;height:66px}
 .brand{display:flex;align-items:center;gap:11px;font-weight:650;letter-spacing:-.01em;font-size:17px}
 .brand .mark{width:28px;height:28px;display:block;border-radius:7px}
@@ -234,7 +235,7 @@ code{font:0.9em ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(115,
 .cheat-row:first-of-type{border-top:0;padding-top:0}
 .cheat-row .keys{flex:none;width:150px;display:flex;flex-wrap:wrap;gap:5px}
 .cheat-row .desc{color:var(--muted);line-height:1.55}
-kbd{font:600 12.5px ui-monospace,SFMono-Regular,Menlo,monospace;background:#0b131f;
+kbd{font:600 12.5px ui-monospace,SFMono-Regular,Menlo,monospace;background:#24242a;
   border:1px solid var(--line-strong);border-bottom-width:2px;border-radius:6px;
   padding:3px 7px;color:var(--text);white-space:nowrap}
 
