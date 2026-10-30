@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>机械臂选型 — CineArm</title>
+<meta name="description" content="CineArm 已支持 Nova 5、CR5、CR10、CR10A（含 CR10V）、CR20A，并提供越疆 CRA、CRAF、CRH、Nova 系列的参数对照与选型建议。">
+<meta name="theme-color" content="#070B11">
+<meta property="og:title" content="机械臂选型 — CineArm">
+<meta property="og:description" content="CineArm 支持的越疆机型与选型对照。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cinearm.top/robots.html">
+<link rel="icon" href="app-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="app-icon.svg">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="index.html">
+      <img class="mark" src="app-icon.svg" alt="" width="28" height="28">
+      CineArm
+    </a>
+    <nav>
+      <a class="hide-sm" href="index.html#features">功能</a>
+      <a class="hide-sm" href="robots.html" aria-current="page">机型</a>
+      <a class="hide-sm" href="index.html#plans">授权</a>
+      <a class="hide-sm" href="index.html#download">下载</a>
+      <a class="cta" href="https://github.com/Kikuku10/CineArm-Releases/releases">版本记录</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow"><span class="dot"></span>越疆 Dobot · 协作机械臂</span>
+    <h1 class="sm">机械臂选型</h1>
+    <p class="lede">
+      CineArm 目前支持 5 个机型，全部都能在没有真机的情况下虚拟练习。
+      先看「已支持」这一栏确认能不能连你的设备，再按负载和臂展挑具体型号。
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#supported">看支持的机型</a>
+      <a class="btn btn-ghost" href="#specs">参数对照</a>
+    </div>
+  </div>
+</div>
+
+<section id="supported" class="first">
+  <div class="wrap">
+    <h2 class="h2">CineArm 已支持</h2>
+    <p class="sub">下表是当前版本实际注册的机型。实机连接指能接管真实设备并接收反馈；虚拟练习全部可用。</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>机型</th><th>最大负载</th><th>控制协议</th><th>实机连接</th><th>虚拟练习</th><th>J1</th><th>J2</th><th>J3</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="model">Nova 5</td><td class="n">5 kg</td><td>V4</td>
+            <td>✓</td><td>✓</td>
+            <td class="n">±359.8°</td><td class="n">±180°</td><td class="n">±160°</td>
+          </tr>
+          <tr>
+            <td class="model">CR5</td><td class="n">5 kg</td><td>V3</td>
+            <td>✓</td><td>✓</td>
+            <td class="n">±180°</td><td class="n">±180°</td><td class="n">±160°</td>
+          </tr>
+          <tr>
+            <td class="model">CR10</td><td class="n">10 kg</td><td>V3</td>
+            <td>✓</td><td>✓</td>
+            <td class="n">±355°</td><td class="n">±355°</td><td class="n">±160°</td>
+          </tr>
+          <tr>
+            <td class="model">CR10A / CR10V</td><td class="n">10 kg</td><td>V4</td>
+            <td>✓</td><td>✓</td>
+            <td class="n">±358°</td><td class="n">±358°</td><td class="n">±162°</td>
+          </tr>
+          <tr>
+            <td class="model">CR20A</td><td class="n">20 kg</td><td>V4</td>
+            <td>—</td><td>✓</td>
+            <td class="n">±360°</td><td class="n">±360°</td><td class="n">±169°</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">
+      三点说明：CR10V 与 CR10A 共用同一套项目配置，选型时可以按 CR10A 看待；
+      CR20A 目前只有虚拟模型，尚未开放实机反馈，适合先在软件里排好镜头；
+      CR5 与 CR10 属于上一代机型，参数请以厂商旧版资料为准。
+    </p>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <h2 class="h2">三步定档位</h2>
+    <p class="sub">参数表看着多，实际只要确认三件事。</p>
+    <div class="flow">
+      <div class="step">
+        <div class="num">01</div>
+        <div>
+          <h3>算总重，再留余量</h3>
+          <p>机身 + 镜头 + 云台 + 快装板 + 线缆，全部加起来，再留 20–30% 余量。镜头越长，重心越往外，力矩比重量更关键。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <div>
+          <h3>定臂展，看的是半径不是高度</h3>
+          <p>工作半径决定镜头能伸多远。要在同一条轨道上往返时，半径要能覆盖两端最远的机位，而不是刚好够到中间。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <div>
+          <h3>看现场环境</h3>
+          <p>高粉尘、潮湿选 IP68 系列；要跟人或道具发生接触，选带力传感器的 CRAF；需要极快的换位速度，看 CRH。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="specs">
+  <div class="wrap">
+    <h2 class="h2">系列参数对照</h2>
+    <p class="sub">
+      「支持」一列标的是 CineArm 当前版本能否连接实机。带 ✓ 的可以直接用，其余机型可以等后续接入，
+      也可以先用虚拟机械臂排镜头。
+    </p>
+
+    <div class="series" id="cra">
+      <div class="series-head">
+        <h3>CRA 系列</h3>
+        <span class="chip">高性能高精度</span>
+        <span class="chip">3–30 kg</span>
+      </div>
+      <p class="desc">通用主力系列，重复定位精度最高 ±0.02 mm，全系 IP54。CR16AL 和 CR6AL 是加长臂，CR20A 在码垛场景最大可支持 25 kg。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>型号</th><th>支持</th><th>最大负载</th><th>工作半径</th><th>本体重量</th><th>重复定位精度</th><th>J1/J2 速度</th><th>J3 范围</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="model">CR3A</td><td>—</td><td class="n">3 kg</td><td class="n">620 mm</td><td class="n">16.5 kg</td><td class="n">±0.02 mm</td><td class="n">180°/s</td><td class="n">±155°</td></tr>
+            <tr><td class="model">CR5A</td><td>—</td><td class="n">5 kg</td><td class="n">900 mm</td><td class="n">25 kg</td><td class="n">±0.02 mm</td><td class="n">180°/s</td><td class="n">±160°</td></tr>
+            <tr><td class="model">CR7A</td><td>—</td><td class="n">7 kg</td><td class="n">800 mm</td><td class="n">24.5 kg</td><td class="n">±0.02 mm</td><td class="n">180°/s</td><td class="n">±160°</td></tr>
+            <tr><td class="model">CR10A</td><td class="ok">✓</td><td class="n">10 kg</td><td class="n">1300 mm</td><td class="n">40 kg</td><td class="n">±0.03 mm</td><td class="n">150°/s</td><td class="n">±160°</td></tr>
+            <tr><td class="model">CR12A</td><td>—</td><td class="n">12 kg</td><td class="n">1200 mm</td><td class="n">39.5 kg</td><td class="n">±0.03 mm</td><td class="n">150°/s</td><td class="n">±160°</td></tr>
+            <tr><td class="model">CR16A</td><td>—</td><td class="n">16 kg</td><td class="n">1000 mm</td><td class="n">40 kg</td><td class="n">±0.03 mm</td><td class="n">150°/s</td><td class="n">±160°</td></tr>
+            <tr><td class="model">CR16AL</td><td>—</td><td class="n">16 kg</td><td class="n">1300 mm</td><td class="n">40 kg</td><td class="n">±0.04 mm</td><td class="n">110°/s</td><td class="n">±160°</td></tr>
+            <tr><td class="model">CR20A</td><td class="ok">✓</td><td class="n">20 kg</td><td class="n">1700 mm</td><td class="n">73 kg</td><td class="n">±0.05 mm</td><td class="n">120°/s</td><td class="n">±165°</td></tr>
+            <tr><td class="model">CR30A</td><td>—</td><td class="n">30 kg</td><td class="n">1305 mm</td><td class="n">70 kg</td><td class="n">±0.05 mm</td><td class="n">120°/s</td><td class="n">±165°</td></tr>
+            <tr><td class="model">CR6AL</td><td>—</td><td class="n">6 kg</td><td class="n">1800 mm</td><td class="n">41.5 kg</td><td class="n">±0.05 mm</td><td class="n">150°/s</td><td class="n">±170°</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="series" id="nova">
+      <div class="series-head">
+        <h3>Nova 系列</h3>
+        <span class="chip">小巧紧凑</span>
+        <span class="chip">2 / 5 kg</span>
+      </div>
+      <p class="desc">适合商业及轻量化场景，本体轻、占地小，棚内换位置时一人就能搬动。目前接入的是 Nova 5。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>型号</th><th>支持</th><th>最大负载</th><th>工作半径</th><th>本体重量</th><th>重复定位精度</th><th>噪声</th><th>防护</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="model">Nova 2</td><td>—</td><td class="n">2 kg</td><td class="n">625 mm</td><td class="n">11 kg</td><td class="n">±0.05 mm</td><td class="n">65 dB(A)</td><td>IP54</td></tr>
+            <tr><td class="model">Nova 2s</td><td>—</td><td class="n">2 kg</td><td class="n">500 mm</td><td class="n">11 kg</td><td class="n">±0.05 mm</td><td class="n">65 dB(A)</td><td>IP54</td></tr>
+            <tr><td class="model">Nova 5</td><td class="ok">✓</td><td class="n">5 kg</td><td class="n">850 mm</td><td class="n">14 kg</td><td class="n">±0.05 mm</td><td class="n">70 dB(A)</td><td>IP54</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="series" id="craf">
+      <div class="series-head">
+        <h3>CRAF 系列</h3>
+        <span class="chip">智能力控</span>
+        <span class="chip">内置六维力传感器</span>
+      </div>
+      <p class="desc">法兰末端内置高精度六维力传感器，力控应用可以快速部署，不必外挂传感器。适合需要柔顺接触、拖动示教或恒定压紧的动作。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>型号</th><th>支持</th><th>最大负载</th><th>工作半径</th><th>本体重量</th><th>重复定位精度</th><th>力 / 力矩量程</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="model">CR5AF</td><td>—</td><td class="n">5 kg</td><td class="n">900 mm</td><td class="n">25.5 kg</td><td class="n">±0.02 mm</td><td class="n">150 N / 15 Nm</td></tr>
+            <tr><td class="model">CR10AF</td><td>—</td><td class="n">10 kg</td><td class="n">1300 mm</td><td class="n">40.5 kg</td><td class="n">±0.03 mm</td><td class="n">300 N / 30 Nm</td></tr>
+            <tr><td class="model">CR20AF</td><td>—</td><td class="n">20 kg</td><td class="n">1700 mm</td><td class="n">74 kg</td><td class="n">±0.05 mm</td><td class="n">500 N / 50 Nm</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="series" id="ip68">
+      <div class="series-head">
+        <h3>CRA-IP68 系列</h3>
+        <span class="chip">高防护</span>
+        <span class="chip">粉尘 · 潮湿</span>
+      </div>
+      <p class="desc">防护等级 IP68，适应高粉尘和潮湿的恶劣环境。外景、车戏、水池边或粉尘大的棚内都能用，清洁方式也比常规机型宽松。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>型号</th><th>支持</th><th>最大负载</th><th>工作半径</th><th>本体重量</th><th>重复定位精度</th><th>防护</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="model">CR3AP</td><td>—</td><td class="n">3 kg</td><td class="n">620 mm</td><td class="n">16.5 kg</td><td class="n">±0.02 mm</td><td>IP68</td></tr>
+            <tr><td class="model">CR5AP</td><td>—</td><td class="n">5 kg</td><td class="n">900 mm</td><td class="n">25 kg</td><td class="n">±0.02 mm</td><td>IP68</td></tr>
+            <tr><td class="model">CR10AP</td><td>—</td><td class="n">10 kg</td><td class="n">1300 mm</td><td class="n">40 kg</td><td class="n">±0.03 mm</td><td>IP68</td></tr>
+            <tr><td class="model">CR20AP</td><td>—</td><td class="n">20 kg</td><td class="n">1700 mm</td><td class="n">73 kg</td><td class="n">±0.05 mm</td><td>IP68</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="series" id="crh">
+      <div class="series-head">
+        <h3>CRH 系列</h3>
+        <span class="chip">300°/s</span>
+        <span class="chip">大负载高速度</span>
+      </div>
+      <p class="desc">面向大负载的高速机型，30 kg 负载配 1800 mm 半径，关节速度最高 300°/s。适合需要快速换位、长距离一气呵成的镜头。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>型号</th><th>支持</th><th>最大负载</th><th>工作半径</th><th>本体重量</th><th>重复定位精度</th><th>关节速度</th><th>防护</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="model">CR30H</td><td>—</td><td class="n">30 kg</td><td class="n">1800 mm</td><td class="n">100 kg</td><td class="n">±0.05 mm</td><td class="n">300°/s</td><td>IP65</td></tr>
+            <tr><td class="model">CR30HT</td><td>—</td><td class="n">30 kg</td><td class="n">1800 mm</td><td class="n">102 kg</td><td class="n">±0.05 mm</td><td class="n">300°/s</td><td>IP65</td></tr>
+            <tr><td class="model">CR30H-Food</td><td>—</td><td class="n">30 kg</td><td class="n">1800 mm</td><td class="n">100 kg</td><td class="n">±0.05 mm</td><td class="n">300°/s</td><td>IP67</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="series" id="four">
+      <div class="series-head">
+        <h3>四轴系列</h3>
+        <span class="chip">工业级桌面</span>
+      </div>
+      <p class="desc">桌面级四轴机型，适合小批量、多样化的轻工业自动化。不是六轴运镜的主力，但在固定的推拉、升降动作上更省空间。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>型号</th><th>支持</th><th>额定负载</th><th>工作半径</th><th>轴数</th><th>重复定位精度</th><th>重量</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="model">M1 Pro</td><td>—</td><td class="n">1.5 kg</td><td class="n">400 mm</td><td class="n">4</td><td class="n">±0.02 mm</td><td class="n">15.7 kg</td></tr>
+            <tr><td class="model">MG400</td><td>—</td><td class="n">0.5 kg（最大 0.75）</td><td class="n">440 mm</td><td class="n">4</td><td class="n">±0.05 mm</td><td class="n">8 kg</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tips">
+  <div class="wrap">
+    <h2 class="h2">选型与验机提醒</h2>
+    <p class="sub">纸面参数看不出这几件事，买之前最好都确认一遍。</p>
+    <div class="tips">
+      <div class="tip">
+        <h3><span class="n">1</span>关节行程要先问清</h3>
+        <p>部分 CR 机型的 J4/J5/J6 出厂为 ±180° 而非 ±360°，会限制镜头翻转和俯仰范围。下单前务必和卖家确认具体配置，不要只看型号。</p>
+      </div>
+      <div class="tip">
+        <h3><span class="n">2</span>抱闸形式影响停位</h3>
+        <p>电磁抱闸与撞针抱闸的回位表现不同，影视用途建议优先选择电磁抱闸版本。若是撞针抱闸，装机后要重点确认末端停位，避免运行中碰到机身或镜头。</p>
+      </div>
+      <div class="tip">
+        <h3><span class="n">3</span>实测比参数可靠</h3>
+        <p>让机械臂做末端伸长、缩短的动作，观察低速运行时是否爬行或抖动。条件允许的话，带上转接板和配重到现场试机，比看表格准。</p>
+      </div>
+      <div class="tip">
+        <h3><span class="n">4</span>轻微抖动是正常特征</h3>
+        <p>协作臂关节普遍使用谐波减速机，本身存在弹性，J2、J3 这类长臂关节在伸展位置会有轻微抖动，属正常范围。明显抖动才需要排查装配或负载。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="accessories">
+  <div class="wrap">
+    <h2 class="h2">随机配套</h2>
+    <p class="sub">这些不在机身参数里，但会直接影响现场布置和供电。</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>配件</th><th>适配机型</th><th>关键参数</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="model">控制柜 CC262 / CC263</td><td>CRA 3–16 kg 机型</td><td class="n">345 × 345 × 145 mm · 9.5 kg（AC）/ 8.5 kg（DC）</td></tr>
+          <tr><td class="model">控制柜 CC262 / CC263</td><td>CRA 20–30 kg 机型</td><td class="n">400 × 400 × 175 mm · 15.5 kg（AC）</td></tr>
+          <tr><td class="model">控制柜 CC365</td><td>CR30H</td><td class="n">400 × 190 × 400 mm · 19 kg</td></tr>
+          <tr><td class="model">SimBOX</td><td>Nova 系列</td><td class="n">193 × 122 × 35 mm · 0.8 kg</td></tr>
+          <tr><td class="model">示教器 TP10</td><td>协作系列</td><td class="n">10.1 寸 · 1920 × 1200 · IP54 · 1.02 kg</td></tr>
+          <tr><td class="model">智能相机 VX500</td><td>视觉定位</td><td class="n">500 万像素 · 1/1.7" · 全局快门</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">
+      「已支持」依据 CineArm 当前版本的机型注册表；其余参数摘自《越疆机器人工业产品选型手册（2026-02 参数选型版）》。
+      实际出货配置与参数以越疆官方最新公布为准，关节范围、抱闸形式和接口配置建议直接与供应商确认。
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="y">2026</span> CineArm · cinearm.top</span>
+    <nav>
+      <a href="index.html">首页</a>
+      <a href="https://github.com/Kikuku10/CineArm-Releases">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
