@@ -42,7 +42,8 @@
     <h1 class="sm">Buying guide</h1>
     <p class="lede">
       I am not an industry professional and I do not sell equipment. I just wanted to shoot my own things with a robot arm,
-      so I bought a used film-arm kit — and discovered that “it should just work out of the box” was the first trap.
+      so I bought a film-arm kit — and discovered that “it should just work out of the box” was the first trap.
+      <b>New kits play the same game.</b>
     </p>
     <p class="lede" style="margin-top:-16px">
       No brands are recommended here and nothing is for sale. These are the pitfalls I hit, plus those told to me by
@@ -67,10 +68,12 @@
     <h2>In 30 seconds</h2>
     <ul>
       <li><b>A working system is four parts</b>: arm, camera plate, base, software. The last three decide the image — and the word “kit” tends to hide them.</li>
-      <li><b>A used 5 kg-class arm runs 10k–30k CNY</b>; new is roughly double; turnkey packages have no list price at all.</li>
+      <li><b>A used 5 kg-class arm runs 10k–30k CNY</b>; a used 10 kg-class 20k–30k; new is roughly double; turnkey kits have no list price.</li>
+      <li><b>The base is the part that eats you alive</b> — mine cost a month of factory back-and-forth, harder than writing the software.</li>
       <li><b>Feeling it at rest proves nothing</b>: extend fully and run at medium-high speed — that is when vibration shows.</li>
       <li><b>Identify the vibration source</b>: arm, base, or camera stabilisation. They look identical and they are not the robot's fault alike.</li>
       <li><b>Wire it if you can</b>: wireless latency makes the arm itself judder, not just the picture.</li>
+      <li><b>The camera plate can be free</b>: my CAD is open source, and JLCPCB CNC sampling comes to about 30 CNY.</li>
       <li><b>When something fails</b>: export the log, shoot a video, and describe reproducible steps — it beats “it does not work” ten times over.</li>
     </ul>
   </div>
@@ -82,27 +85,31 @@
     <p class="sub">Start with my mistakes — every lesson below came out of them.</p>
     <div class="flow">
       <div class="step"><div class="num">01</div><div>
-        <h3>Bought a used kit</h3>
-        <p>A Nova 5 plus bundled software and accessories. It looked complete; I assumed I could shoot the same day.</p>
+        <h3>Bought a film-arm kit</h3>
+        <p>A Nova 5 with bundled software and accessories. It looked complete. <b>Later I learned that new kits run the same playbook</b> — you buy the arm, the rest is your problem.</p>
       </div></div>
       <div class="step"><div class="num">02</div><div>
         <h3>The software disappointed</h3>
-        <p>It could set nodes, speed and smoothing — the same things the official pendant software already does. I wanted an editable speed curve, a lock onto the subject and follow-focus linkage. It could not do those. It was a large teach pendant.</p>
+        <p>It could set nodes, speed and smoothing — the same things the official pendant software already does. I wanted an editable speed curve, a lock onto the subject and follow-focus linkage. It could not. It was a large teach pendant.</p>
       </div></div>
       <div class="step"><div class="num">03</div><div>
         <h3>Account rebinding was worse</h3>
-        <p>The login was still tied to the previous owner's phone number and could not be changed; switching computers hit a binding limit. <b>This is specific to turnkey kits</b> — buy the arm alone and there is no account to bind.</p>
+        <p>The login was still tied to the previous owner's number and could not be changed; switching computers hit a binding limit. <b>Specific to turnkey kits</b> — an arm bought alone has no account to bind.</p>
       </div></div>
       <div class="step"><div class="num">04</div><div>
-        <h3>The accessories were questionable</h3>
-        <p>The bundled camera plate locked with a single thin screw. I never trusted it.</p>
+        <h3>Accessories were questionable</h3>
+        <p>The bundled camera plate locked on a single thin screw. I never trusted it — eventually I drew my own and open-sourced it.</p>
       </div></div>
       <div class="step"><div class="num">05</div><div>
-        <h3>Rebuilt it as four parts</h3>
-        <p>Arm, camera plate, base, software — sourcing each one separately turned out to be clearer.</p>
+        <h3>Sold the Nova 5, bought a CR10A</h3>
+        <p>After a while I sold the Nova 5 and paid 25k CNY for a lab-retired CR10A — 10 kg payload, 1300 mm reach, far more comfortable with a mid-size body.</p>
+      </div></div>
+      <div class="step"><div class="num">06</div><div>
+        <h3>A month lost to the base</h3>
+        <p>The arm arrived with no base, so it could not even start. Two factories, wrong dimensions, welded sub-plates, corners cut — a full month gone. Harder than writing the software from scratch.</p>
       </div></div>
     </div>
-    <p class="note">A used kit saves procurement time, but “can it shoot what I want” is a different question.</p>
+    <p class="note">A kit saves procurement time, but “can it shoot what I want” is a different question.</p>
   </div>
 </section>
 
@@ -114,7 +121,7 @@
       <table>
         <thead><tr><th>Module</th><th>What it decides</th><th>Usual problem</th></tr></thead>
         <tbody>
-          <tr><td class="model">① The arm<br><span style="color:var(--dim)">mine is a Nova 5</span></td><td>Payload and reach</td><td>Condition, joint travel revision, brake type</td></tr>
+          <tr><td class="model">① The arm<br><span style="color:var(--dim)">now: CR10A<br>previous Nova 5 sold</span></td><td>Payload and reach</td><td>Condition, joint travel revision, brake type</td></tr>
           <tr><td class="model">② Camera plate</td><td>How the camera attaches</td><td>Single-point locking, no quick-release compatibility</td></tr>
           <tr><td class="model">③ Counterweighted base</td><td>Whether it stays still at speed</td><td>Too light — the whole rig shakes</td></tr>
           <tr><td class="model">④ Motion software</td><td>Driving a robot or directing a shot</td><td>Stuck at teach-pendant level</td></tr>
@@ -122,6 +129,34 @@
       </table>
     </div>
     <p class="note">The last three decide the final image — and they are exactly what the word “kit” tends to hide.</p>
+
+    <h3 style="margin:46px 0 12px;font-size:18px">The base: a month of my life</h3>
+    <p class="sub" style="margin-bottom:18px">
+      The most underestimated part of the whole system. My goal was <b>one base that fits CR5 / Nova 5 / CR10 / CR20</b> —
+      get the hole pattern right once and future arms just bolt on.
+    </p>
+    <div class="detail-grid">
+      <div class="detail"><b>First order</b><span>Sent the drawing; it came back and would not fit. Hole pattern off. Returned.</span></div>
+      <div class="detail"><b>Second factory</b><span>Same story: welded sub-plates, a base that was not flat, corners cut, one revision dragging into the next.</span></div>
+      <div class="detail"><b>The cost</b><span>The CR10A arrived and could not run — a month with no usable base.</span></div>
+      <div class="detail"><b>In the end</b><span>Just over 1,000 CNY for a 100-plus kg solid steel base that finally holds still.</span></div>
+    </div>
+    <div class="callout warn">
+      <span class="tag">Lesson</span>
+      <p>Put <b>tolerances, hole pattern and flatness</b> on the drawing; find a shop that reads drawings and will rework; budget a month.
+         Honestly, that month of coordination cost more than writing the software.</p>
+    </div>
+
+    <h3 style="margin:46px 0 12px;font-size:18px">The camera plate: open sourced</h3>
+    <p class="sub" style="margin-bottom:18px">
+      I never trusted the single-screw plate, so I drew a new one — it takes common Arca and SmallRig quick releases, and the CAD is on MakerWorld.
+    </p>
+    <div class="detail-grid">
+      <div class="detail"><b>How to make it</b><span>JLCPCB CNC, 6061 aluminium, <b>free sampling, about 30 CNY</b>.</span></div>
+      <div class="detail"><b>Where</b><span><a href="https://makerworld.com.cn/zh/models/3162541-ji-jie-bi-fa-lan-xiang-ji-zhuan-jie-ban#profileId-3727934">MakerWorld · robot flange camera plate</a></span></div>
+    </div>
+    <p class="note">Download the drawing and send it straight to a shop; double-check the pattern against the quick release you actually own.</p>
+
   </div>
 </section>
 
@@ -130,19 +165,20 @@
     <h2 class="h2">3. Price: used versus new</h2>
     <p class="sub">Bands are the real quote ±10k CNY, for order of magnitude only; small parts are given by tier.</p>
     <div class="kpi">
-      <div><span class="v">10k–30k</span><span class="l">used 5 kg-class arm (CNY)</span></div>
+      <div><span class="v">20k–30k</span><span class="l">used 10 kg-class (my CR10A)</span></div>
       <div><span class="v">×2 or so</span><span class="l">new versus used</span></div>
       <div><span class="v">~1,000</span><span class="l">base + camera plate (CNY)</span></div>
-      <div><span class="v">≈ 21k</span><span class="l">my complete hardware</span></div>
+      <div><span class="v">~30 CNY</span><span class="l">camera plate (open CAD + sampling)</span></div>
     </div>
     <div class="table-wrap" style="margin-top:22px">
       <table>
         <thead><tr><th>Item</th><th>Used</th><th>New</th></tr></thead>
         <tbody>
           <tr><td class="model">5 kg-class arm (bare), e.g. Nova 5</td><td class="n">10k – 30k</td><td>Roughly double the used price</td></tr>
+          <tr><td class="model">10 kg-class arm (bare), e.g. CR10A</td><td class="n">20k – 30k</td><td>Roughly double</td></tr>
           <tr><td class="model">Complete self-built hardware</td><td class="n">10k – 30k</td><td>Roughly double (mostly the arm)</td></tr>
-          <tr><td class="model">Camera plate (own CAD + CNC)</td><td class="n">~100</td><td>About the same</td></tr>
-          <tr><td class="model">Steel counterweight base</td><td class="n">~1,000</td><td>About the same</td></tr>
+          <tr><td class="model">Camera plate (open CAD + JLCPCB)</td><td class="n">~30</td><td>About the same</td></tr>
+          <tr><td class="model">Steel counterweight base (100+ kg, custom)</td><td class="n">~1,000+</td><td>About the same</td></tr>
           <tr><td class="model">Cables, quick release, screws</td><td class="n">A few hundred</td><td>About the same</td></tr>
         </tbody>
       </table>

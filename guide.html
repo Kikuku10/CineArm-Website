@@ -40,8 +40,8 @@
     <span class="eyebrow"><span class="dot"></span>一个普通用户的踩坑记录</span>
     <h1 class="sm">避坑指南</h1>
     <p class="lede">
-      我不是从业者，也不是设备商。我只是想用机械臂拍点自己的东西，于是买了一台二手的影视机械臂套餐，
-      结果发现「买回来就能用」这个想法，本身就是第一个坑。
+      我不是从业者，也不是设备商。我只是想用机械臂拍点自己的东西，于是买了一台影视机械臂套餐，
+      结果发现「买回来就能用」这个想法，本身就是第一个坑 —— 而且<b>全新的套餐也是同一套玩法</b>。
     </p>
     <p class="lede" style="margin-top:-16px">
       这份东西不推荐任何品牌，也不带货，纯粹把自己踩过的、以及跟同样想玩机械臂的人聊到的坑写下来，
@@ -67,10 +67,12 @@
     <h2>30 秒速览</h2>
     <ul>
       <li><b>一套能用的系统是四件</b>：本体、相机转接、底座、软件 —— 后三件决定成片，也最容易被「套餐」两个字盖过去。</li>
-      <li><b>二手 5 kg 级本体 1–3 万</b>；全新贵一倍上下；成套方案没有标价，要一家一家问。</li>
+      <li><b>二手 5 kg 级本体 1–3 万</b>；10 kg 级二手 2–3 万；全新贵一倍上下；成套方案没有标价。</li>
+      <li><b>底座是最耗人的一件</b>：我在这上面被工厂拖了一个月，比从头写软件还累。</li>
       <li><b>验机只摸静止没用</b>：让末端全展、走中高速，抖动才会暴露出来。</li>
       <li><b>抖动先分来源</b>：本体、底座、相机防抖，三者观感很像，别一上来就怪机器。</li>
       <li><b>能走网线就走网线</b>：无线延迟会让机械臂动作本身抖，不是画面抖。</li>
+      <li><b>法兰转接板可以白嫖</b>：我的图纸已开源，嘉立创 CNC 打样三十多块。</li>
       <li><b>出问题先导日志、录视频</b>，把「可复现的步骤 + 明确的现象」讲清楚，比「用不了」有用十倍。</li>
     </ul>
   </div>
@@ -84,8 +86,8 @@
       <div class="step">
         <div class="num">01</div>
         <div>
-          <h3>买了一套二手套餐</h3>
-          <p>越疆 Nova 5 + 配套软件 + 配件，看着挺全，以为开箱就能拍。</p>
+          <h3>买了一套影视机械臂套餐</h3>
+          <p>越疆 Nova 5 + 配套软件 + 配件，看着挺全，以为开箱就能拍。<b>后来才明白：全新的套餐也是这套玩法</b> —— 卖的是本体，剩下的事归你。</p>
         </div>
       </div>
       <div class="step">
@@ -106,19 +108,27 @@
         <div class="num">04</div>
         <div>
           <h3>配件也不靠谱</h3>
-          <p>原配的相机转接板只靠一根很细的螺丝锁紧，我总觉得不稳。</p>
+          <p>原配的相机转接板只靠一根很细的螺丝锁紧，我总觉得不稳 —— 后来干脆自己画了一块，开源出去了。</p>
         </div>
       </div>
       <div class="step">
         <div class="num">05</div>
         <div>
-          <h3>最后拆成四块重做</h3>
-          <p>本体、相机转接、底座、软件 —— 一件件自己配，反而清楚了。</p>
+          <h3>把 Nova 5 出掉，换了台 CR10A</h3>
+          <p>Nova 5 用了一段时间后出掉，2.5 万收了台实验室退役的二手 CR10A —— 10 kg 负载、1300 mm 臂展，带中型机身更从容。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">06</div>
+        <div>
+          <h3>底座被工厂折磨了一个月</h3>
+          <p>机器到货了却没底座，开不了机。前后找了两个工厂，尺寸不对、拼接底板、加工偷工减料，来回折腾整整一个月 —— 比我从头写一个软件还累。</p>
         </div>
       </div>
     </div>
+    </div>
     <p class="note">
-      这件事让我明白：二手套餐省的是采购时间，但「能不能按你的想法拍」是另一回事。
+      这件事让我明白：套餐省的是采购时间，但「能不能按你的想法拍」是另一回事 —— 而且跟新旧无关。
     </p>
   </div>
 </section>
@@ -133,7 +143,7 @@
           <tr><th>模块</th><th>作用</th><th>常见问题</th></tr>
         </thead>
         <tbody>
-          <tr><td class="model">① 机械臂本体<br><span style="color:var(--dim)">我这台是越疆 Nova 5</span></td><td>决定负载和臂展</td><td>二手成色、行程版本、抱闸形式</td></tr>
+          <tr><td class="model">① 机械臂本体<br><span style="color:var(--dim)">现役：越疆 CR10A<br>上一台 Nova 5 已出</span></td><td>决定负载和臂展</td><td>二手成色、行程版本、抱闸形式</td></tr>
           <tr><td class="model">② 相机安装转接</td><td>把相机固定到末端</td><td>原配板单点锁紧、不通用阿卡/小隼</td></tr>
           <tr><td class="model">③ 配重稳定底座</td><td>高速运转时不晃</td><td>底座太轻，整机跟着抖</td></tr>
           <tr><td class="model">④ 运镜控制软件</td><td>决定你是「操控机械臂」还是「调度镜头」</td><td>功能停留在示教器级别</td></tr>
@@ -141,6 +151,35 @@
       </table>
     </div>
     <p class="note">真正决定成片效果的，是后面这三件 —— 而它们恰恰最容易被「套餐」两个字掩盖过去。</p>
+
+    <h3 style="margin:46px 0 12px;font-size:18px">底座：我在这上面耗了一个月</h3>
+    <p class="sub" style="margin-bottom:18px">
+      这是整套里最容易被低估、也最耗人的一件。我的目标是<b>一个底座兼容 CR5 / Nova 5 / CR10 / CR20</b>，
+      孔位一次做对，以后换机器不用重做。
+    </p>
+    <div class="detail-grid">
+      <div class="detail"><b>第一次下单</b><span>图纸发过去，做回来装不上 —— 孔位对不上，只能退。</span></div>
+      <div class="detail"><b>换一家工厂</b><span>还是不行：拼接底板、底面不平、加工偷工减料，改一版拖一版。</span></div>
+      <div class="detail"><b>代价</b><span>CR10A 到货了却开不了机，整整一个月没有可用底座。</span></div>
+      <div class="detail"><b>最后</b><span>一千多块、一百多公斤的整块钢底座，终于稳住了。</span></div>
+    </div>
+    <div class="callout warn">
+      <span class="tag">教训</span>
+      <p>底座图纸上一定要标<b>公差、孔位和平面度</b>；找能看懂图的厂，先问能不能返工；工期至少留一个月。
+         说句实话：这一个月的沟通成本，比我从头写一个软件还高。</p>
+    </div>
+
+    <h3 style="margin:46px 0 12px;font-size:18px">转接板：我把它开源了</h3>
+    <p class="sub" style="margin-bottom:18px">
+      原配那块单点锁紧的板子我实在不放心，就自己重新画了一块 —— 现在支持阿卡、小隼等常见快装，
+      图纸已经放到 MakerWorld，可以直接拿去加工。
+    </p>
+    <div class="detail-grid">
+      <div class="detail"><b>怎么加工</b><span>嘉立创 CNC、6061 铝合金，<b>免费打样，三十多块</b>就能出来。</span></div>
+      <div class="detail"><b>图纸在哪</b><span><a href="https://makerworld.com.cn/zh/models/3162541-ji-jie-bi-fa-lan-xiang-ji-zhuan-jie-ban#profileId-3727934">MakerWorld · 机械臂法兰相机转接板</a></span></div>
+    </div>
+    <p class="note">不想自己画的，直接下图纸去打样就行；尺寸按你实际用的快装系统核对一下再下单。</p>
+
   </div>
 </section>
 
@@ -149,10 +188,10 @@
     <h2 class="h2">三、价格：二手和全新差在哪</h2>
     <p class="sub">真实报价上下各浮一万，只看量级；小件按档位说。</p>
     <div class="kpi">
-      <div><span class="v">1–3 万</span><span class="l">本体（二手，5 kg 级）</span></div>
+      <div><span class="v">2–3 万</span><span class="l">二手 10 kg 级（我的 CR10A）</span></div>
       <div><span class="v">贵一倍上下</span><span class="l">全新相对二手</span></div>
       <div><span class="v">千元级</span><span class="l">底座 + 相机转接</span></div>
-      <div><span class="v">≈ 2.1 万</span><span class="l">我的整套硬件</span></div>
+      <div><span class="v">30 多元</span><span class="l">法兰转接板（开源 + 打样）</span></div>
     </div>
     <div class="table-wrap">
       <table>
@@ -160,10 +199,11 @@
           <tr><th>项目</th><th>二手</th><th>全新</th></tr>
         </thead>
         <tbody>
-          <tr><td class="model">越疆 Nova 5 这类 5 kg 级本体（裸机）</td><td class="n">1 万 – 3 万</td><td>比二手贵一倍上下</td></tr>
+          <tr><td class="model">5 kg 级本体（裸机，如 Nova 5）</td><td class="n">1 万 – 3 万</td><td>比二手贵一倍上下</td></tr>
+          <tr><td class="model">10 kg 级本体（裸机，如 CR10A）</td><td class="n">2 万 – 3 万</td><td>比二手贵一倍上下</td></tr>
           <tr><td class="model">自制整套硬件（本体+底座+转接+配件）</td><td class="n">1 万 – 3 万</td><td>比二手贵一倍上下（主要贵在本体）</td></tr>
-          <tr><td class="model">相机转接板（自己画图 + CNC 打样）</td><td class="n">百元级</td><td>差不多</td></tr>
-          <tr><td class="model">全钢配重底座（按尺寸定制）</td><td class="n">千元级</td><td>差不多</td></tr>
+          <tr><td class="model">相机转接板（开源图纸 + 嘉立创打样）</td><td class="n">30 多元</td><td>差不多</td></tr>
+          <tr><td class="model">全钢配重底座（一百多公斤，定制）</td><td class="n">1 千多</td><td>差不多</td></tr>
           <tr><td class="model">零碎配件（线缆、快装、螺丝）</td><td class="n">几百元</td><td>差不多</td></tr>
         </tbody>
       </table>
@@ -173,8 +213,8 @@
       成套方案（整机 + 软件 + 调试服务）没有固定标价，按臂展、负载、软件功能和服务内容差异很大，通常明显高于自己买本体再配配件 —— 具体要一家一家问。
     </p>
     <div class="detail-grid" style="margin-top:20px">
-      <div class="detail"><b>我的实际账单</b><span>二手本体两万上下，底座和相机转接一千多，零碎配件几百 —— 硬件落在两万一二，比当时看的二手成套套餐便宜几千块。</span></div>
-      <div class="detail"><b>省下的钱不多</b><span>自己搭省下来几千块，搭进去的是画图、找工厂、摸协议、调软件的时间。愿意动手才划算。</span></div>
+      <div class="detail"><b>我的实际账单</b><span>二手 CR10A 2.5 万，全钢底座一千多，转接板三十多块，零碎配件几百 —— 硬件两万六七。</span></div>
+      <div class="detail"><b>省下的钱不多</b><span>比成套方案便宜几千块，搭进去的是画图、找工厂、摸协议、调软件的时间。愿意动手才划算。</span></div>
     </div>
   </div>
 </section>
