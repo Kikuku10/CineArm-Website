@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>常见问题 — CineArm</title>
+<meta name="description" content="CineArm 常见问题：我的机械臂能不能用、要花多少钱、没有真机能练吗、免费版够不够、怎么买二手、安全吗。一条一句答案。">
+<meta name="theme-color" content="#212126">
+<meta property="og:title" content="CineArm 常见问题">
+<meta property="og:description" content="一条一句答案，省得来回问。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cinearm.top/faq.html">
+<meta property="og:image" content="https://cinearm.top/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="app-icon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="zh-CN" href="https://cinearm.top/faq.html">
+<link rel="alternate" hreflang="en" href="https://cinearm.top/en/faq.html">
+<link rel="stylesheet" href="assets/site.css?v=14">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="index.html">
+      <img class="mark" src="app-icon.svg" alt="" width="28" height="28">
+      CineArm
+    </a>
+    <nav>
+      <a class="hide-sm" href="features.html">功能</a>
+      <a class="hide-sm" href="robots.html">机型</a>
+      <a class="hide-sm" href="guide.html">指南</a>
+      <a class="hide-sm" href="faq.html" aria-current="page">常见问题</a>
+      <a class="hide-sm" href="index.html#download">下载</a>
+      <a class="lang" href="en/faq.html" hreflang="en">EN</a>
+      <a class="cta" href="https://github.com/Kikuku10/CineArm-Releases/releases">版本记录</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow"><span class="dot"></span>一条一句答案</span>
+    <h1 class="sm">常见问题</h1>
+    <p class="lede">
+      群里被问最多的问题都在这里。每条一句答案，想看细节的点进去 —— 实在没有的，群里问。
+    </p>
+  </div>
+</div>
+
+<section class="first">
+  <div class="wrap">
+    <div class="faq">
+
+      <details id="support" open>
+        <summary>我的机械臂能用吗？</summary>
+        <div class="a">
+          <p>目前支持越疆（Dobot）五个机型：<b>Nova 5、CR5、CR10、CR10A（含 CR10V）、CR20A</b>。</p>
+          <p>不在列表里的机型暂时不能直接连，但可以先用虚拟机械臂把镜头排好。
+             完整对照见 <a href="robots.html">机型选型</a>。</p>
+        </div>
+      </details>
+
+      <details id="price">
+        <summary>整套下来大概多少钱？</summary>
+        <div class="a">
+          <p>按我自己的账单：二手 <b>10 kg 级本体约 2–3 万</b>，全钢底座一千多，相机转接板三十多块，零碎配件几百 —— <b>硬件两万六七</b>。</p>
+          <p>5 kg 级二手本体 1–3 万；全新大概贵一倍上下。成套方案没有标价，按配置和服务差很多。
+             详细区间和账单拆解见 <a href="guide.html#price">避坑指南 · 价格</a>。</p>
+        </div>
+      </details>
+
+      <details id="virtual">
+        <summary>没有机械臂，能先练吗？</summary>
+        <div class="a">
+          <p>能。下载后选虚拟机械臂，不需要真机就能把机位、时间线、速度曲线、跟焦走一遍，
+             先在软件里把镜头排好，再上真机。</p>
+          <p>虚拟模式不限项目、不限时长，也不花钱。</p>
+        </div>
+      </details>
+
+      <details id="free">
+        <summary>免费版够不够用？</summary>
+        <div class="a">
+          <p><b>练习和准备完全够</b>：项目数量、虚拟机械臂、编辑预览、保存都不限，实机连接和跟焦也全开。</p>
+          <p>免费版开拍时的限制是：一个项目 1 条时间线、最多 4 个机位点。
+             需要多条时间线、更多机位点，才考虑 Studio（<b>¥2,000，一次买断</b>）。</p>
+        </div>
+      </details>
+
+      <details id="try">
+        <summary>要先买才能试吗？</summary>
+        <div class="a">
+          <p>不用。CineArm <b>下载就能用免费版</b>，觉得够用再考虑付费 ——
+             市面上同类软件基本是先买才能用，这一点是我特意反过来做的。</p>
+        </div>
+      </details>
+
+      <details id="os">
+        <summary>支持哪些系统？</summary>
+        <div class="a">
+          <p>macOS（Apple Silicon，14 或更高）、Windows 10/11 x64、iPad（自签安装包）。
+             三端同步更新，应用内可以直接检查更新。</p>
+          <p>下载地址在 <a href="index.html#download">首页底部</a>。</p>
+        </div>
+      </details>
+
+      <details id="camera">
+        <summary>相机怎么装上去？跟焦怎么接？</summary>
+        <div class="a">
+          <p>相机通过法兰转接板固定在末端，支持阿卡、小隼等常见快装。
+             我的转接板图纸已经开源，拿去嘉立创做 CNC 6061 铝合金，<b>打样三十多块</b>。</p>
+          <p>图纸：<a href="https://makerworld.com.cn/zh/models/3162541-ji-jie-bi-fa-lan-xiang-ji-zhuan-jie-ban#profileId-3727934">MakerWorld</a>。
+             跟焦走末端接口，软件里按时间线联动。</p>
+        </div>
+      </details>
+
+      <details id="used">
+        <summary>二手机械臂怎么挑？</summary>
+        <div class="a">
+          <p>六个必查项：抖动、抖动来源、抱闸形式、限位行程、碰撞检测灵敏度、负载参数。
+             另外同型号有不同硬件版本（绿的谐波 vs 简配、电磁 vs 撞针、双 180 还是 360），要按铭牌问清楚。</p>
+          <p>完整清单见 <a href="guide.html#inspect">验机</a> 和 <a href="guide.html#variants">硬件版本</a>。</p>
+        </div>
+      </details>
+
+      <details id="safety">
+        <summary>会不会撞机？安全吗？</summary>
+        <div class="a">
+          <p>协作臂有碰撞检测和柔顺停机，误碰时会安全得多 —— 个人使用建议优先选协作臂。
+             但前提是：确认适配范围、清场、<b>物理急停在手</b>、第一次低速空载。</p>
+          <p>细节见 <a href="guide.html#safety">安全</a>。</p>
+        </div>
+      </details>
+
+      <details id="support-fee">
+        <summary>有问题怎么问？收费吗？</summary>
+        <div class="a">
+          <p><b>免费</b>：把「完整复现步骤 + 日志抓包」打包，发到微信群里，我在群里统一看统一回。</p>
+          <p><b>付费</b>：一对一客服 <b>¥9,999</b>（已含 Studio 授权），适合需要专门陪跑、远程调试的情况。
+             我不是客服团队，时间有限，所以把这部分单独定价。</p>
+          <p>见 <a href="guide.html#ask">出问题了怎么问</a>。</p>
+        </div>
+      </details>
+
+      <details id="who">
+        <summary>你是谁？为什么做这个？</summary>
+        <div class="a">
+          <p>个人爱好者，不是开发者，也不是公司。买套餐时配套软件达不到需求，
+             符合需求的上万块、还按系统分开卖，于是自己写了一个，后来免费放出来给大家试用。</p>
+          <p>完整故事在 <a href="guide.html">避坑指南</a> 开头；边界与责任见 <a href="disclaimer.html">免责声明</a>。</p>
+        </div>
+      </details>
+
+    </div>
+    <p class="note">没找到答案？在微信群里问，或者先看 <a href="guide.html">避坑指南</a>。</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="y">2026</span> CineArm · cinearm.top</span>
+    <nav>
+      <a href="index.html">首页</a>
+      <a href="guide.html">避坑指南</a>
+      <a href="faq.html" aria-current="page">常见问题</a>
+      <a href="disclaimer.html">免责声明</a>
+    </nav>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
