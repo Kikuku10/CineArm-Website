@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Buying guide: used film robot arms — CineArm</title>
-<meta name="description" content="What a film robot arm setup is made of, how to inspect a used arm, the usual traps, and rough price bands for the arm, base and camera plate.">
+<title>Buying guide: film robot arms — CineArm</title>
+<meta name="description" content="One user's real experience buying a used film robot arm: the four modules, used vs new price bands, what to inspect, software and safety, and how to ask for help when something fails.">
 <meta name="theme-color" content="#212126">
-<meta property="og:title" content="Buying guide: used film robot arms — CineArm">
-<meta property="og:description" content="Parts, inspection list, common traps and rough budgets.">
+<meta property="og:title" content="Buying guide: film robot arms — CineArm">
+<meta property="og:description" content="The pitfalls, written down so the next person walks a shorter path.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cinearm.top/en/guide.html">
 <meta property="og:locale" content="en">
 <link rel="icon" href="../app-icon.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="zh-CN" href="https://cinearm.top/guide.html">
 <link rel="alternate" hreflang="en" href="https://cinearm.top/en/guide.html">
-<link rel="stylesheet" href="../assets/site.css?v=9">
+<link rel="stylesheet" href="../assets/site.css?v=11">
 </head>
 <body>
 
@@ -38,246 +38,253 @@
 
 <div class="page-hero">
   <div class="wrap hero-inner">
-    <span class="eyebrow"><span class="dot"></span>Read this before you buy</span>
+    <span class="eyebrow"><span class="dot"></span>One user's field notes</span>
     <h1 class="sm">Buying guide</h1>
     <p class="lede">
-      A film robot arm is not one purchase. It is an arm, a base, a camera plate and a controller,
-      and each of those has its own traps on the used market. Here is the order that works:
-      what it is made of, how to choose, how to inspect, what it costs, what to avoid.
+      I am not an industry professional and I do not sell equipment. I just wanted to shoot my own things with a robot arm,
+      so I bought a used film-arm kit — and discovered that “it should just work out of the box” was the first trap.
+    </p>
+    <p class="lede" style="margin-top:-16px">
+      No brands are recommended here and nothing is for sale. These are the pitfalls I hit, plus those told to me by
+      other people who wanted to play with robot arms — so the next person walks a shorter path.
     </p>
     <nav class="toc">
-      <a href="#parts">What it is made of</a>
-      <a href="#used">Choosing a used arm</a>
-      <a href="#check">Inspection list</a>
+      <a href="#story">What happened</a>
+      <a href="#modules">Four modules</a>
       <a href="#price">Price bands</a>
-      <a href="#pits">Common traps</a>
-      <a href="#ask">Questions to ask</a>
+      <a href="#inspect">Inspection</a>
+      <a href="#software">Software</a>
+      <a href="#safety">Safety</a>
+      <a href="#pits">More traps</a>
+      <a href="#ask">Asking for help</a>
+      <a href="#buy">Questions to ask</a>
     </nav>
   </div>
 </div>
 
-<section id="parts" class="first">
-  <div class="wrap">
-    <h2 class="h2">What a film robot arm setup is made of</h2>
-    <p class="sub">The first four are essential; the last four decide how pleasant it is to use.</p>
-    <div class="detail-grid">
-      <div class="detail"><b>① The arm</b><span>A six-axis jointed arm that sets payload and reach. It ships without a camera mount and without a base — those are separate purchases.</span></div>
-      <div class="detail"><b>② Base or column</b><span>Holds the arm at working height and anchors it to the floor or a cart. On set this is usually an adjustable, counterweighted base; half the stability comes from here.</span></div>
-      <div class="detail"><b>③ Camera plate</b><span>Bolts to the tool flange and carries the camera or gimbal. Usually custom aluminium with 1/4″, 3/8″ threads or an Arri/Mitchell interface.</span></div>
-      <div class="detail"><b>④ Controller</b><span>The cabinet that drives the joints. It is matched to the arm — a different model will not work, so never buy the arm without it.</span></div>
-      <div class="detail"><b>⑤ Power and cabling</b><span>Motor and encoder cables from arm to cabinet, typically 5–6 m. Longer runs need extensions ordered separately.</span></div>
-      <div class="detail"><b>⑥ Operator terminal</b><span>Teach pendant, tablet or a laptop. CineArm runs on the last of those, so a pendant is convenient rather than mandatory.</span></div>
-      <div class="detail"><b>⑦ Follow focus</b><span>Motor and controller on the lens gear. In film work focus matters as much as the move, so budget for it separately.</span></div>
-      <div class="detail"><b>⑧ Transport and counterweight</b><span>Flight case, lifting points, weights. The arm alone is often 30–40 kg; without a proper case, every location move hurts.</span></div>
-    </div>
-    <p class="note">
-      Commonly forgotten: the <b>camera plate</b> is often missing from a used listing and has a lead time when custom made;
-      the <b>base</b> looks like a lump of metal, but get the centre of gravity or stiffness wrong and a long reach will visibly sway.
-    </p>
+<div class="wrap">
+  <div class="tldr">
+    <h2>In 30 seconds</h2>
+    <ul>
+      <li><b>A working system is four parts</b>: arm, camera plate, base, software. The last three decide the image — and the word “kit” tends to hide them.</li>
+      <li><b>A used 5 kg-class arm runs 10k–30k CNY</b>; new is roughly double; turnkey packages have no list price at all.</li>
+      <li><b>Feeling it at rest proves nothing</b>: extend fully and run at medium-high speed — that is when vibration shows.</li>
+      <li><b>Identify the vibration source</b>: arm, base, or camera stabilisation. They look identical and they are not the robot's fault alike.</li>
+      <li><b>Wire it if you can</b>: wireless latency makes the arm itself judder, not just the picture.</li>
+      <li><b>When something fails</b>: export the log, shoot a video, and describe reproducible steps — it beats “it does not work” ten times over.</li>
+    </ul>
   </div>
-</section>
+</div>
 
-<section id="used">
+<section id="story" class="first">
   <div class="wrap">
-    <h2 class="h2">Choosing a used arm</h2>
-    <p class="sub">Do not start with price or cosmetics — start with the job.</p>
+    <h2 class="h2">1. What actually happened</h2>
+    <p class="sub">Start with my mistakes — every lesson below came out of them.</p>
     <div class="flow">
-      <div class="step">
-        <div class="num">01</div>
-        <div>
-          <h3>Work out the total weight</h3>
-          <p>Body, lens, gimbal, quick-release plate and adapter, all of it, then keep 20–30% in reserve. Long lenses move the centre of mass outward, so torque matters more than weight.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="num">02</div>
-        <div>
-          <h3>Then the reach</h3>
-          <p>Reach decides how far the lens travels. A back-and-forth move needs reach that covers both ends, not just the middle.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="num">03</div>
-        <div>
-          <h3>Confirm model and revision</h3>
-          <p>The same model can ship with different joint travel, brake type and protocol. A correct model number does not mean a correct configuration.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="num">04</div>
-        <div>
-          <h3>Inspect in person, not on video</h3>
-          <p>Have the arm extend and retract at the wrist and watch for creep or judder at low speed. Bring your plate and counterweight if you can.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="num">05</div>
-        <div>
-          <h3>Check the whole list</h3>
-          <p>Arm, controller, cables, base, plate, pendant, licence — item by item. Each missing piece turns into lead time and money.</p>
-        </div>
-      </div>
+      <div class="step"><div class="num">01</div><div>
+        <h3>Bought a used kit</h3>
+        <p>A Nova 5 plus bundled software and accessories. It looked complete; I assumed I could shoot the same day.</p>
+      </div></div>
+      <div class="step"><div class="num">02</div><div>
+        <h3>The software disappointed</h3>
+        <p>It could set nodes, speed and smoothing — the same things the official pendant software already does. I wanted an editable speed curve, a lock onto the subject and follow-focus linkage. It could not do those. It was a large teach pendant.</p>
+      </div></div>
+      <div class="step"><div class="num">03</div><div>
+        <h3>Account rebinding was worse</h3>
+        <p>The login was still tied to the previous owner's phone number and could not be changed; switching computers hit a binding limit. <b>This is specific to turnkey kits</b> — buy the arm alone and there is no account to bind.</p>
+      </div></div>
+      <div class="step"><div class="num">04</div><div>
+        <h3>The accessories were questionable</h3>
+        <p>The bundled camera plate locked with a single thin screw. I never trusted it.</p>
+      </div></div>
+      <div class="step"><div class="num">05</div><div>
+        <h3>Rebuilt it as four parts</h3>
+        <p>Arm, camera plate, base, software — sourcing each one separately turned out to be clearer.</p>
+      </div></div>
     </div>
+    <p class="note">A used kit saves procurement time, but “can it shoot what I want” is a different question.</p>
   </div>
 </section>
 
-<section id="check">
+<section id="modules">
   <div class="wrap">
-    <h2 class="h2">Inspection list</h2>
-    <p class="sub">Most of this can be checked in half an hour on site. Whatever you cannot check, write into the contract.</p>
+    <h2 class="h2">2. A working system is really four modules</h2>
+    <p class="sub">Many kits sell the first one and leave the rest to be improvised or bought separately.</p>
     <div class="table-wrap">
       <table>
-        <thead>
-          <tr><th>Item</th><th>How to check</th><th>What should worry you</th></tr>
-        </thead>
+        <thead><tr><th>Module</th><th>What it decides</th><th>Usual problem</th></tr></thead>
         <tbody>
-          <tr>
-            <td class="model">Joint travel</td>
-            <td>Ask whether J4/J5/J6 are ±180° or ±360°, then drive each axis slowly to both ends in software</td>
-            <td>Travel capped at 180° so the camera cannot roll; a seller who only quotes a model name</td>
-          </tr>
-          <tr>
-            <td class="model">Brake type</td>
-            <td>Ask whether it is an electromagnetic or plunger brake; cut power and check whether the tool sags</td>
-            <td>Visible drift at rest; a plunger brake sold as the standard fit</td>
-          </tr>
-          <tr>
-            <td class="model">Repeatability</td>
-            <td>Send it to the same position ten times and read back the deviation</td>
-            <td>Deviation you can see; reported and actual positions disagreeing</td>
-          </tr>
-          <tr>
-            <td class="model">Low-speed behaviour</td>
-            <td>Slow extend and retract at the wrist, watching the long links</td>
-            <td>Visible judder or creep — note that slight compliance from harmonic drives is normal, not a fault</td>
-          </tr>
-          <tr>
-            <td class="model">Noise and play</td>
-            <td>Push each joint gently by hand, listen and feel for slack</td>
-            <td>Clicks or an obviously loose axis, suggesting a drop or a rebuild</td>
-          </tr>
-          <tr>
-            <td class="model">Controller state</td>
-            <td>Power up and read alarm history, firmware version and run hours</td>
-            <td>History wiped, hours inconsistent, cabinet and arm serials not matching</td>
-          </tr>
-          <tr>
-            <td class="model">Cables and connectors</td>
-            <td>Inspect power and encoder cables along their length, especially at bends</td>
-            <td>Damaged insulation, loose connectors, obvious repairs</td>
-          </tr>
-          <tr>
-            <td class="model">Flange interface</td>
-            <td>Measure hole spacing and thread, confirm your plate will fit</td>
-            <td>A bespoke interface with no plate included, meaning new machining</td>
-          </tr>
-          <tr>
-            <td class="model">Licensing</td>
-            <td>Confirm the account can be released and the licence transferred</td>
-            <td>Licence tied to the previous owner; cannot be activated after transfer</td>
-          </tr>
-          <tr>
-            <td class="model">Protocol</td>
-            <td>Confirm V3 or V4 and whether firmware can be updated</td>
-            <td>Mixed revisions, locked firmware, control software that will not connect after an update</td>
-          </tr>
+          <tr><td class="model">① The arm<br><span style="color:var(--dim)">mine is a Nova 5</span></td><td>Payload and reach</td><td>Condition, joint travel revision, brake type</td></tr>
+          <tr><td class="model">② Camera plate</td><td>How the camera attaches</td><td>Single-point locking, no quick-release compatibility</td></tr>
+          <tr><td class="model">③ Counterweighted base</td><td>Whether it stays still at speed</td><td>Too light — the whole rig shakes</td></tr>
+          <tr><td class="model">④ Motion software</td><td>Driving a robot or directing a shot</td><td>Stuck at teach-pendant level</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="note">
-      For anything you cannot judge yourself, put “re-inspection within X days of delivery, returnable if it fails” in writing.
-      The expensive part of used gear is not the price — it is discovering the problem after it arrives.
-    </p>
+    <p class="note">The last three decide the final image — and they are exactly what the word “kit” tends to hide.</p>
   </div>
 </section>
 
 <section id="price">
   <div class="wrap">
-    <h2 class="h2">Rough price bands</h2>
-    <p class="sub">
-      Indicative used-market and accessory ranges in mainland China (CNY). They move a lot with condition, revision, region
-      and timing — treat them as an order of magnitude for budgeting. Confirm with an actual quote.
-    </p>
-    <div class="table-wrap">
+    <h2 class="h2">3. Price: used versus new</h2>
+    <p class="sub">Bands are the real quote ±10k CNY, for order of magnitude only; small parts are given by tier.</p>
+    <div class="kpi">
+      <div><span class="v">10k–30k</span><span class="l">used 5 kg-class arm (CNY)</span></div>
+      <div><span class="v">×2 or so</span><span class="l">new versus used</span></div>
+      <div><span class="v">~1,000</span><span class="l">base + camera plate (CNY)</span></div>
+      <div><span class="v">≈ 21k</span><span class="l">my complete hardware</span></div>
+    </div>
+    <div class="table-wrap" style="margin-top:22px">
       <table>
-        <thead>
-          <tr><th>Item</th><th>Indicative range</th><th>Notes</th></tr>
-        </thead>
+        <thead><tr><th>Item</th><th>Used</th><th>New</th></tr></thead>
         <tbody>
-          <tr><td class="model">Arm · 5–10 kg class, used</td><td class="n">15k–40k</td><td>First-generation CR5 / CR10, the common entry point</td></tr>
-          <tr><td class="model">Arm · 10–16 kg class, used</td><td class="n">30k–60k</td><td>CR10A / CR16A, enough for a mid-size body</td></tr>
-          <tr><td class="model">Arm · 20–30 kg class, used</td><td class="n">60k–120k</td><td>Heavy bodies and long lenses</td></tr>
-          <tr><td class="model">Base or column</td><td class="n">1.5k–8k</td><td>Aluminium or steel; adjustable counterweighted set-grade base 8k–30k</td></tr>
-          <tr><td class="model">Camera plate</td><td class="n">~200</td><td>Custom aluminium; an Arri/Mitchell interface is quoted separately</td></tr>
-          <tr><td class="model">Controller (bought separately)</td><td class="n">8k–20k</td><td>Usually included with the arm; price varies by model</td></tr>
-          <tr><td class="model">Follow focus motor + controller</td><td class="n">~1,000</td><td>Price follows travel, torque and wired/wireless support</td></tr>
-          <tr><td class="model">Complete 10 kg-class shooting kit</td><td class="n">30k–60k</td><td>Arm + controller + base + plate, without camera or lens</td></tr>
+          <tr><td class="model">5 kg-class arm (bare), e.g. Nova 5</td><td class="n">10k – 30k</td><td>Roughly double the used price</td></tr>
+          <tr><td class="model">Complete self-built hardware</td><td class="n">10k – 30k</td><td>Roughly double (mostly the arm)</td></tr>
+          <tr><td class="model">Camera plate (own CAD + CNC)</td><td class="n">~100</td><td>About the same</td></tr>
+          <tr><td class="model">Steel counterweight base</td><td class="n">~1,000</td><td>About the same</td></tr>
+          <tr><td class="model">Cables, quick release, screws</td><td class="n">A few hundred</td><td>About the same</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="note">
-      Do not spend the whole budget on the arm: an unsuitable <b>base</b> costs you stability, and a <b>plate</b> with the wrong
-      hole spacing means remachining. Neither is expensive on its own — getting them wrong is.
+    <div class="callout">
+      <span class="tag">Why no new-price numbers</span>
+      <p>New prices are not listed because the same machine varies enormously by channel; the rule of thumb is roughly double, with the gap concentrated in the arm.</p>
+      <p>Turnkey packages have no list price — reach, payload, software scope and service change it completely. Ask each vendor individually.</p>
+    </div>
+  </div>
+</section>
+
+<section id="inspect">
+  <div class="wrap">
+    <h2 class="h2">4. Used inspection: six things to check</h2>
+    <p class="sub">Feeling it at rest tells you nothing — make it move.</p>
+    <div class="detail-grid">
+      <div class="detail"><b>1. Vibration</b><span>Usually appears only in motion. Extend fully and run at medium-high speed — the combination that exposes it.</span></div>
+      <div class="detail"><b>2. Find the source</b><span>Arm compliance (slight is normal), base stiffness and camera stabilisation all look alike. Do not blame the robot first.</span></div>
+      <div class="detail"><b>3. Brake type</b><span>Plunger brakes have more play; electromagnetic brakes lock when power drops and hold stiffer. For film work, prefer electromagnetic.</span></div>
+      <div class="detail"><b>4. Joint travel</b><span>±180° or ±360° on J4/J5/J6 decides whether the camera can roll over. Firmware revisions also behave differently near limits.</span></div>
+      <div class="detail"><b>5. Collision sensitivity</b><span>It has to be adjustable down, or the arm alarms on the slightest contact and is unusable on set.</span></div>
+      <div class="detail"><b>6. Payload parameters</b><span>Must match reality. Get them wrong and it sags or feels floaty — that is not a broken arm, it is a wrong number.</span></div>
+    </div>
+
+    <h3 style="margin:46px 0 12px;font-size:18px">Bring CineArm to the inspection</h3>
+    <p class="sub" style="margin-bottom:20px">
+      Rehearse on the virtual arm first — record positions, drag the timeline, set a target, connect follow focus. None of it needs hardware.
+      On site, connect the real arm and run the same two positions.
     </p>
+    <div class="detail-grid">
+      <div class="detail"><b>Cover six checks at once</b><span>Low-speed vibration, noise, limits and brake hold in one pass.</span></div>
+      <div class="detail"><b>Learn the fit</b><span>Protocol revision, feedback correctness, limit readouts — visible as soon as it connects.</span></div>
+      <div class="detail"><b>Know it before you buy</b><span>No learning curve on installation day.</span></div>
+      <div class="detail"><b>No account wall</b><span>An original Nova arm has no account restriction. Turnkey kit software may be locked to an account, leaving you unable to connect at all.</span></div>
+    </div>
+    <div class="callout warn">
+      <span class="tag">Two conditions</span>
+      <p>The seller agrees to power it up, and the area is clear with the E-stop in hand. Do not drop someone else's machine while testing.</p>
+    </div>
+
+    <h3 style="margin:46px 0 12px;font-size:18px">Learn the official pendant software first</h3>
+    <p class="sub" style="margin-bottom:18px">
+      A number of arm parameters live only in the manufacturer's pendant software — drag damping, speed ceiling,
+      collision sensitivity, limit configuration. They sit outside the motion software's scope, but they decide
+      everything you see during inspection.
+    </p>
+    <div class="callout">
+      <span class="tag">How</span>
+      <p>Download the pendant software and request a virtual licence (demo/simulation), then walk through the interface in the simulator.
+         On site you will know which values to check and which are locked — the inspection goes far faster, and you are harder to fob off.</p>
+    </div>
+  </div>
+</section>
+
+<section id="software">
+  <div class="wrap">
+    <h2 class="h2">5. Software: the most underestimated part</h2>
+    <p class="sub">It decides whether you are driving a robot or directing a shot.</p>
+    <div class="detail-grid">
+      <div class="detail"><b>Most kit software stops at pendant level</b><span>It records points and plays them back, but cannot edit a speed curve, hold an aim, or drive follow focus.</span></div>
+      <div class="detail"><b>A simple test</b><span>Can it schedule a shot on a timeline, like an editor? If yes it is motion software; if not it is a controller.</span></div>
+      <div class="detail"><b>Turnkey kits add account binding</b><span>Changing computers or phone numbers may be restricted; sourcing arm and software separately avoids this layer.</span></div>
+      <div class="detail"><b>Ask about protocol and firmware</b><span>Protocol revision, extension APIs, updatability — third-party software often stops connecting after an upgrade.</span></div>
+    </div>
+    <p class="note">If you plan to build it yourself, this is where most of the work is — and it is the part that shapes the final image.</p>
+  </div>
+</section>
+
+<section id="safety">
+  <div class="wrap">
+    <h2 class="h2">6. Safety: for personal use, prefer a collaborative arm</h2>
+    <p class="sub">Personal experience, not an industry verdict.</p>
+    <div class="detail-grid">
+      <div class="detail"><b>Built for one person</b><span>Personal shoots rarely have a safety supervisor; collision detection and compliant stopping are far safer when something goes wrong.</span></div>
+      <div class="detail"><b>Start slow and empty</b><span>Confirm compatibility before power-up; the first run should be low speed, no load, clear area.</span></div>
+      <div class="detail"><b>E-stop in reach</b><span>A physical E-stop within arm's length, and a brake that provably holds on power loss.</span></div>
+      <div class="detail"><b>Correct parameters first</b><span>Wrong payload numbers make the arm float or sag. Do not use the machine to discover them.</span></div>
+    </div>
+    <div class="callout warn">
+      <span class="tag">Baseline</span>
+      <p>Confirm compatibility, run slow and empty first, keep the physical E-stop in reach — if any one of these is missing, do not start.</p>
+    </div>
   </div>
 </section>
 
 <section id="pits">
   <div class="wrap">
-    <h2 class="h2">Common traps</h2>
-    <p class="sub">If you hear one of these, ask one more question.</p>
+    <h2 class="h2">7. More traps</h2>
+    <p class="sub">All of these happened to me or to friends who also wanted to play with robot arms, roughly by frequency.</p>
     <div class="tips">
-      <div class="tip">
-        <h3><span class="n">1</span>“Same model” is not the same configuration</h3>
-        <p>One model number can hide 180° or 360° joint travel, different brake types and different protocols. Ask for the configuration in writing.</p>
-      </div>
-      <div class="tip">
-        <h3><span class="n">2</span>“Nine out of ten condition” — without a cabinet</h3>
-        <p>Arm and controller are a pair; a missing cabinet usually means unusable. Ask whether a matching cabinet can be sourced and at what cost.</p>
-      </div>
-      <div class="tip">
-        <h3><span class="n">3</span>Licence still tied to the old account</h3>
-        <p>Some units bind licensing to an account. Confirm it can be released and transferred, or you will own a machine you cannot activate.</p>
-      </div>
-      <div class="tip">
-        <h3><span class="n">4</span>Plunger brake sold as standard</h3>
-        <p>The two brake types behave differently at rest. For film work prefer the electromagnetic version; if you end up with a plunger brake, verify the stop position carefully so the arm cannot contact the camera.</p>
-      </div>
-      <div class="tip">
-        <h3><span class="n">5</span>Video only, no inspection</h3>
-        <p>A video cannot show low-speed judder or joint play. Inspect in person, or at least a live call going through the list — and get a return clause in writing.</p>
-      </div>
-      <div class="tip">
-        <h3><span class="n">6</span>Refurbished dressed as lightly used</h3>
-        <p>Fresh paint and new shells are common. Controller run hours, firmware and alarm history tell you far more than the exterior.</p>
-      </div>
-      <div class="tip">
-        <h3><span class="n">7</span>Plate and base left out</h3>
-        <p>These often fall outside the listing. A custom plate has lead time, and an unsuitable base directly costs you stability — budget for both.</p>
-      </div>
-      <div class="tip">
-        <h3><span class="n">8</span>No plan for transport</h3>
-        <p>These arms start at twenty-odd kilos. Without a flight case and a lifting plan, moving it becomes a recurring cost.</p>
-      </div>
+      <div class="tip"><h3><span class="n">1</span>Wire it if you can</h3><p>A wireless link adds latency and packet loss, so control commands arrive late and <b>the arm itself judders</b> — not the picture, the joints. You also get stutter and “parameters are fine but there is no image”. Run the arm over Ethernet; keep tablets as remote controls only.</p></div>
+      <div class="tip"><h3><span class="n">2</span>Check the power supply</h3><p>The same model ships with different supplies (350 W and 288 W in one case). Underpowered units run hot and feel soft. Cheapest, most overlooked item.</p></div>
+      <div class="tip"><h3><span class="n">3</span>The base is the hard part</h3><p>A light tripod shakes too. Keeping the tip still usually needs far more counterweight than you expect — a tens-of-kilos steel base removes the source, not just the symptom.</p></div>
+      <div class="tip"><h3><span class="n">4</span>Match threads and spacing</h3><p>Use at least three screws on the quick-release plate. Poor machining means it will not fit and you send it back. Measure the flange before ordering.</p></div>
+      <div class="tip"><h3><span class="n">5</span>Discount the speed spec</h3><p>The rated speed is ideal; with a camera on an arc you get a fraction of it. Test loaded, not empty and straight.</p></div>
+      <div class="tip"><h3><span class="n">6</span>Turn camera stabilisation off</h3><p>In-body and electronic stabilisation fight the arm and produce jelly or counter-motion. Switch them off and let the arm be the stability.</p></div>
+      <div class="tip"><h3><span class="n">7</span>Leave clearance</h3><p>I have seen a camera hit a joint (two axes rotated too close) and a wide swing pull the rig over. Block the move on the virtual arm first.</p></div>
+      <div class="tip"><h3><span class="n">8</span>Choose the quick-release early</h3><p>Arca, SmallRig and friends are separate ecosystems; the plate must match the one you own. Changing later is painful.</p></div>
     </div>
   </div>
 </section>
 
 <section id="ask">
   <div class="wrap">
-    <h2 class="h2">Questions to ask</h2>
-    <p class="sub">Ask them directly and keep the answers.</p>
+    <h2 class="h2">8. How to ask for help when something fails</h2>
+    <p class="sub">The same fault, asked two ways, gets help ten times faster one way.</p>
     <div class="detail-grid">
-      <div class="detail"><b>Model and revision</b><span>Exact model, internal revision, actual J4/J5/J6 travel, brake type, and whether the protocol is V3 or V4.</span></div>
-      <div class="detail"><b>History</b><span>Run hours, any drop or rebuild, last service, whether encoder batteries have been replaced.</span></div>
-      <div class="detail"><b>Completeness</b><span>Controller, cables, base, plate, pendant — all present? If not, can the missing part be sourced and at what price?</span></div>
-      <div class="detail"><b>Licensing</b><span>Is the licence valid, can it be released and transferred, does it need reactivation on a new machine?</span></div>
-      <div class="detail"><b>Acceptance</b><span>Can you inspect on site? If not, will they accept a written re-inspection window with a return option?</span></div>
-      <div class="detail"><b>Transport</b><span>Original packaging or flight case, who carries the risk in transit, how long you have to raise issues after delivery.</span></div>
+      <div class="detail"><b>1. Read the message first</b><span>The software and controller usually name the cause. Copy the text; it beats “it does not work”.</span></div>
+      <div class="detail"><b>2. Export the log</b><span>Run messages offer “copy” or “export diagnostics”. A log with timestamps and error codes is something the other person can search.</span></div>
+      <div class="detail"><b>3. Video, screen and machine in frame</b><span>The effective request: “film the screen for five seconds, and do not let go at the end of the move.”</span></div>
+      <div class="detail"><b>4. One controlled experiment</b><span>Unplug the network and retry; retry unloaded; retry on another computer. Judder over Wi-Fi but not wired means the link; judder wired points at the arm or base.</span></div>
+      <div class="detail"><b>5. Bring the reproduction</b><span>Model, firmware, protocol revision, wired or wireless, which step, which project file.</span></div>
+      <div class="detail"><b>6. Do not jump to conclusions</b><span>Opening with “the machine is broken” pushes helpers away. Most cases end in parameters, connections or version mismatch.</span></div>
+      <div class="detail"><b>7. One variable at a time</b><span>Swap supply, cable and software at once and nobody can tell what caused it.</span></div>
+      <div class="detail"><b>In one line</b><span>If you can describe it as “reproducible steps + a clear symptom”, half the problem is solved.</span></div>
     </div>
-    <p class="note">
-      This is ordinary practice when buying hardware and has nothing to do with whether you run CineArm —
-      we do not sell arms, only the software that makes them shoot.
+  </div>
+</section>
+
+<section id="buy">
+  <div class="wrap">
+    <h2 class="h2">9. Questions to ask before buying</h2>
+    <p class="sub">Copy these straight to the seller.</p>
+    <div class="detail-grid">
+      <div class="detail"><b>1. The machine</b><span>Exact model, internal revision, actual J4/J5/J6 travel, brake type.</span></div>
+      <div class="detail"><b>2. History</b><span>Run hours, any drop or rebuild, last service.</span></div>
+      <div class="detail"><b>3. Completeness</b><span>Controller, cables, base, plate, pendant — all present? Can missing parts be sourced, at what price?</span></div>
+      <div class="detail"><b>4. Account (turnkey kits only)</b><span>Can the account be rebound, can the licence transfer, does it need reactivation? Not applicable when buying the arm alone.</span></div>
+      <div class="detail"><b>5. Acceptance</b><span>Can you inspect on site? If not, can a re-inspection window be written into the contract?</span></div>
+      <div class="detail"><b>6. Transport</b><span>Who carries the risk, how is it packed, how long to raise issues after delivery?</span></div>
+      <div class="detail"><b>7. Bring your laptop</b><span>“May I connect my own computer and software?” For an original arm this is a given. For a turnkey kit it is a litmus test — sellers who agree usually have clean hardware and clean accounts.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="summary">
+  <div class="wrap">
+    <h2 class="h2">10. In one line</h2>
+    <p class="lede" style="margin-bottom:0">
+      The few thousand a used kit saves usually comes back as “the software cannot do it, the parts need remaking, the
+      account cannot be moved” — <b>settle the last three (plate, base, software) before you argue about the arm's price.</b>
     </p>
   </div>
 </section>

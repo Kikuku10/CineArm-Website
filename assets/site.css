@@ -291,3 +291,33 @@ kbd{font:600 12.5px ui-monospace,SFMono-Regular,Menlo,monospace;background:#2424
 .shot img{display:block;width:100%;height:auto}
 .shot figcaption{padding:14px 20px;font-size:13px;color:var(--dim);
   border-top:1px solid var(--line);background:var(--panel-2)}
+
+/* --- guide page: TL;DR, key figures, callouts --- */
+.tldr{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px 28px;margin:34px 0 0}
+.tldr h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-soft);
+  margin:0 0 16px;font-weight:650}
+.tldr ul{margin:0;padding-left:20px;color:var(--muted);font-size:15px;line-height:1.9}
+.tldr li{margin-bottom:10px}
+.tldr li:last-child{margin-bottom:0}
+.tldr b{color:var(--text)}
+@media (max-width:700px){ .tldr{padding:20px 22px} }
+
+.kpi{display:grid;gap:14px;grid-template-columns:repeat(4,1fr);margin:26px 0 0}
+@media (max-width:860px){ .kpi{grid-template-columns:repeat(2,1fr)} }
+.kpi div{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.kpi .v{display:block;font-size:22px;font-weight:650;letter-spacing:-.02em;color:var(--text);
+  font-variant-numeric:tabular-nums}
+.kpi .l{display:block;font-size:13px;color:var(--dim);margin-top:6px}
+
+.callout{border-left:3px solid var(--accent);background:rgba(0,169,166,.07);border-radius:0 12px 12px 0;
+  padding:18px 22px;margin:26px 0 0;font-size:15px;line-height:1.8;color:var(--muted)}
+.callout b{color:var(--text)}
+.callout.warn{border-left-color:#e0a33c;background:rgba(224,163,60,.08)}
+.callout p{margin:0 0 8px}
+.callout p:last-child{margin:0}
+.callout .tag{display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--accent-soft);margin-bottom:6px}
+.callout.warn .tag{color:#e0a33c}
+
+/* section intro numbering for guide */
+.guide-body h2{display:flex;align-items:baseline;gap:12px}
