@@ -400,3 +400,8 @@ kbd{font:600 12.5px ui-monospace,SFMono-Regular,Menlo,monospace;background:#2424
 .plan-table .free{color:var(--muted)}
 .plan-table .paid{color:var(--accent-soft);font-weight:600}
 .plan-table tr.hl td{background:rgba(0,169,166,.06)}
+
+/* 防止 .note / 正文里的 a 样式污染按钮 */
+.btn{text-decoration:none}
+.note a.btn,.faq .a a.btn,.detail a.btn{color:#04191A;text-decoration:none}
+.note a.btn:hover,.faq .a a.btn:hover,.detail a.btn:hover{color:#04191A}
