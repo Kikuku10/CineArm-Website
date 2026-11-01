@@ -381,3 +381,22 @@ kbd{font:600 12.5px ui-monospace,SFMono-Regular,Menlo,monospace;background:#2424
 @media (max-width:760px){ .glossary{grid-template-columns:1fr} }
 .glossary div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;font-size:14.5px;color:var(--muted)}
 .glossary b{color:var(--text);display:block;margin-bottom:4px}
+
+/* --- keyframe diagram (plans page) --- */
+.kf{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:34px 30px;margin-top:26px}
+.kf-row{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:nowrap;overflow-x:auto}
+.kf-node{text-align:center;flex:none}
+.kf-node .dot{width:16px;height:16px;border-radius:50%;background:var(--accent);margin:0 auto;
+  box-shadow:0 0 0 6px rgba(0,169,166,.14)}
+.kf-node .lab{font-size:12.5px;color:var(--dim);margin-top:10px;white-space:nowrap}
+.kf-seg{flex:1;min-width:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 4px}
+.kf-seg .bar{width:100%;height:2px;background:linear-gradient(90deg,rgba(0,169,166,.25),rgba(0,169,166,.75),rgba(0,169,166,.25));
+  position:relative;top:-8px}
+.kf-seg .tag{font-size:12.5px;color:var(--accent-soft);margin-top:2px;white-space:nowrap}
+@media (max-width:700px){ .kf{padding:24px 14px} .kf-node .lab{font-size:11px} .kf-seg .tag{font-size:11px} }
+
+/* plans comparison table tweaks */
+.plan-table td:first-child{color:var(--text)}
+.plan-table .free{color:var(--muted)}
+.plan-table .paid{color:var(--accent-soft);font-weight:600}
+.plan-table tr.hl td{background:rgba(0,169,166,.06)}
