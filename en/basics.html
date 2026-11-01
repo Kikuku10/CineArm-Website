@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Basics: how a robot arm actually moves — CineArm</title>
+<meta name="description" content="What a robot arm is made of, what the control cabinet does, what a teach pendant and the official software are, and where host software sits.">
+<meta name="theme-color" content="#212126">
+<meta property="og:title" content="Basics: how a robot arm actually moves — CineArm">
+<meta property="og:description" content="Arm, control cabinet, teach pendant, host software — who does what.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cinearm.top/en/basics.html">
+<meta property="og:image" content="https://cinearm.top/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../app-icon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="zh-CN" href="https://cinearm.top/basics.html">
+<link rel="alternate" hreflang="en" href="https://cinearm.top/en/basics.html">
+<link rel="stylesheet" href="../assets/site.css?v=15">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="index.html">
+      <img class="mark" src="../app-icon.svg" alt="" width="28" height="28">
+      CineArm
+    </a>
+    <nav>
+      <a class="hide-sm" href="features.html">Features</a>
+      <a class="hide-sm" href="robots.html">Arms</a>
+      <a class="hide-sm" href="basics.html" aria-current="page">Basics</a>
+      <a class="hide-sm" href="guide.html">Guide</a>
+      <a class="hide-sm" href="faq.html">FAQ</a>
+      <a class="lang" href="../basics.html" hreflang="zh-CN">中文</a>
+      <a class="cta" href="https://github.com/Kikuku10/CineArm-Releases/releases">Releases</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow"><span class="dot"></span>For newcomers</span>
+    <h1 class="sm">How a robot arm actually moves</h1>
+    <p class="lede">
+      Cinematic motion comes from a chain of parts working together: the arm, the control cabinet,
+      the teach pendant and host software. Knowing who does what makes both buying and troubleshooting easier.
+    </p>
+    <nav class="toc">
+      <a href="#parts">Five parts</a>
+      <a href="#cabinet">Control cabinet</a>
+      <a href="#pendant">Pendant &amp; official software</a>
+      <a href="#host">Host software</a>
+      <a href="#connect">Connecting</a>
+      <a href="#words">Glossary</a>
+    </nav>
+  </div>
+</div>
+
+<section id="parts" class="first">
+  <div class="wrap">
+    <h2 class="h2">1. Five parts make one working arm</h2>
+    <p class="sub">Miss any of them and it does not move — which is also why used listings sell them separately.</p>
+
+    <div class="stack">
+      <div class="layer"><div><span class="k">01 · Arm</span></div><div>
+        <div class="t">The arm itself</div>
+        <div class="d">Six joints (J1–J6), each with a servo motor, a reducer (usually harmonic), a brake and an encoder.
+          It sets payload, reach, speed and precision — and it sets the floor for vibration.</div>
+      </div></div>
+
+      <div class="layer"><div><span class="k">02 · Cabinet</span></div><div>
+        <div class="t">Controller / control cabinet</div>
+        <div class="d">The brain that actually runs the motion: servo drives, real-time planning, safety limits,
+          the E-stop loop and IO. The arm is muscle; the cabinet is nerve.</div>
+      </div></div>
+
+      <div class="layer"><div><span class="k">03 · Pendant</span></div><div>
+        <div class="t">Teach pendant (optional)</div>
+        <div class="d">A handheld terminal with E-stop, enabling switch and joystick, used to jog the arm, record poses and run simple programs.</div>
+      </div></div>
+
+      <div class="layer"><div><span class="k">04 · Software</span></div><div>
+        <div class="t">Official software / host software</div>
+        <div class="d">The control end on a computer. Official software (e.g. DobotStudio Pro) is effectively a software teach pendant;
+          CineArm is host software that arranges shots on a timeline. Both command the arm through the cabinet.</div>
+      </div></div>
+
+      <div class="layer"><div><span class="k">05 · Tool</span></div><div>
+        <div class="t">End effector and adapters</div>
+        <div class="d">Flange, camera plate, quick release, follow-focus motor — everything bolted to the tip lives here.</div>
+      </div></div>
+    </div>
+
+    <div class="callout">
+      <span class="tag">In one line</span>
+      <p><b>The arm decides whether it can move, the cabinet how it moves, the pendant/software who commands it, the tool what it shoots.</b></p>
+    </div>
+  </div>
+</section>
+
+<section id="cabinet">
+  <div class="wrap">
+    <h2 class="h2">2. The control cabinet: models differ in what they can do</h2>
+    <p class="sub">The easiest item to overlook when buying used.</p>
+
+    <div class="compare">
+      <div><h4>What the cabinet does</h4><ul>
+        <li>Turns commands into real-time motion on six joints</li>
+        <li>Runs collision detection and travel limits</li>
+        <li>E-stop loop and power-loss braking</li>
+        <li>Exposes the comms link (Ethernet / USB)</li>
+        <li>Provides IO for buttons, air, follow focus</li>
+      </ul></div>
+      <div><h4>Where models differ</h4><ul>
+        <li><b>Which arm it matches</b> — desktop arms and six-axis arms use entirely different boxes</li>
+        <li><b>Protocol revision</b> — V3 / V4 decides whether host software can connect at all</li>
+        <li><b>Power and drives</b> — how much mass, how fast</li>
+        <li><b>Interface count</b> — Ethernet, USB, IO channels</li>
+      </ul></div>
+    </div>
+
+    <div class="callout warn">
+      <span class="tag">Buying used</span>
+      <p><b>Take the cabinet with the arm, and confirm they belong together.</b> Without it the arm is a paperweight;
+         swapping cabinets or upgrading firmware may also require reactivation or re-binding — ask before you pay.</p>
+    </div>
+  </div>
+</section>
+
+<section id="pendant">
+  <div class="wrap">
+    <h2 class="h2">3. Pendants, and the official software that is one</h2>
+    <p class="sub">They are often conflated; they do the same job — <b>commanding the arm by hand</b>.</p>
+
+    <div class="compare">
+      <div><h4>Teach pendant (hardware)</h4><ul>
+        <li>Handheld, with E-stop and enabling switch</li>
+        <li>Fastest way to jog and record poses on site</li>
+        <li>No computer needed</li>
+        <li>Great for touch-ups and recovery</li>
+      </ul></div>
+      <div><h4>Official software (e.g. DobotStudio Pro)</h4><ul>
+        <li>Runs on a computer; functionally a software pendant</li>
+        <li>Jog, record poses, simple programs, status and logs</li>
+        <li>Bigger UI, clearer parameters, better for debugging</li>
+        <li>Many parameters (damping, speed ceiling, collision sensitivity) live only here</li>
+      </ul></div>
+    </div>
+
+    <div class="callout">
+      <span class="tag">Why another tool</span>
+      <p>Pendants and official software are good at <b>“record this pose, then go to that pose”</b>.
+         Filming needs <b>rhythm</b> — when to accelerate, when to ease out, keeping the lens on the subject, driving follow focus.
+         That is the gap <b>host software</b> fills.</p>
+    </div>
+  </div>
+</section>
+
+<section id="host">
+  <div class="wrap">
+    <h2 class="h2">4. Host software: where CineArm sits</h2>
+    <p class="sub">It replaces neither the cabinet nor the pendant — it sits on top and decides “how the shot goes”.</p>
+
+    <div class="stack">
+      <div class="layer top"><div><span class="k">Top</span></div><div>
+        <div class="t">Host software (CineArm)</div>
+        <div class="d">Block poses, drag a timeline, shape speed curves, lock the aim, drive follow focus — then send the whole motion to the cabinet.</div>
+      </div></div>
+      <div class="arrow">↑ sends one trajectory</div>
+      <div class="layer"><div><span class="k">Middle</span></div><div>
+        <div class="t">Control cabinet</div>
+        <div class="d">Interpolates in real time, checks limits and safety, drives the six joints.</div>
+      </div></div>
+      <div class="arrow">↑ outputs joint commands</div>
+      <div class="layer"><div><span class="k">Bottom</span></div><div>
+        <div class="t">Arm and tool</div>
+        <div class="d">Motors, reducers and brakes execute; the camera rides the arc.</div>
+      </div></div>
+    </div>
+
+    <p class="note">Pendants and official software attach at the cabinet level too — all three can coexist and switch freely.</p>
+
+    <div class="compare">
+      <div><h4>What CineArm does</h4><ul>
+        <li>Compose shots on a timeline</li>
+        <li>Speed curves and easing</li>
+        <li>Target lock and follow-focus linkage</li>
+        <li>Rehearse on a virtual arm</li>
+      </ul></div>
+      <div><h4>What it does not do</h4><ul>
+        <li>Replace the cabinet's real-time control or safety</li>
+        <li>Change hardware parameters (still in official software)</li>
+        <li>Take over the E-stop circuit</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="connect">
+  <div class="wrap">
+    <h2 class="h2">5. Connecting</h2>
+    <p class="sub">One rule: keep the control link wired.</p>
+    <div class="detail-grid">
+      <div class="detail"><b>Ethernet (recommended)</b><span>Lowest latency and most stable; the default for long shoots.</span></div>
+      <div class="detail"><b>USB</b><span>Supported on some models; simpler cabling, less robust over long runs or in noisy environments.</span></div>
+      <div class="detail"><b>Wireless</b><span>Remote control only — latency and packet loss make <b>the arm itself judder</b>.</span></div>
+      <div class="detail"><b>After connecting</b><span>The software reads back model, firmware and limits. Wrong readouts point at protocol revision or the cabinet.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="words">
+  <div class="wrap">
+    <h2 class="h2">6. Words people ask about</h2>
+    <div class="glossary">
+      <div><b>Payload</b>Mass the tip can carry (camera plus plate), in kg.</div>
+      <div><b>Reach / radius</b>Furthest the tip can go — how far the shot can stretch.</div>
+      <div><b>J1–J6</b>Joint numbers: J1 rotates the base, J6 rotates the tip.</div>
+      <div><b>TCP</b>Tool centre point; all coordinates are relative to it.</div>
+      <div><b>Brake</b>Locks joints when power drops; electromagnetic holds stiffer than plunger.</div>
+      <div><b>Reducer</b>Gearbox in each joint, usually harmonic; its compliance is one source of vibration.</div>
+      <div><b>Protocol revision</b>Comms rules between software and cabinet; V3 and V4 differ in features.</div>
+      <div><b>Repeatability</b>Deviation when returning to the same point, in mm.</div>
+    </div>
+    <p class="note">
+      For deeper material see Dobot's knowledge base
+      <a href="https://wiki.dobotoa.cn/" target="_blank" rel="noopener">wiki.dobotoa.cn</a>;
+      for buying advice continue to the <a href="guide.html">buying guide</a>.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="y">2026</span> CineArm · cinearm.top</span>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="basics.html" aria-current="page">Basics</a>
+      <a href="guide.html">Guide</a>
+      <a href="faq.html">FAQ</a>
+      <a href="disclaimer.html">Disclaimer</a>
+    </nav>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

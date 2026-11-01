@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>入门：机械臂是怎么动起来的 — CineArm</title>
+<meta name="description" content="机械臂由什么组成、控制柜干什么、示教器和官方软件是什么、上位机软件在哪一层。写给刚接触协作机械臂的人。">
+<meta name="theme-color" content="#212126">
+<meta property="og:title" content="入门：机械臂是怎么动起来的 — CineArm">
+<meta property="og:description" content="本体、控制柜、示教器、上位机软件，各自负责什么。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cinearm.top/basics.html">
+<meta property="og:image" content="https://cinearm.top/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="app-icon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="zh-CN" href="https://cinearm.top/basics.html">
+<link rel="alternate" hreflang="en" href="https://cinearm.top/en/basics.html">
+<link rel="stylesheet" href="assets/site.css?v=15">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="index.html">
+      <img class="mark" src="app-icon.svg" alt="" width="28" height="28">
+      CineArm
+    </a>
+    <nav>
+      <a class="hide-sm" href="features.html">功能</a>
+      <a class="hide-sm" href="robots.html">机型</a>
+      <a class="hide-sm" href="basics.html" aria-current="page">入门</a>
+      <a class="hide-sm" href="guide.html">指南</a>
+      <a class="hide-sm" href="faq.html">常见问题</a>
+      <a class="lang" href="en/basics.html" hreflang="en">EN</a>
+      <a class="cta" href="https://github.com/Kikuku10/CineArm-Releases/releases">版本记录</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow"><span class="dot"></span>写给刚接触的人</span>
+    <h1 class="sm">机械臂是怎么动起来的</h1>
+    <p class="lede">
+      一台协作机械臂能拍出电影级运镜，靠的不是一件东西，而是一串东西配合：
+      本体、控制柜、示教器、上位机软件。搞清楚谁管什么，选型和排障都会轻松很多。
+    </p>
+    <nav class="toc">
+      <a href="#parts">由什么组成</a>
+      <a href="#cabinet">控制柜</a>
+      <a href="#pendant">示教器与官方软件</a>
+      <a href="#host">上位机软件</a>
+      <a href="#connect">怎么连</a>
+      <a href="#words">名词表</a>
+    </nav>
+  </div>
+</div>
+
+<section id="parts" class="first">
+  <div class="wrap">
+    <h2 class="h2">一、一台机械臂由五部分组成</h2>
+    <p class="sub">缺任何一件，它都动不起来 —— 这也是二手交易里最容易被拆开卖的地方。</p>
+
+    <div class="stack">
+      <div class="layer">
+        <div><span class="k">01 · 本体</span></div>
+        <div>
+          <div class="t">机械臂本体</div>
+          <div class="d">六个关节（J1–J6），每个关节里有伺服电机、减速机（多为谐波）、抱闸和编码器。
+            它决定负载、臂展、速度和精度，也决定了抖动的“底子”。</div>
+        </div>
+      </div>
+
+      <div class="layer">
+        <div><span class="k">02 · 控制柜</span></div>
+        <div>
+          <div class="t">控制器 / 控制柜</div>
+          <div class="d">真正“管运动”的大脑：伺服驱动、实时运动规划、安全限位、急停回路、IO 都在这里。
+            本体只是肌肉，控制柜才是神经。</div>
+        </div>
+      </div>
+
+      <div class="layer">
+        <div><span class="k">03 · 示教器</span></div>
+        <div>
+          <div class="t">示教器（选配）</div>
+          <div class="d">手持终端，带急停、使能键和摇杆。用来现场手动拖动、记录点位、跑简单程序。</div>
+        </div>
+      </div>
+
+      <div class="layer">
+        <div><span class="k">04 · 软件</span></div>
+        <div>
+          <div class="t">官方软件 / 上位机软件</div>
+          <div class="d">装在电脑上的控制端。官方软件（如 DobotStudio Pro）相当于“软件版示教器”；
+            CineArm 属于上位机软件，负责把镜头排成时间线。两者都是通过控制柜下指令。</div>
+        </div>
+      </div>
+
+      <div class="layer">
+        <div><span class="k">05 · 末端</span></div>
+        <div>
+          <div class="t">末端工具与转接</div>
+          <div class="d">法兰、相机转接板、快装系统、跟焦电机。所有“装上去的东西”都在这层。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="tag">一句话记住</span>
+      <p><b>本体决定能不能动，控制柜决定怎么动，示教器/软件决定谁来指挥，末端决定拍出来是什么。</b></p>
+    </div>
+  </div>
+</section>
+
+<section id="cabinet">
+  <div class="wrap">
+    <h2 class="h2">二、控制柜：型号不同，能做的事也不同</h2>
+    <p class="sub">买二手机械臂时，这一项比本体更容易被忽略。</p>
+
+    <div class="compare">
+      <div>
+        <h4>控制柜负责什么</h4>
+        <ul>
+          <li>把指令翻译成六个关节的实时运动</li>
+          <li>跑碰撞检测与限位保护</li>
+          <li>急停回路与断电抱闸</li>
+          <li>对外提供通讯接口（网口 / USB）</li>
+          <li>提供 IO，接外部按钮、气动、跟焦等</li>
+        </ul>
+      </div>
+      <div>
+        <h4>型号差异体现在哪</h4>
+        <ul>
+          <li><b>匹配的机型</b>：桌面小臂与六轴协作臂的柜子完全不同，不能混用</li>
+          <li><b>支持的协议版本</b>：例如 V3 / V4，决定上位机能不能连、能用哪些功能</li>
+          <li><b>功率与驱动</b>：带得动多重、能否满速</li>
+          <li><b>接口数量</b>：网口、USB、IO 的路数</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <span class="tag">买二手要注意</span>
+      <p><b>必须连控制柜一起收，并确认柜子与本体是同一套。</b>缺柜基本等于不能用；
+        换柜或升级固件后，有可能需要重新激活或重新匹配，买之前一定要问清。</p>
+    </div>
+  </div>
+</section>
+
+<section id="pendant">
+  <div class="wrap">
+    <h2 class="h2">三、示教器，和“就是示教器”的官方软件</h2>
+    <p class="sub">这两个东西经常被混为一谈，其实做的是同一件事：<b>手动指挥机械臂</b>。</p>
+
+    <div class="compare">
+      <div>
+        <h4>示教器（硬件）</h4>
+        <ul>
+          <li>手持盒子，带急停与使能键</li>
+          <li>现场拖动、记录点位最直接</li>
+          <li>不用开电脑，开机即用</li>
+          <li>适合对点、调姿态、应急操作</li>
+        </ul>
+      </div>
+      <div>
+        <h4>官方软件（如 DobotStudio Pro）</h4>
+        <ul>
+          <li>装在电脑上，功能上相当于“软件版示教器”</li>
+          <li>能手动控制、记点、写简单程序、看状态与日志</li>
+          <li>界面更大，参数看得清，适合调试与排查</li>
+          <li>很多参数（阻尼、限速、碰撞灵敏度）只能在这里改</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="tag">为什么还需要别的软件</span>
+      <p>示教器和官方软件擅长<b>「把这个点记下来、再走到那个点」</b>。
+        但拍片要的是<b>节奏</b>：哪一秒开始加速、什么时候减速、镜头始终对准目标、跟焦怎么跟 —— 这类事它们做起来很别扭。
+        <b>上位机软件</b>就是补这一段的。</p>
+    </div>
+  </div>
+</section>
+
+<section id="host">
+  <div class="wrap">
+    <h2 class="h2">四、上位机软件：CineArm 在哪一层</h2>
+    <p class="sub">它不是替代控制柜，也不替代示教器 —— 它站在最上面一层，负责“怎么拍”。</p>
+
+    <div class="stack">
+      <div class="layer top">
+        <div><span class="k">最上层</span></div>
+        <div>
+          <div class="t">上位机软件（CineArm）</div>
+          <div class="d">排机位、拉时间线、定速度曲线、锁定目标朝向、联动跟焦。
+            最后把整段运动发给控制柜执行。</div>
+        </div>
+      </div>
+      <div class="arrow">↑ 下发的是一条轨迹</div>
+      <div class="layer">
+        <div><span class="k">中间层</span></div>
+        <div>
+          <div class="t">控制柜</div>
+          <div class="d">接收轨迹，做实时插补、限位与安全判断，然后驱动六个关节。</div>
+        </div>
+      </div>
+      <div class="arrow">↑ 输出的是关节指令</div>
+      <div class="layer">
+        <div><span class="k">底层</span></div>
+        <div>
+          <div class="t">本体与末端</div>
+          <div class="d">电机、减速机、抱闸执行动作；相机跟着末端走出一条弧线。</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">
+      示教器和官方软件同样接在“控制柜”这一层 —— 三者可以并存，随时切换，不会互相锁死。
+    </p>
+
+    <div class="compare">
+      <div>
+        <h4>CineArm 做什么</h4>
+        <ul>
+          <li>按时间线编排镜头</li>
+          <li>速度曲线、缓入缓出</li>
+          <li>目标朝向锁定、跟焦联动</li>
+          <li>虚拟机械臂上先排练</li>
+        </ul>
+      </div>
+      <div>
+        <h4>它不做什么</h4>
+        <ul>
+          <li>不替代控制柜的实时控制与安全保护</li>
+          <li>不改硬件参数（阻尼、限速仍在官方软件里）</li>
+          <li>不接管急停回路</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="connect">
+  <div class="wrap">
+    <h2 class="h2">五、怎么连</h2>
+    <p class="sub">原则只有一条：控制链路尽量有线。</p>
+    <div class="detail-grid">
+      <div class="detail"><b>网线直连（推荐）</b><span>电脑与控制柜用网线连接，延迟最低、最稳。长时间拍摄优先这个。</span></div>
+      <div class="detail"><b>USB</b><span>部分机型支持，接线简单；长线或干扰环境下不如网线稳。</span></div>
+      <div class="detail"><b>无线</b><span>只适合当遥控：延迟和丢包会让<b>机械臂动作本身抖</b>，不建议做主控链路。</span></div>
+      <div class="detail"><b>连上之后</b><span>软件会读回机型、固件与限位信息 —— 读数不对，先查协议版本与控制柜。</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="words">
+  <div class="wrap">
+    <h2 class="h2">六、几个常被问到的词</h2>
+    <div class="glossary">
+      <div><b>负载</b>末端能带多重（含相机与转接板），单位 kg。</div>
+      <div><b>臂展 / 半径</b>末端能到达的最远距离，决定镜头能伸多远。</div>
+      <div><b>J1–J6</b>六个关节编号，J1 是底座旋转，J6 是末端旋转。</div>
+      <div><b>TCP</b>工具中心点，软件里所有坐标都是相对于它。</div>
+      <div><b>抱闸</b>断电时锁住关节，防止掉落；电磁式比撞针式刚性更好。</div>
+      <div><b>减速机</b>关节里的减速装置，谐波最常见；它的弹性是抖动来源之一。</div>
+      <div><b>协议版本</b>软件与控制柜通讯的规则版本，V3 / V4 功能不同。</div>
+      <div><b>重复定位精度</b>反复回同一个点的偏差，单位 mm。</div>
+    </div>
+    <p class="note">
+      想再往下查，可以看越疆的官方知识库
+      <a href="https://wiki.dobotoa.cn/" target="_blank" rel="noopener">wiki.dobotoa.cn</a>；
+      想买二手机械臂，接着看 <a href="guide.html">避坑指南</a>。
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="y">2026</span> CineArm · cinearm.top</span>
+    <nav>
+      <a href="index.html">首页</a>
+      <a href="basics.html" aria-current="page">入门</a>
+      <a href="guide.html">避坑指南</a>
+      <a href="faq.html">常见问题</a>
+      <a href="disclaimer.html">免责声明</a>
+    </nav>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
