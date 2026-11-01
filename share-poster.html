@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>CineArm 一图流</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#212126;color:#d6d6d8;width:1080px;
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{padding:64px 64px 56px;background:
+    linear-gradient(#26262c 1px,transparent 1px) 0 0/40px 40px,
+    linear-gradient(90deg,#26262c 1px,transparent 1px) 0 0/40px 40px,#212126}
+  header{display:flex;align-items:center;gap:16px;margin-bottom:40px}
+  .logo{width:56px;height:56px;border-radius:16px;background:#00a9a6;
+    display:flex;align-items:center;justify-content:center;font-weight:700;color:#04191a;font-size:30px}
+  .brand{font-size:26px;letter-spacing:.02em;color:#e8e8ea}
+  h1{font-size:68px;line-height:1.18;letter-spacing:-.02em;color:#f2f2f4;font-weight:700}
+  h1 em{font-style:normal;color:#4fd1cf;display:block}
+  .lead{margin-top:22px;font-size:26px;line-height:1.7;color:#a3a3ab}
+  .block{margin-top:52px;background:#28282e;border:1px solid #3a3a42;border-radius:20px;padding:34px 36px}
+  .block h2{font-size:30px;color:#f2f2f4;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+  .block h2 i{width:8px;height:26px;background:#00a9a6;border-radius:4px;display:inline-block}
+  ul{list-style:none;display:grid;gap:14px}
+  li{font-size:25px;line-height:1.6;color:#b9b9c0;padding-left:30px;position:relative}
+  li::before{content:"";position:absolute;left:4px;top:.62em;width:9px;height:9px;border-radius:50%;background:#00a9a6}
+  li b{color:#f2f2f4;font-weight:600}
+  .models{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:4px}
+  .models span{background:#1f1f24;border:1px solid #3a3a42;border-radius:12px;padding:18px 16px;
+    font-size:25px;text-align:center;color:#e2e2e6}
+  .price{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .price div{background:#1f1f24;border:1px solid #3a3a42;border-radius:14px;padding:22px 24px}
+  .price dt{font-size:21px;color:#8f8f97;margin-bottom:8px}
+  .price dd{font-size:29px;color:#f2f2f4;font-weight:600;line-height:1.4}
+  .price dd small{display:block;font-size:20px;color:#8f8f97;font-weight:400;margin-top:6px}
+  .hi{border-color:rgba(0,169,166,.45)!important}
+  .warn{border-left:4px solid #e0a33c;background:rgba(224,163,60,.08);border-radius:0 14px 14px 0;
+    padding:24px 28px;margin-top:20px;font-size:23px;line-height:1.7;color:#c9b79c}
+  .warn b{color:#f0d9b8}
+  footer{margin-top:54px;border-top:1px solid #3a3a42;padding-top:28px;
+    display:flex;justify-content:space-between;align-items:center;font-size:24px}
+  footer .url{color:#4fd1cf;font-weight:600}
+  footer .note{color:#6b6b74;font-size:21px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo">C</div>
+    <div class="brand">CineArm</div>
+  </header>
+
+  <h1>影视机械臂<em>一图看懂</em></h1>
+  <p class="lead">用时间线排运镜的个人方案：先虚拟练习，再上真机；<br>先免费试用，觉得够用再付费。</p>
+
+  <div class="block">
+    <h2><i></i>支持的机型</h2>
+    <div class="models">
+      <span>Nova 5</span><span>CR5</span><span>CR10</span>
+      <span>CR10A / CR10V</span><span>CR20A</span><span>其他型号</span>
+    </div>
+    <ul style="margin-top:20px">
+      <li>以上五个机型可直接连接；<b>其他型号</b>暂时只能先用虚拟机械臂排镜头</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h2><i></i>要花多少钱</h2>
+    <div class="price">
+      <div><dt>二手本体（5 kg 级）</dt><dd>1 万 – 3 万</dd></div>
+      <div><dt>二手本体（10 kg 级）</dt><dd>2 万 – 3 万</dd></div>
+      <div><dt>全新</dt><dd>比二手贵一倍上下<small>差价主要在本体</small></dd></div>
+      <div class="hi"><dt>我的整套硬件</dt><dd>约 2.6 万<small>本体 2.5 万 + 底座 1 千 + 转接 30 元</small></dd></div>
+    </div>
+    <div class="warn">
+      <b>软件怎么算：</b>免费版够练（不限项目、虚拟臂、预览）；<b>Studio ¥2,000 一次买断</b>，
+      更新到作者停运为止；<b>一对一客服 ¥9,999</b>，已含 Studio。
+    </div>
+  </div>
+
+  <div class="block">
+    <h2><i></i>二手机械臂，六个必查</h2>
+    <ul>
+      <li><b>抖动</b>：只在运动中，停住不抖 —— 要末端全展、走中高速才看得出</li>
+      <li><b>抖动来源</b>：本体弹性 / 底座刚度 / 相机防抖，三者很像，别一上来怪机器</li>
+      <li><b>抱闸</b>：优先电磁；撞针有虚位，停位不准还可能撞相机</li>
+      <li><b>限位行程</b>：J4–J6 是 360° 还是双 180°，决定镜头能不能翻过来</li>
+      <li><b>碰撞灵敏度</b>：要能调低，否则一碰就报警</li>
+      <li><b>负载参数</b>：填错会下坠、发飘 —— 不是坏了，是数字不对</li>
+    </ul>
+    <div class="warn">
+      <b>同型号可能不是同一台机器：</b>绿的谐波 vs 简配减速机、电磁 vs 撞针抱闸、双 180 vs 360。
+      让对方拍关节铭牌，说不清就按简配估价。
+    </div>
+  </div>
+
+  <div class="block">
+    <h2><i></i>买之前先想清楚</h2>
+    <ul>
+      <li><b>影视机械臂套餐，全新的也是同一套玩法</b>：卖的是本体，转接板、底座、软件归你</li>
+      <li><b>底座最耗人</b>：我自己被工厂拖了一个月，比从头写软件还难</li>
+      <li><b>不是劝你 DIY</b>：想省时间省力气，花钱买一整套服务完全合理 —— 但先判断值不值这个价</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h2><i></i>先试用，不用先买</h2>
+    <ul>
+      <li>下载后<b>不付钱就能用免费版</b>：项目、虚拟机械臂、预览、保存全不限</li>
+      <li>开拍时的限制：一个项目 1 条时间线、最多 4 个机位点 —— 需要更多才考虑 Studio</li>
+      <li>macOS / Windows / iPad 三端，应用内可检查更新</li>
+    </ul>
+  </div>
+
+  <footer>
+    <span class="url">cinearm.top</span>
+    <span class="note">个人项目 · 非公司 · 有问题群里问</span>
+  </footer>
+
+</div>
+</body>
+</html>
