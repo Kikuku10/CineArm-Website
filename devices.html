@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>支持的设备：跟焦马达与索尼相机 — CineArm</title>
-<meta name="description" content="CineArm 支持哪些跟焦马达、支持哪些索尼相机功能：Air4 有线马达（Modbus TCP）、索尼 USB/WiFi 连接、快门光圈 ISO、录制、对焦位置。">
+<meta name="description" content="CineArm 支持哪些跟焦马达、索尼相机能控制到什么程度：接上能拍什么、能调什么、哪些不支持。">
 <meta name="theme-color" content="#212126">
 <meta property="og:title" content="支持的设备：跟焦马达与索尼相机 — CineArm">
 <meta property="og:description" content="跟焦马达用什么、索尼相机能控制到什么程度，一次说清。">
@@ -59,48 +59,48 @@
 <section id="motor" class="first">
   <div class="wrap">
     <h2 class="h2">一、跟焦马达：支持 Air4 有线马达</h2>
-    <p class="sub">目前只支持这一类 —— 有线网络连接的 Air4 控制器。其他品牌或纯无线马达暂不支持。</p>
+    <p class="sub">目前支持这一类。一台控制器可以同时带两台马达，软件里分别叫 A 和 B。</p>
 
     <div class="detail-grid">
-      <div class="detail"><b>型号</b><span><b>Air4</b> 有线马达。一台控制器可以带两台，软件里分别显示为 <b>Air4 A</b> 和 <b>Air4 B</b>，各自独立绑定、独立排焦点。</span></div>
-      <div class="detail"><b>连接方式</b><span>有线网络（以太网）。使用 Modbus TCP，控制器固定端口 <b>60000</b>；连接时填入控制器 IP 地址即可。</span></div>
-      <div class="detail"><b>需要准备</b><span>控制器上电并与电脑在同一网段；建议直连网线或独立小交换机，别和办公网混在一起。</span></div>
-      <div class="detail"><b>不支持的情况</b><span>纯无线连接的控制器、其他品牌马达、以及通过 USB 直连的马达，当前版本都接不上。</span></div>
+      <div class="detail"><b>怎么接</b><span>用一根网线把马达控制器接到电脑，在软件里填一次控制器地址就连上了。之后每次打开都能直接用。</span></div>
+      <div class="detail"><b>带几台</b><span>一台控制器带两台，可以只接一台，也可以两台一起用，各自独立排焦点。</span></div>
+      <div class="detail"><b>接上之后</b><span>焦点会变成一条可以排的轨道 —— 什么时候对到哪，跟机位一样在时间线上定。</span></div>
+      <div class="detail"><b>不支持</b><span>纯无线的控制器、其他品牌的马达，目前接不上。</span></div>
     </div>
 
-    <h3 style="margin:44px 0 12px;font-size:18px">接上之后能做什么</h3>
+    <h3 style="margin:44px 0 12px;font-size:18px">能拍到什么</h3>
     <div class="detail-grid">
-      <div class="detail"><b>焦点当轨道排</b><span>焦点可以像机位一样放进时间线，某一帧只想改焦点也不必新增机位。</span></div>
-      <div class="detail"><b>自动标定</b><span>一键走完全行程，两端确认后交给软件接管，之后所有位置都按比例对应。</span></div>
-      <div class="detail"><b>精确重复</b><span>焦点位置存得住、找得回，换场地重拍也能对上同一条焦点线。</span></div>
-      <div class="detail"><b>状态可见</b><span>软件会读回马达位置、限位与故障状态；异常时会在运行提示里说清原因。</span></div>
+      <div class="detail"><b>焦点跟着镜头走</b><span>主体移动时焦点自动跟上，不用一只手一直捏着跟焦环。</span></div>
+      <div class="detail"><b>一键走完全行程</b><span>接上后让它自己从头走到尾，两端确认一次，之后软件就知道每个焦点的位置。</span></div>
+      <div class="detail"><b>换个场地也能重来</b><span>焦点位置存得住、找得回，隔几天重拍同一个镜头，焦点能对回原来那条线。</span></div>
+      <div class="detail"><b>出问题能看见</b><span>马达卡住、没接好、行程没标定，软件会直接告诉你原因，不用靠猜。</span></div>
     </div>
 
     <div class="callout warn">
       <span class="tag">注意</span>
-      <p>标定没做、或马达没被授权接管时，焦点轨道会显示为不可执行 —— 这不是软件坏了，是<b>还没告诉它行程范围</b>。</p>
+      <p>如果焦点轨道显示为不可执行，通常是<b>还没做标定</b> —— 让马达先走一遍全程就好，不是设备坏了。</p>
     </div>
   </div>
 </section>
 
 <section id="sony">
   <div class="wrap">
-    <h2 class="h2">二、索尼相机：USB 或 WiFi 接入，可控制参数并驱动对焦</h2>
-    <p class="sub">支持索尼相机的官方远程控制能力；具体能调哪些项，取决于机身型号与固件。</p>
+    <h2 class="h2">二、索尼相机：能调参数，也能被时间线驱动对焦</h2>
+    <p class="sub">用一根线或 WiFi 把相机接进来，软件里就能直接控它。</p>
 
     <div class="detail-grid">
-      <div class="detail"><b>连接方式</b><span><b>USB</b> 或 <b>WiFi</b> 两种。软件里能看到在线设备列表，选中后连接；WiFi 首次连接需要在相机端确认授权。</span></div>
-      <div class="detail"><b>平台要求</b><span>需要 macOS 或 Windows 原生应用；<b>iPad 版不支持索尼相机控制</b>。</span></div>
-      <div class="detail"><b>参数控制</b><span>快门、光圈、ISO 等常用曝光参数可以在软件里直接调；可调范围与选项由机身决定，软件只显示这台机器支持的项。</span></div>
-      <div class="detail"><b>录制</b><span>可以在软件里开始 / 停止录制，并显示当前是否在录。</span></div>
-      <div class="detail"><b>对焦位置</b><span>支持按百分比（0–100%）驱动镜头对焦位置，配合时间线做焦点变化；需要相机端授权对焦控制。</span></div>
-      <div class="detail"><b>实时取景</b><span>可以把机身画面回传到软件里，用于构图与监看（与机械臂的监看互不冲突）。</span></div>
+      <div class="detail"><b>怎么接</b><span>USB 线或 WiFi 都行，软件里会列出在线的相机，选中就连上；WiFi 首次连接要在相机上确认一次。</span></div>
+      <div class="detail"><b>能调什么</b><span>快门、光圈、ISO 这些常用参数直接在软件里改。能看到哪些项，取决于你这台机身。</span></div>
+      <div class="detail"><b>能录什么</b><span>开始 / 停止录制在软件里完成，也能看到当前是不是在录。</span></div>
+      <div class="detail"><b>能跟焦吗</b><span>能。焦点位置可以按时间线驱动，和机械臂的运动一起排。</span></div>
+      <div class="detail"><b>能监看吗</b><span>相机的画面可以回传到软件里，构图和焦点都在一块屏幕上看。</span></div>
+      <div class="detail"><b>需要什么设备</b><span>电脑（macOS 或 Windows）。<b>iPad 版只控机械臂，不控索尼相机。</b></span></div>
     </div>
 
     <div class="callout">
-      <span class="tag">两点说明</span>
-      <p>① <b>不是所有索尼机型都支持全部功能</b>：老机型可能只能录、不能调参，或只能调参、不能驱动对焦 —— 连上之后软件会按机身实际能力显示。</p>
-      <p>② 对焦驱动用的是机身自身的对焦系统，<b>镜头需支持相应协议</b>；手动电影镜头通常只能通过马达跟焦，不能走这条路。</p>
+      <span class="tag">两句实话</span>
+      <p>① <b>不是每台索尼机身都支持全部功能</b>：老一点的机器可能只能录、不能调参，或者不能远程驱动对焦。连上之后软件会按机身实际能力显示。</p>
+      <p>② 远程对焦用的是<b>镜头自己的对焦</b>，所以镜头得支持；电影手动镜头通常只能靠跟焦马达。</p>
     </div>
   </div>
 </section>
@@ -108,11 +108,11 @@
 <section id="camera">
   <div class="wrap">
     <h2 class="h2">三、其他相机怎么用</h2>
-    <p class="sub">不接管相机也没问题 —— 机械臂只管运动，相机你自己控制。</p>
+    <p class="sub">不接相机也完全能拍 —— 机械臂只管运动，相机你自己控。</p>
     <div class="detail-grid">
-      <div class="detail"><b>不连相机</b><span>机位、速度、时间线照常排；对焦用<b>跟焦马达</b>手动或按轨道驱动。</span></div>
-      <div class="detail"><b>其他品牌</b><span>当前版本不提供其他品牌的参数控制与对焦驱动。</span></div>
-      <div class="detail"><b>监看</b><span>相机画面可以通过自己的监视器 / 采集卡看，不影响机械臂运行。</span></div>
+      <div class="detail"><b>不连相机</b><span>机位、速度、时间线照常排；对焦用跟焦马达，手动或按轨道走。</span></div>
+      <div class="detail"><b>其他品牌</b><span>目前只支持索尼的远程控制，其他品牌不接管。</span></div>
+      <div class="detail"><b>监看</b><span>用自己的监视器或采集卡看画面，不影响机械臂运行。</span></div>
     </div>
   </div>
 </section>
@@ -121,10 +121,10 @@
   <div class="wrap">
     <h2 class="h2">四、买之前怎么确认</h2>
     <div class="detail-grid">
-      <div class="detail"><b>1. 马达</b><span>确认是 <b>Air4 有线控制器</b>，能填 IP、端口 60000；不确定就先问卖家型号。</span></div>
-      <div class="detail"><b>2. 相机</b><span>先查你的索尼机身是否支持远程控制（USB 或 WiFi）；接着看它能否被远程驱动对焦。</span></div>
-      <div class="detail"><b>3. 平台</b><span>要用索尼相机控制，得在 macOS / Windows 上跑；iPad 只能做机械臂这一侧。</span></div>
-      <div class="detail"><b>4. 不确定就问</b><span>把你的机身型号发到微信群里，我按实际能力告诉你哪些能用。</span></div>
+      <div class="detail"><b>1. 马达</b><span>确认是 <b>Air4 有线版</b>；不确定就把型号发群里问我。</span></div>
+      <div class="detail"><b>2. 相机</b><span>确认你的索尼机身支持远程控制；能不能远程对焦，我可以按型号告诉你。</span></div>
+      <div class="detail"><b>3. 电脑</b><span>要用索尼相机控制，得在电脑上跑；iPad 上只做机械臂这边。</span></div>
+      <div class="detail"><b>4. 拿不准</b><span>把机身型号和马达型号发到微信群里，我直接回你能不能用。</span></div>
     </div>
     <p class="note">
       相关：<a href="docs/focus.html">跟焦功能说明</a> · <a href="robots.html">支持机型</a> ·

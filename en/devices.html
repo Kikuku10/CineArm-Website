@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Supported devices: focus motors and Sony cameras — CineArm</title>
-<meta name="description" content="Which follow-focus motors CineArm supports (Air4 wired, Modbus TCP) and what Sony camera control covers: USB/WiFi, shutter, aperture, ISO, recording, focus position.">
+<meta name="description" content="Which focus motors and Sony camera features CineArm supports: what you can shoot, what you can adjust, and what does not work.">
 <meta name="theme-color" content="#212126">
 <meta property="og:title" content="Supported devices — CineArm">
 <meta property="og:description" content="Which focus motor, and how far Sony camera control goes.">
@@ -58,50 +58,49 @@
 
 <section id="motor" class="first">
   <div class="wrap">
-    <h2 class="h2">1. Focus motor: Air4 wired controllers</h2>
-    <p class="sub">Only this family is supported — Air4 over wired Ethernet. Other brands and wireless-only units do not connect yet.</p>
+    <h2 class="h2">1. Focus motor: Air4 wired</h2>
+    <p class="sub">One family supported. A single controller can drive two motors, shown as A and B in the app.</p>
 
     <div class="detail-grid">
-      <div class="detail"><b>Model</b><span><b>Air4</b> wired motor. One controller can drive two, shown as <b>Air4 A</b> and <b>Air4 B</b>, bound and scheduled independently.</span></div>
-      <div class="detail"><b>Connection</b><span>Wired Ethernet using Modbus TCP on fixed port <b>60000</b>; you enter the controller's IP address.</span></div>
-      <div class="detail"><b>What you need</b><span>The controller powered and on the same subnet; a direct cable or a small dedicated switch, not the office network.</span></div>
-      <div class="detail"><b>Not supported</b><span>Wireless-only controllers, other brands, and USB-attached motors.</span></div>
+      <div class="detail"><b>Connecting</b><span>One network cable from the controller to your computer, enter the controller address once, and it is ready every time after.</span></div>
+      <div class="detail"><b>How many</b><span>Two per controller — use one, or both, each scheduled independently.</span></div>
+      <div class="detail"><b>What changes</b><span>Focus becomes a track you can schedule: when it lands where, set on the timeline like any camera move.</span></div>
+      <div class="detail"><b>Not supported</b><span>Wireless-only controllers and other brands do not connect yet.</span></div>
     </div>
 
-    <h3 style="margin:44px 0 12px;font-size:18px">What it does once connected</h3>
+    <h3 style="margin:44px 0 12px;font-size:18px">What you can shoot</h3>
     <div class="detail-grid">
-      <div class="detail"><b>Focus as a track</b><span>Focus sits in the timeline like any camera move; changing focus on one frame does not require a new pose.</span></div>
-      <div class="detail"><b>Auto calibration</b><span>Drive the full travel once, confirm both ends, and the software takes over with proportional mapping.</span></div>
-      <div class="detail"><b>Repeatable</b><span>Focus positions are stored and recalled, so a reshoot on another day can match the same focus line.</span></div>
-      <div class="detail"><b>Status readback</b><span>Position, limits and faults are reported back; problems surface in the run messages with a reason.</span></div>
+      <div class="detail"><b>Focus follows the subject</b><span>As the subject moves, focus follows — no hand on the focus ring the whole time.</span></div>
+      <div class="detail"><b>One-tap full travel</b><span>Let it run from one end to the other once, confirm both ends, and the app knows where every focus position sits.</span></div>
+      <div class="detail"><b>Repeat on another day</b><span>Positions are saved and recalled, so a reshoot days later lands on the same focus line.</span></div>
+      <div class="detail"><b>Problems are visible</b><span>Stalled motor, bad connection or missing calibration is reported with a reason instead of a guess.</span></div>
     </div>
 
     <div class="callout warn">
       <span class="tag">Note</span>
-      <p>If calibration is missing or the motor is not authorised, the focus track shows as not executable — that is not a bug,
-         it means <b>you have not told the software the travel range yet</b>.</p>
+      <p>If the focus track shows as not executable, it usually means <b>calibration has not been done</b> — run the motor through its travel once; the hardware is fine.</p>
     </div>
   </div>
 </section>
 
 <section id="sony">
   <div class="wrap">
-    <h2 class="h2">2. Sony cameras: USB or WiFi, parameters plus focus drive</h2>
-    <p class="sub">Uses Sony's remote control capability; which items you can change depends on the body and firmware.</p>
+    <h2 class="h2">2. Sony cameras: set parameters and drive focus from the timeline</h2>
+    <p class="sub">Connect with a cable or WiFi and the app takes over.</p>
 
     <div class="detail-grid">
-      <div class="detail"><b>Connection</b><span><b>USB</b> or <b>WiFi</b>. Online devices are listed in the app; over WiFi the camera asks for authorisation on first connect.</span></div>
-      <div class="detail"><b>Platform</b><span>Requires the native macOS or Windows app; <b>Sony camera control is not available on iPad</b>.</span></div>
-      <div class="detail"><b>Parameters</b><span>Shutter, aperture, ISO and similar exposure settings are editable in the app. Ranges and options come from the body; the app only shows what that body supports.</span></div>
-      <div class="detail"><b>Recording</b><span>Start and stop recording from the app, with recording state shown.</span></div>
-      <div class="detail"><b>Focus position</b><span>Drive lens focus by percentage (0–100%) and animate it on the timeline; focus control must be authorised on the camera.</span></div>
-      <div class="detail"><b>Live view</b><span>The body's image can come back into the app for framing and monitoring, independent of the arm.</span></div>
+      <div class="detail"><b>Connecting</b><span>USB or WiFi; the app lists online cameras and you pick one. Over WiFi the camera asks you to confirm the first time.</span></div>
+      <div class="detail"><b>Settings</b><span>Shutter, aperture and ISO are editable in the app. Which items appear depends on your body.</span></div>
+      <div class="detail"><b>Recording</b><span>Start and stop from the app, with live recording state.</span></div>
+      <div class="detail"><b>Focus</b><span>Yes — focus position can be driven from the timeline, scheduled alongside the arm's motion.</span></div>
+      <div class="detail"><b>Monitoring</b><span>The camera image comes back into the app, so framing and focus sit on one screen.</span></div>
+      <div class="detail"><b>Requires</b><span>A computer (macOS or Windows). <b>On iPad the app controls the arm only, not the Sony camera.</b></span></div>
     </div>
 
     <div class="callout">
-      <span class="tag">Two caveats</span>
-      <p>① <b>Not every Sony body supports every feature</b>: older models may record but not expose parameters, or expose parameters but not focus drive. The app reflects the body's actual capability after connecting.</p>
-      <p>② Focus drive uses the camera's own AF system, so the <b>lens must speak the required protocol</b>; manual cinema lenses normally need a focus motor instead.</p>
+      <span class="tag">Two honest caveats</span>
+      <p>① <b>Not every Sony body exposes every feature</b>: older models may record without exposing parameters, or without remote focus. The app shows what the body actually offers.</p>
+      <p>② Remote focus uses the <b>lens's own AF</b>, so the lens must support it; manual cinema lenses normally need the focus motor instead.</p>
     </div>
   </div>
 </section>
@@ -109,27 +108,25 @@
 <section id="camera">
   <div class="wrap">
     <h2 class="h2">3. Other cameras</h2>
-    <p class="sub">Not taking over the camera is perfectly fine — the arm only handles motion.</p>
+    <p class="sub">You can shoot without linking a camera at all — the arm only handles motion.</p>
     <div class="detail-grid">
-      <div class="detail"><b>No camera link</b><span>Poses, speed and timeline work as usual; focus comes from the <b>focus motor</b>, manually or from a track.</span></div>
-      <div class="detail"><b>Other brands</b><span>No parameter control or focus drive for other brands in the current version.</span></div>
-      <div class="detail"><b>Monitoring</b><span>Use your own monitor or capture card; it does not affect arm operation.</span></div>
+      <div class="detail"><b>No camera link</b><span>Poses, speed and timeline as usual; focus comes from the motor, manual or scheduled.</span></div>
+      <div class="detail"><b>Other brands</b><span>Only Sony remote control is supported today; other brands are left alone.</span></div>
+      <div class="detail"><b>Monitoring</b><span>Use your own monitor or capture card; it does not affect the arm.</span></div>
     </div>
   </div>
 </section>
 
 <section id="check">
   <div class="wrap">
-    <h2 class="h2">4. How to verify before buying</h2>
+    <h2 class="h2">4. How to check before buying</h2>
     <div class="detail-grid">
-      <div class="detail"><b>1. Motor</b><span>Confirm it is an <b>Air4 wired controller</b> that accepts an IP and port 60000; ask the seller for the model.</span></div>
-      <div class="detail"><b>2. Camera</b><span>Check whether your Sony body supports remote control (USB or WiFi), then whether focus can be driven remotely.</span></div>
-      <div class="detail"><b>3. Platform</b><span>Sony camera control needs macOS or Windows; on iPad only the arm side is available.</span></div>
-      <div class="detail"><b>4. Ask</b><span>Post your body model in the WeChat group and I will tell you what works.</span></div>
+      <div class="detail"><b>1. Motor</b><span>Confirm it is the <b>wired Air4</b>; if unsure, send me the model in the group.</span></div>
+      <div class="detail"><b>2. Camera</b><span>Confirm your Sony body supports remote control; I can tell you whether remote focus works for it.</span></div>
+      <div class="detail"><b>3. Computer</b><span>Sony camera control needs a computer; on iPad you only get the arm side.</span></div>
+      <div class="detail"><b>4. Unsure</b><span>Post the body and motor models in the WeChat group and I will answer directly.</span></div>
     </div>
-    <p class="note">
-      Related: <a href="docs/focus.html">follow focus</a> · <a href="robots.html">supported arms</a> · <a href="faq.html">FAQ</a>
-    </p>
+    <p class="note">Related: <a href="docs/focus.html">follow focus</a> · <a href="robots.html">supported arms</a> · <a href="faq.html">FAQ</a></p>
   </div>
 </section>
 
