@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Supported devices: focus motors and Sony cameras — CineArm</title>
+<title>Supported devices: motors and Sony cameras — CineArm</title>
 <meta name="description" content="Which focus motors and Sony camera features CineArm supports: what you can shoot, what you can adjust, and what does not work.">
 <meta name="theme-color" content="#212126">
 <meta property="og:title" content="Supported devices — CineArm">
@@ -48,7 +48,7 @@
       Here is exactly how far support goes today.
     </p>
     <nav class="toc">
-      <a href="#motor">Focus motor</a>
+      <a href="#motor">Motors</a>
       <a href="#sony">Sony cameras</a>
       <a href="#camera">Other cameras</a>
       <a href="#check">How to verify</a>
@@ -58,32 +58,38 @@
 
 <section id="motor" class="first">
   <div class="wrap">
-    <h2 class="h2">1. Focus motor: Air4</h2>
-    <p class="sub">Air4 is supported. How many motors you can run depends on how you connect.</p>
+    <h2 class="h2">1. Motors: more than focus</h2>
+    <p class="sub">
+      The app has <b>custom output tracks</b>: bind a motor to anything that turns and it follows the timeline.
+      Focus is just the most common use — zoom, mechanical iris, turntables and homemade rigs all work the same way.
+    </p>
 
     <div class="detail-grid">
-      <div class="detail"><b>Wired: one motor only</b><span>One cable from the motor to your computer, enter the controller address once, and it works every time after.</span></div>
-      <div class="detail"><b>Bluetooth: several motors</b><span>Pair over Bluetooth and run multiple motors at once, shown as Air4 A, Air4 B and so on, each scheduled independently.</span></div>
-      <div class="detail"><b>What changes</b><span>Focus becomes a track you can schedule: when it lands where, set on the timeline like any camera move.</span></div>
+      <div class="detail"><b>Wired: one motor only</b><span>One cable to the computer, enter the controller address once, and it works every time after.</span></div>
+      <div class="detail"><b>Bluetooth: several motors</b><span>Pair over Bluetooth and run multiple at once, shown as Air4 A, Air4 B and so on, each independent.</span></div>
+      <div class="detail"><b>Bind it to a track</b><span>Pick the motor, bind it to a track, and that track is now its responsibility — where it sits at each moment is set on the timeline.</span></div>
       <div class="detail"><b>Not supported</b><span>Motors from other brands do not connect yet.</span></div>
     </div>
 
-    <div class="callout">
-      <span class="tag">Which to pick</span>
-      <p>One focus pull: wired is the most stable. Two lenses at once, or one motor per operator: use Bluetooth.</p>
+    <h3 style="margin:44px 0 12px;font-size:18px">What one motor can drive</h3>
+    <div class="detail-grid">
+      <div class="detail"><b>Focus ring</b><span>The usual job: focus follows the subject without a hand on the ring.</span></div>
+      <div class="detail"><b>Zoom ring</b><span>Push and pull without a second operator; the zoom rides alongside the camera move.</span></div>
+      <div class="detail"><b>Turntable</b><span>Put the product on a rotating stage and have it spin evenly, hold, then reverse.</span></div>
+      <div class="detail"><b>Mechanical iris, filter wheel</b><span>If it turns and the travel can be calibrated, it can be a track.</span></div>
+      <div class="detail"><b>Homemade rigs</b><span>Sliders, lifts, flip mechanisms you built yourself — attach a motor and schedule it.</span></div>
+      <div class="detail"><b>Two at once</b><span>One pulls focus while the other zooms; both tracks run independently.</span></div>
     </div>
 
-    <h3 style="margin:44px 0 12px;font-size:18px">What you can shoot</h3>
-    <div class="detail-grid">
-      <div class="detail"><b>Focus follows the subject</b><span>As the subject moves, focus follows — no hand on the focus ring the whole time.</span></div>
-      <div class="detail"><b>One-tap full travel</b><span>Let it run from one end to the other once, confirm both ends, and the app knows where every focus position sits.</span></div>
-      <div class="detail"><b>Repeat on another day</b><span>Positions are saved and recalled, so a reshoot days later lands on the same focus line.</span></div>
-      <div class="detail"><b>Problems are visible</b><span>Stalled motor, bad connection or missing calibration is reported with a reason instead of a guess.</span></div>
+    <div class="callout">
+      <span class="tag">In one line</span>
+      <p>To the software, a motor is just <b>a position-driven output</b>. Focus is simply what it does most often — bind it to something else and it drives that instead.</p>
     </div>
 
     <div class="callout warn">
       <span class="tag">Note</span>
-      <p>If the focus track shows as not executable, it usually means <b>calibration has not been done</b> — run the motor through its travel once; the hardware is fine.</p>
+      <p>Every new mechanism needs a <b>travel calibration</b>: run it end to end, confirm both ends, and the software knows where 0% and 100% are.
+         Without it the track shows as not executable — the hardware is fine.</p>
     </div>
   </div>
 </section>

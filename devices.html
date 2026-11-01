@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>支持的设备：跟焦马达与索尼相机 — CineArm</title>
+<title>支持的设备：马达与索尼相机 — CineArm</title>
 <meta name="description" content="CineArm 支持哪些跟焦马达、索尼相机能控制到什么程度：接上能拍什么、能调什么、哪些不支持。">
 <meta name="theme-color" content="#212126">
 <meta property="og:title" content="支持的设备：跟焦马达与索尼相机 — CineArm">
@@ -48,7 +48,7 @@
       这里写清目前支持到什么程度，避免买回来才发现接不上。
     </p>
     <nav class="toc">
-      <a href="#motor">跟焦马达</a>
+      <a href="#motor">马达</a>
       <a href="#sony">索尼相机</a>
       <a href="#camera">其他相机</a>
       <a href="#check">怎么确认</a>
@@ -58,32 +58,38 @@
 
 <section id="motor" class="first">
   <div class="wrap">
-    <h2 class="h2">一、跟焦马达：支持 Air4</h2>
-    <p class="sub">目前支持 Air4。接一台还是接多台，取决于你用哪种连法。</p>
+    <h2 class="h2">一、马达：不只是对焦</h2>
+    <p class="sub">
+      软件里有<b>自定义输出轨道</b>：把马达绑到任意一个「能转的东西」上，它就能跟着时间线走。
+      对焦只是最常用的一种，变焦、机械光圈、转盘、自制机构都能用同一个办法驱动。
+    </p>
 
     <div class="detail-grid">
-      <div class="detail"><b>有线：只能接一台</b><span>用一根网线把马达接到电脑，软件里填一次控制器地址就连上，之后每次打开都能直接用。</span></div>
-      <div class="detail"><b>蓝牙：可以接多台</b><span>蓝牙配对连上，可以同时挂多台马达，软件里分别叫 Air4 A、Air4 B……各自独立排焦点。</span></div>
-      <div class="detail"><b>接上之后</b><span>焦点会变成一条能排的轨道 —— 什么时候对到哪，跟机位一样在时间线上定。</span></div>
+      <div class="detail"><b>有线：只能接一台</b><span>一根网线接到电脑，软件里填一次控制器地址就连上，之后每次打开都能直接用。</span></div>
+      <div class="detail"><b>蓝牙：可以接多台</b><span>蓝牙配对连上，可以同时挂多台，软件里分别叫 Air4 A、Air4 B……各自独立跑。</span></div>
+      <div class="detail"><b>绑成一条轨道</b><span>选中马达，把它绑到一条轨道上，这条轨道就归它控制 —— 什么时候转到哪，全在时间线上定。</span></div>
       <div class="detail"><b>不支持</b><span>其他品牌的马达目前接不上。</span></div>
     </div>
 
-    <div class="callout">
-      <span class="tag">怎么选</span>
-      <p>只拍一个焦点跟拍：有线就行，最稳。要同时控两只镜头、或者一台拍一台跟，走蓝牙。</p>
+    <h3 style="margin:44px 0 12px;font-size:18px">一个马达能驱动什么</h3>
+    <div class="detail-grid">
+      <div class="detail"><b>对焦环</b><span>最常见：主体移动时焦点自动跟上，不用一只手一直捏着。</span></div>
+      <div class="detail"><b>变焦环</b><span>推拉镜头可以没人在旁边手动变焦，节奏和机位一起排。</span></div>
+      <div class="detail"><b>转盘 / 旋转台</b><span>产品放在转盘上，让它在镜头里匀速转、停住、再反向转。</span></div>
+      <div class="detail"><b>机械光圈、滤镜轮</b><span>只要转得动、行程能标定，就能当成一条轨道来控。</span></div>
+      <div class="detail"><b>自制机构</b><span>自己做的推拉、升降、翻页机构，接上马达就能按时间线动。</span></div>
+      <div class="detail"><b>两台一起</b><span>一台拉焦点、一台转变焦，两条轨道同时跑，互不打扰。</span></div>
     </div>
 
-    <h3 style="margin:44px 0 12px;font-size:18px">能拍到什么</h3>
-    <div class="detail-grid">
-      <div class="detail"><b>焦点跟着镜头走</b><span>主体移动时焦点自动跟上，不用一只手一直捏着跟焦环。</span></div>
-      <div class="detail"><b>一键走完全行程</b><span>接上后让它自己从头走到尾，两端确认一次，之后软件就知道每个焦点的位置。</span></div>
-      <div class="detail"><b>换个场地也能重来</b><span>焦点位置存得住、找得回，隔几天重拍同一个镜头，焦点能对回原来那条线。</span></div>
-      <div class="detail"><b>出问题能看见</b><span>马达卡住、没接好、行程没标定，软件会直接告诉你原因，不用靠猜。</span></div>
+    <div class="callout">
+      <span class="tag">一句话</span>
+      <p>软件眼里马达就是<b>一个「按位置驱动」的输出</b>。焦点只是它最常干的活 —— 你把它绑到什么上，它就驱动什么。</p>
     </div>
 
     <div class="callout warn">
       <span class="tag">注意</span>
-      <p>如果焦点轨道显示为不可执行，通常是<b>还没做标定</b> —— 让马达先走一遍全程就好，不是设备坏了。</p>
+      <p>换一个机构就要做一次<b>行程标定</b>：让它从头走到尾，确认两端，软件才知道 0% 和 100% 在哪。
+         没标定时轨道会显示不可执行，不是设备坏了。</p>
     </div>
   </div>
 </section>
