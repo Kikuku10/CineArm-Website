@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>支持的设备：跟焦马达与索尼相机 — CineArm</title>
+<meta name="description" content="CineArm 支持哪些跟焦马达、支持哪些索尼相机功能：Air4 有线马达（Modbus TCP）、索尼 USB/WiFi 连接、快门光圈 ISO、录制、对焦位置。">
+<meta name="theme-color" content="#212126">
+<meta property="og:title" content="支持的设备：跟焦马达与索尼相机 — CineArm">
+<meta property="og:description" content="跟焦马达用什么、索尼相机能控制到什么程度，一次说清。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cinearm.top/devices.html">
+<meta property="og:image" content="https://cinearm.top/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="app-icon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="zh-CN" href="https://cinearm.top/devices.html">
+<link rel="alternate" hreflang="en" href="https://cinearm.top/en/devices.html">
+<link rel="stylesheet" href="assets/site.css?v=18">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="index.html">
+      <img class="mark" src="app-icon.svg" alt="" width="28" height="28">
+      CineArm
+    </a>
+    <nav>
+      <a class="hide-sm" href="features.html">功能</a>
+      <a class="hide-sm" href="robots.html">机型</a>
+      <a class="hide-sm" href="devices.html">设备</a>
+      <a class="hide-sm" href="basics.html">入门</a>
+      <a class="hide-sm" href="guide.html">指南</a>
+      <a class="hide-sm" href="plans.html">授权</a>
+      <a class="hide-sm" href="faq.html">常见问题</a>
+      <a class="lang" href="en/devices.html" hreflang="en">EN</a>
+      <a class="cta" href="https://github.com/Kikuku10/CineArm-Releases/releases">版本记录</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow"><span class="dot"></span>买之前先对一下</span>
+    <h1 class="sm">支持的设备</h1>
+    <p class="lede">
+      机械臂之外，还有两样东西决定你能拍到什么：<b>跟焦马达</b>和<b>相机</b>。
+      这里写清目前支持到什么程度，避免买回来才发现接不上。
+    </p>
+    <nav class="toc">
+      <a href="#motor">跟焦马达</a>
+      <a href="#sony">索尼相机</a>
+      <a href="#camera">其他相机</a>
+      <a href="#check">怎么确认</a>
+    </nav>
+  </div>
+</div>
+
+<section id="motor" class="first">
+  <div class="wrap">
+    <h2 class="h2">一、跟焦马达：支持 Air4 有线马达</h2>
+    <p class="sub">目前只支持这一类 —— 有线网络连接的 Air4 控制器。其他品牌或纯无线马达暂不支持。</p>
+
+    <div class="detail-grid">
+      <div class="detail"><b>型号</b><span><b>Air4</b> 有线马达。一台控制器可以带两台，软件里分别显示为 <b>Air4 A</b> 和 <b>Air4 B</b>，各自独立绑定、独立排焦点。</span></div>
+      <div class="detail"><b>连接方式</b><span>有线网络（以太网）。使用 Modbus TCP，控制器固定端口 <b>60000</b>；连接时填入控制器 IP 地址即可。</span></div>
+      <div class="detail"><b>需要准备</b><span>控制器上电并与电脑在同一网段；建议直连网线或独立小交换机，别和办公网混在一起。</span></div>
+      <div class="detail"><b>不支持的情况</b><span>纯无线连接的控制器、其他品牌马达、以及通过 USB 直连的马达，当前版本都接不上。</span></div>
+    </div>
+
+    <h3 style="margin:44px 0 12px;font-size:18px">接上之后能做什么</h3>
+    <div class="detail-grid">
+      <div class="detail"><b>焦点当轨道排</b><span>焦点可以像机位一样放进时间线，某一帧只想改焦点也不必新增机位。</span></div>
+      <div class="detail"><b>自动标定</b><span>一键走完全行程，两端确认后交给软件接管，之后所有位置都按比例对应。</span></div>
+      <div class="detail"><b>精确重复</b><span>焦点位置存得住、找得回，换场地重拍也能对上同一条焦点线。</span></div>
+      <div class="detail"><b>状态可见</b><span>软件会读回马达位置、限位与故障状态；异常时会在运行提示里说清原因。</span></div>
+    </div>
+
+    <div class="callout warn">
+      <span class="tag">注意</span>
+      <p>标定没做、或马达没被授权接管时，焦点轨道会显示为不可执行 —— 这不是软件坏了，是<b>还没告诉它行程范围</b>。</p>
+    </div>
+  </div>
+</section>
+
+<section id="sony">
+  <div class="wrap">
+    <h2 class="h2">二、索尼相机：USB 或 WiFi 接入，可控制参数并驱动对焦</h2>
+    <p class="sub">支持索尼相机的官方远程控制能力；具体能调哪些项，取决于机身型号与固件。</p>
+
+    <div class="detail-grid">
+      <div class="detail"><b>连接方式</b><span><b>USB</b> 或 <b>WiFi</b> 两种。软件里能看到在线设备列表，选中后连接；WiFi 首次连接需要在相机端确认授权。</span></div>
+      <div class="detail"><b>平台要求</b><span>需要 macOS 或 Windows 原生应用；<b>iPad 版不支持索尼相机控制</b>。</span></div>
+      <div class="detail"><b>参数控制</b><span>快门、光圈、ISO 等常用曝光参数可以在软件里直接调；可调范围与选项由机身决定，软件只显示这台机器支持的项。</span></div>
+      <div class="detail"><b>录制</b><span>可以在软件里开始 / 停止录制，并显示当前是否在录。</span></div>
+      <div class="detail"><b>对焦位置</b><span>支持按百分比（0–100%）驱动镜头对焦位置，配合时间线做焦点变化；需要相机端授权对焦控制。</span></div>
+      <div class="detail"><b>实时取景</b><span>可以把机身画面回传到软件里，用于构图与监看（与机械臂的监看互不冲突）。</span></div>
+    </div>
+
+    <div class="callout">
+      <span class="tag">两点说明</span>
+      <p>① <b>不是所有索尼机型都支持全部功能</b>：老机型可能只能录、不能调参，或只能调参、不能驱动对焦 —— 连上之后软件会按机身实际能力显示。</p>
+      <p>② 对焦驱动用的是机身自身的对焦系统，<b>镜头需支持相应协议</b>；手动电影镜头通常只能通过马达跟焦，不能走这条路。</p>
+    </div>
+  </div>
+</section>
+
+<section id="camera">
+  <div class="wrap">
+    <h2 class="h2">三、其他相机怎么用</h2>
+    <p class="sub">不接管相机也没问题 —— 机械臂只管运动，相机你自己控制。</p>
+    <div class="detail-grid">
+      <div class="detail"><b>不连相机</b><span>机位、速度、时间线照常排；对焦用<b>跟焦马达</b>手动或按轨道驱动。</span></div>
+      <div class="detail"><b>其他品牌</b><span>当前版本不提供其他品牌的参数控制与对焦驱动。</span></div>
+      <div class="detail"><b>监看</b><span>相机画面可以通过自己的监视器 / 采集卡看，不影响机械臂运行。</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="check">
+  <div class="wrap">
+    <h2 class="h2">四、买之前怎么确认</h2>
+    <div class="detail-grid">
+      <div class="detail"><b>1. 马达</b><span>确认是 <b>Air4 有线控制器</b>，能填 IP、端口 60000；不确定就先问卖家型号。</span></div>
+      <div class="detail"><b>2. 相机</b><span>先查你的索尼机身是否支持远程控制（USB 或 WiFi）；接着看它能否被远程驱动对焦。</span></div>
+      <div class="detail"><b>3. 平台</b><span>要用索尼相机控制，得在 macOS / Windows 上跑；iPad 只能做机械臂这一侧。</span></div>
+      <div class="detail"><b>4. 不确定就问</b><span>把你的机身型号发到微信群里，我按实际能力告诉你哪些能用。</span></div>
+    </div>
+    <p class="note">
+      相关：<a href="docs/focus.html">跟焦功能说明</a> · <a href="robots.html">支持机型</a> ·
+      <a href="faq.html">常见问题</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="y">2026</span> CineArm · cinearm.top</span>
+    <nav>
+      <a href="index.html">首页</a>
+      <a href="basics.html">入门</a>
+      <a href="guide.html">避坑指南</a>
+      <a href="plans.html">授权</a>
+      <a href="faq.html">常见问题</a>
+      <a href="disclaimer.html">免责声明</a>
+    </nav>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

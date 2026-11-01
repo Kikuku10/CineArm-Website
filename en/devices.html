@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Supported devices: focus motors and Sony cameras — CineArm</title>
+<meta name="description" content="Which follow-focus motors CineArm supports (Air4 wired, Modbus TCP) and what Sony camera control covers: USB/WiFi, shutter, aperture, ISO, recording, focus position.">
+<meta name="theme-color" content="#212126">
+<meta property="og:title" content="Supported devices — CineArm">
+<meta property="og:description" content="Which focus motor, and how far Sony camera control goes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cinearm.top/en/devices.html">
+<meta property="og:image" content="https://cinearm.top/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../app-icon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="zh-CN" href="https://cinearm.top/devices.html">
+<link rel="alternate" hreflang="en" href="https://cinearm.top/en/devices.html">
+<link rel="stylesheet" href="../assets/site.css?v=18">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="index.html">
+      <img class="mark" src="../app-icon.svg" alt="" width="28" height="28">
+      CineArm
+    </a>
+    <nav>
+      <a class="hide-sm" href="features.html">Features</a>
+      <a class="hide-sm" href="robots.html">Arms</a>
+      <a class="hide-sm" href="../devices.html">Devices</a>
+      <a class="hide-sm" href="basics.html">Basics</a>
+      <a class="hide-sm" href="guide.html">Guide</a>
+      <a class="hide-sm" href="plans.html">Licensing</a>
+      <a class="hide-sm" href="faq.html">FAQ</a>
+      <a class="lang" href="../devices.html" hreflang="zh-CN">中文</a>
+      <a class="cta" href="https://github.com/Kikuku10/CineArm-Releases/releases">Releases</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow"><span class="dot"></span>Check before you buy</span>
+    <h1 class="sm">Supported devices</h1>
+    <p class="lede">
+      Beyond the arm, two things decide what you can actually shoot: the <b>follow-focus motor</b> and the <b>camera</b>.
+      Here is exactly how far support goes today.
+    </p>
+    <nav class="toc">
+      <a href="#motor">Focus motor</a>
+      <a href="#sony">Sony cameras</a>
+      <a href="#camera">Other cameras</a>
+      <a href="#check">How to verify</a>
+    </nav>
+  </div>
+</div>
+
+<section id="motor" class="first">
+  <div class="wrap">
+    <h2 class="h2">1. Focus motor: Air4 wired controllers</h2>
+    <p class="sub">Only this family is supported — Air4 over wired Ethernet. Other brands and wireless-only units do not connect yet.</p>
+
+    <div class="detail-grid">
+      <div class="detail"><b>Model</b><span><b>Air4</b> wired motor. One controller can drive two, shown as <b>Air4 A</b> and <b>Air4 B</b>, bound and scheduled independently.</span></div>
+      <div class="detail"><b>Connection</b><span>Wired Ethernet using Modbus TCP on fixed port <b>60000</b>; you enter the controller's IP address.</span></div>
+      <div class="detail"><b>What you need</b><span>The controller powered and on the same subnet; a direct cable or a small dedicated switch, not the office network.</span></div>
+      <div class="detail"><b>Not supported</b><span>Wireless-only controllers, other brands, and USB-attached motors.</span></div>
+    </div>
+
+    <h3 style="margin:44px 0 12px;font-size:18px">What it does once connected</h3>
+    <div class="detail-grid">
+      <div class="detail"><b>Focus as a track</b><span>Focus sits in the timeline like any camera move; changing focus on one frame does not require a new pose.</span></div>
+      <div class="detail"><b>Auto calibration</b><span>Drive the full travel once, confirm both ends, and the software takes over with proportional mapping.</span></div>
+      <div class="detail"><b>Repeatable</b><span>Focus positions are stored and recalled, so a reshoot on another day can match the same focus line.</span></div>
+      <div class="detail"><b>Status readback</b><span>Position, limits and faults are reported back; problems surface in the run messages with a reason.</span></div>
+    </div>
+
+    <div class="callout warn">
+      <span class="tag">Note</span>
+      <p>If calibration is missing or the motor is not authorised, the focus track shows as not executable — that is not a bug,
+         it means <b>you have not told the software the travel range yet</b>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="sony">
+  <div class="wrap">
+    <h2 class="h2">2. Sony cameras: USB or WiFi, parameters plus focus drive</h2>
+    <p class="sub">Uses Sony's remote control capability; which items you can change depends on the body and firmware.</p>
+
+    <div class="detail-grid">
+      <div class="detail"><b>Connection</b><span><b>USB</b> or <b>WiFi</b>. Online devices are listed in the app; over WiFi the camera asks for authorisation on first connect.</span></div>
+      <div class="detail"><b>Platform</b><span>Requires the native macOS or Windows app; <b>Sony camera control is not available on iPad</b>.</span></div>
+      <div class="detail"><b>Parameters</b><span>Shutter, aperture, ISO and similar exposure settings are editable in the app. Ranges and options come from the body; the app only shows what that body supports.</span></div>
+      <div class="detail"><b>Recording</b><span>Start and stop recording from the app, with recording state shown.</span></div>
+      <div class="detail"><b>Focus position</b><span>Drive lens focus by percentage (0–100%) and animate it on the timeline; focus control must be authorised on the camera.</span></div>
+      <div class="detail"><b>Live view</b><span>The body's image can come back into the app for framing and monitoring, independent of the arm.</span></div>
+    </div>
+
+    <div class="callout">
+      <span class="tag">Two caveats</span>
+      <p>① <b>Not every Sony body supports every feature</b>: older models may record but not expose parameters, or expose parameters but not focus drive. The app reflects the body's actual capability after connecting.</p>
+      <p>② Focus drive uses the camera's own AF system, so the <b>lens must speak the required protocol</b>; manual cinema lenses normally need a focus motor instead.</p>
+    </div>
+  </div>
+</section>
+
+<section id="camera">
+  <div class="wrap">
+    <h2 class="h2">3. Other cameras</h2>
+    <p class="sub">Not taking over the camera is perfectly fine — the arm only handles motion.</p>
+    <div class="detail-grid">
+      <div class="detail"><b>No camera link</b><span>Poses, speed and timeline work as usual; focus comes from the <b>focus motor</b>, manually or from a track.</span></div>
+      <div class="detail"><b>Other brands</b><span>No parameter control or focus drive for other brands in the current version.</span></div>
+      <div class="detail"><b>Monitoring</b><span>Use your own monitor or capture card; it does not affect arm operation.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="check">
+  <div class="wrap">
+    <h2 class="h2">4. How to verify before buying</h2>
+    <div class="detail-grid">
+      <div class="detail"><b>1. Motor</b><span>Confirm it is an <b>Air4 wired controller</b> that accepts an IP and port 60000; ask the seller for the model.</span></div>
+      <div class="detail"><b>2. Camera</b><span>Check whether your Sony body supports remote control (USB or WiFi), then whether focus can be driven remotely.</span></div>
+      <div class="detail"><b>3. Platform</b><span>Sony camera control needs macOS or Windows; on iPad only the arm side is available.</span></div>
+      <div class="detail"><b>4. Ask</b><span>Post your body model in the WeChat group and I will tell you what works.</span></div>
+    </div>
+    <p class="note">
+      Related: <a href="docs/focus.html">follow focus</a> · <a href="robots.html">supported arms</a> · <a href="faq.html">FAQ</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="y">2026</span> CineArm · cinearm.top</span>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="basics.html">Basics</a>
+      <a href="guide.html">Guide</a>
+      <a href="plans.html">Licensing</a>
+      <a href="faq.html">FAQ</a>
+      <a href="disclaimer.html">Disclaimer</a>
+    </nav>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
