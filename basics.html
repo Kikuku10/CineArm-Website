@@ -15,7 +15,7 @@
 <link rel="icon" href="app-icon.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="zh-CN" href="https://cinearm.top/basics.html">
 <link rel="alternate" hreflang="en" href="https://cinearm.top/en/basics.html">
-<link rel="stylesheet" href="assets/site.css?v=26">
+<link rel="stylesheet" href="assets/site.css?v=27">
 </head>
 <body>
 
@@ -131,34 +131,66 @@
 
 <section id="cabinet">
   <div class="wrap">
-    <h2 class="h2">二、控制柜：型号不同，能做的事也不同</h2>
-    <p class="sub">买二手机械臂时，这一项比本体更容易被忽略。</p>
+    <h2 class="h2">二、控制柜：电源装在里面，还是外面</h2>
+    <p class="sub">
+      同样是「控制柜」，其实分两种形态。买二手机械臂时，这一项比本体更容易被忽略 ——
+      而且柜型不同，接线、IO 数量和软件里的配置项都不一样。
+    </p>
 
     <div class="compare">
       <div>
-        <h4>控制柜负责什么</h4>
+        <h4>一体式：电源装在柜子里（如 CC262）</h4>
         <ul>
-          <li>把指令翻译成六个关节的实时运动</li>
-          <li>跑碰撞检测与限位保护</li>
-          <li>急停回路与断电抱闸</li>
-          <li>对外提供通讯接口（网口 / USB）</li>
-          <li>提供 IO，接外部按钮、气动、跟焦等</li>
+          <li>控制器和电源在同一个柜体内</li>
+          <li>柜子更大更沉，自带接线端子和风扇</li>
+          <li>好处是搬起来是一整件，坏处是占地方、发热集中</li>
+          <li>常见于 CR 系列的一方柜</li>
         </ul>
       </div>
       <div>
-        <h4>型号差异体现在哪</h4>
+        <h4>分体式：电源是外置的一块（如 CCBOX、SimBox）</h4>
         <ul>
-          <li><b>匹配的机型</b>：桌面小臂与六轴协作臂的柜子完全不同，不能混用</li>
-          <li><b>支持的协议版本</b>：例如 V3 / V4，决定上位机能不能连、能用哪些功能</li>
-          <li><b>功率与驱动</b>：带得动多重、能否满速</li>
-          <li><b>接口数量</b>：网口、USB、IO 的路数</li>
+          <li>控制器是一个小盒子，电源是旁边的适配器</li>
+          <li>占地方小、好带走，适合到处跑的拍摄</li>
+          <li>线多一根，现场要留意电源别被人踢掉</li>
+          <li>常见于 Nova 系列</li>
         </ul>
       </div>
     </div>
 
+    <div class="table-wrap" style="margin-top:26px">
+      <table>
+        <thead>
+          <tr><th>柜型</th><th>形态</th><th>体积 / 重量</th><th>常见于</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="model">CC262</td><td>一体式</td><td>整柜，体积较大</td><td>CR 系列</td></tr>
+          <tr><td class="model">CC263</td><td>视配置而定</td><td>—</td><td>CR 系列</td></tr>
+          <tr><td class="model">CCBOX</td><td>分体式</td><td>盒子 + 外置电源</td><td>CR 系列</td></tr>
+          <tr><td class="model">SimBox</td><td>分体式</td><td>193 × 122 × 35 mm · 约 0.8 kg</td><td>Nova 2 / Nova 5</td></tr>
+          <tr><td class="model">DSC</td><td>分体式小柜</td><td>220 × 150 × 45 mm · 约 1.2 kg</td><td>Nova 系列</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin:44px 0 12px;font-size:18px">三条经验</h3>
+    <div class="detail-grid">
+      <div class="detail"><b>1. 同型号可能配不同柜子</b><span>同一台 Nova 5，可能是 SimBox，也可能是 DSC。固件里能直接看到柜型（比如 <code>DT-SimBox-0</code>），买之前让卖家拍一下控制器的系统信息页。</span></div>
+      <div class="detail"><b>2. 有的「控制柜」只是换了个壳</b><span>市面上有些配套方案，本质就是把控制器和电源装进同一个盒子里，功能没有变化 —— 体积和接线变了，能力没变。别把它当成升级。</span></div>
+      <div class="detail"><b>3. 柜型决定三件事</b><span>IO 数量、有没有功能安全（急停回路等级）、以及软件里能开哪些配置项。这三样直接影响你能不能接跟焦、外部按钮和安全回路。</span></div>
+    </div>
+
+    <h3 style="margin:44px 0 12px;font-size:18px">WiFi 是插上去的，不是内置的</h3>
+    <div class="detail-grid">
+      <div class="detail"><b>怎么来的</b><span>控制器本身没有无线。给控制器插一个 <b>USB WiFi 网卡</b>，它才能连路由器或自己发热点。</span></div>
+      <div class="detail"><b>改动要重启</b><span>在网络设置里改完 WiFi，需要重启控制器才生效 —— 现场调试时别以为是没反应。</span></div>
+      <div class="detail"><b>不是所有网卡都行</b><span>有人插上便宜网卡搜不到信号，换一个才正常。买之前确认型号，或者直接用网线更省事。</span></div>
+      <div class="detail"><b>但控制链路仍建议有线</b><span>无线只当遥控用。延迟和丢包会让机械臂动作本身抖，这一点在<a href="guide.html#pits">避坑指南</a>里写过。</span></div>
+    </div>
+
     <div class="callout warn">
       <span class="tag">买二手要注意</span>
-      <p><b>必须连控制柜一起收，并确认柜子与本体是同一套。</b>缺柜基本等于不能用；
+      <p><b>必须连控制柜一起收，并确认柜子和本体是同一套。</b>缺柜基本等于不能用；
         换柜或升级固件后，有可能需要重新激活或重新匹配，买之前一定要问清。</p>
     </div>
   </div>

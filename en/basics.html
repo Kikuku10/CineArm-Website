@@ -15,7 +15,7 @@
 <link rel="icon" href="../app-icon.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="zh-CN" href="https://cinearm.top/basics.html">
 <link rel="alternate" hreflang="en" href="https://cinearm.top/en/basics.html">
-<link rel="stylesheet" href="../assets/site.css?v=26">
+<link rel="stylesheet" href="../assets/site.css?v=27">
 </head>
 <body>
 
@@ -116,23 +116,59 @@
 
 <section id="cabinet">
   <div class="wrap">
-    <h2 class="h2">2. The control cabinet: models differ in what they can do</h2>
-    <p class="sub">The easiest item to overlook when buying used.</p>
+    <h2 class="h2">2. The control cabinet: PSU inside or outside</h2>
+    <p class="sub">
+      “Control cabinet” actually covers two shapes. This is the easiest item to overlook when buying used —
+      and the cabinet type changes wiring, IO count and which options the software exposes.
+    </p>
 
     <div class="compare">
-      <div><h4>What the cabinet does</h4><ul>
-        <li>Turns commands into real-time motion on six joints</li>
-        <li>Runs collision detection and travel limits</li>
-        <li>E-stop loop and power-loss braking</li>
-        <li>Exposes the comms link (Ethernet / USB)</li>
-        <li>Provides IO for buttons, air, follow focus</li>
-      </ul></div>
-      <div><h4>Where models differ</h4><ul>
-        <li><b>Which arm it matches</b> — desktop arms and six-axis arms use entirely different boxes</li>
-        <li><b>Protocol revision</b> — V3 / V4 decides whether host software can connect at all</li>
-        <li><b>Power and drives</b> — how much mass, how fast</li>
-        <li><b>Interface count</b> — Ethernet, USB, IO channels</li>
-      </ul></div>
+      <div>
+        <h4>All-in-one: PSU inside (e.g. CC262)</h4>
+        <ul>
+          <li>Controller and power supply share one enclosure</li>
+          <li>Bigger and heavier, with terminals and a fan</li>
+          <li>One piece to carry, but bulky and heat is concentrated</li>
+          <li>Common on CR-series setups</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Split: PSU is a separate brick (e.g. CCBOX, SimBox)</h4>
+        <ul>
+          <li>A small controller box plus an external adapter</li>
+          <li>Small footprint, easy to travel with</li>
+          <li>One more cable — protect it on set</li>
+          <li>Common on Nova-series setups</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="table-wrap" style="margin-top:26px">
+      <table>
+        <thead><tr><th>Model</th><th>Shape</th><th>Size / weight</th><th>Typical use</th></tr></thead>
+        <tbody>
+          <tr><td class="model">CC262</td><td>All-in-one</td><td>Full cabinet, larger</td><td>CR series</td></tr>
+          <tr><td class="model">CC263</td><td>Depends on build</td><td>—</td><td>CR series</td></tr>
+          <tr><td class="model">CCBOX</td><td>Split</td><td>Box + external PSU</td><td>CR series</td></tr>
+          <tr><td class="model">SimBox</td><td>Split</td><td>193 × 122 × 35 mm · about 0.8 kg</td><td>Nova 2 / Nova 5</td></tr>
+          <tr><td class="model">DSC</td><td>Split, small cabinet</td><td>220 × 150 × 45 mm · about 1.2 kg</td><td>Nova series</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin:44px 0 12px;font-size:18px">Three things to know</h3>
+    <div class="detail-grid">
+      <div class="detail"><b>1. One arm, different cabinets</b><span>The same Nova 5 may ship with a SimBox or a DSC. The firmware reports the cabinet type (for example <code>DT-SimBox-0</code>); ask the seller for a photo of the controller's system page.</span></div>
+      <div class="detail"><b>2. Some “cabinets” are just a shell</b><span>Some third-party packages simply put the controller and PSU inside one box. Nothing improves — the size and cabling change, not the capability. Do not pay for it as an upgrade.</span></div>
+      <div class="detail"><b>3. The cabinet decides three things</b><span>IO count, whether functional safety exists (E-stop circuit class), and which options the software exposes. All three affect whether you can wire follow focus, external buttons and a safety loop.</span></div>
+    </div>
+
+    <h3 style="margin:44px 0 12px;font-size:18px">WiFi is plugged in, not built in</h3>
+    <div class="detail-grid">
+      <div class="detail"><b>Where it comes from</b><span>The controller has no radio by itself. Add a <b>USB WiFi adapter</b> and it can join a router or broadcast its own hotspot.</span></div>
+      <div class="detail"><b>Changes need a reboot</b><span>After adjusting WiFi settings the controller has to restart — do not mistake it for a dead connection on set.</span></div>
+      <div class="detail"><b>Not every adapter works</b><span>Cheap adapters sometimes see no signal; a different model fixes it. Confirm the model, or just use Ethernet.</span></div>
+      <div class="detail"><b>Keep the control link wired</b><span>Wireless is for remote control only. Latency and packet loss make the arm itself judder — covered in the <a href="guide.html#pits">buying guide</a>.</span></div>
     </div>
 
     <div class="callout warn">
