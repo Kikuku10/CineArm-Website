@@ -122,16 +122,23 @@
 </div>
 <script>/* nav-drop-close */
 (function () {
-  function panel() { return document.querySelector('.nav-drop'); }
+  function menu() { return document.querySelector('.nav-drop'); }
   document.addEventListener('click', function (event) {
-    var d = panel();
+    var d = menu();
     if (d && d.open && !d.contains(event.target)) d.open = false;
   });
   document.addEventListener('keydown', function (event) {
     if (event.key !== 'Escape') return;
-    var d = panel();
+    var d = menu();
     if (d && d.open) d.open = false;
   });
+  var toc = document.querySelector('.docs-toc');
+  if (toc) {
+    var wide = function () { return window.innerWidth > 900; };
+    var apply = function () { toc.open = wide(); };
+    apply();
+    window.addEventListener('resize', apply);
+  }
 })();
 </script>
 </body>

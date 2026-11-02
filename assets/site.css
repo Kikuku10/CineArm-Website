@@ -205,7 +205,11 @@ code{font:0.9em ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(115,
 .docs{display:grid;grid-template-columns:220px minmax(0,1fr);gap:64px;
   max-width:1200px;margin:0 auto;padding:56px 28px 96px}
 @media (max-width:900px){ .docs{grid-template-columns:1fr;gap:24px;padding-top:30px} }
+/* 文档目录：桌面常显，手机折叠 */
 .docs-nav{position:sticky;top:90px;align-self:start;font-size:14px}
+.docs-toc{display:block}
+.docs-toc>summary{display:none}
+.docs-toc>ol{display:block}
 @media (max-width:900px){ .docs-nav{position:static} }
 .docs-nav__label{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);
   margin:0 0 10px 12px}
@@ -425,3 +429,15 @@ kbd{font:600 12.5px ui-monospace,SFMono-Regular,Menlo,monospace;background:#2424
 .btn{text-decoration:none}
 .note a.btn,.faq .a a.btn,.detail a.btn{color:#04191A;text-decoration:none}
 .note a.btn:hover,.faq .a a.btn:hover,.detail a.btn:hover{color:#04191A}
+
+@media (max-width:900px){
+  .docs-toc{border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
+  .docs-toc>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:14px 16px;cursor:pointer;list-style:none;font-size:14.5px;color:var(--text)}
+  .docs-toc>summary::-webkit-details-marker{display:none}
+  .docs-toc>summary::after{content:"▾";font-size:11px;color:var(--accent-soft);margin-left:auto}
+  .docs-toc[open]>summary::after{content:"▴"}
+  .docs-toc>summary b{font-weight:400;font-size:12.5px;color:var(--dim);letter-spacing:.06em}
+  .docs-toc>ol{padding:4px 8px 10px}
+  .docs-toc[open] .docs-nav__label{display:none}
+}

@@ -6,7 +6,7 @@
 <title>节点编排：用卡片看复杂镜头 — CineArm</title>
 <meta name="theme-color" content="#070B11">
 <link rel="icon" href="../app-icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/site.css?v=23">
+<link rel="stylesheet" href="../assets/site.css?v=24">
 </head>
 <body>
 
@@ -44,8 +44,10 @@
 
 <div class="docs">
       <aside class="docs-nav">
-        <p class="docs-nav__label">全部板块</p>
-        <ol>
+        <details class="docs-toc" open>
+          <summary><span>目录</span><b>全部板块</b></summary>
+          <p class="docs-nav__label">全部板块</p>
+          <ol>
         <li><a href="workspace.html"><span class="num">01</span>工作台</a></li>
         <li><a href="project.html"><span class="num">02</span>项目与场景</a></li>
         <li><a href="gallery.html"><span class="num">03</span>存点与实例</a></li>
@@ -66,7 +68,8 @@
         <li><a href="settings.html"><span class="num">18</span>偏好设置</a></li>
         <li><a href="trouble.html"><span class="num">19</span>排错与收工</a></li>
         <li><a href="glossary.html"><span class="num">20</span>术语速查</a></li>
-        </ol>
+          </ol>
+        </details>
       </aside>
   <main class="docs-main">
     <p class="crumb"><a href="../features.html">功能详解</a> / 节点编排：用卡片看复杂镜头</p>
@@ -107,16 +110,23 @@
 <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 <script>/* nav-drop-close */
 (function () {
-  function panel() { return document.querySelector('.nav-drop'); }
+  function menu() { return document.querySelector('.nav-drop'); }
   document.addEventListener('click', function (event) {
-    var d = panel();
+    var d = menu();
     if (d && d.open && !d.contains(event.target)) d.open = false;
   });
   document.addEventListener('keydown', function (event) {
     if (event.key !== 'Escape') return;
-    var d = panel();
+    var d = menu();
     if (d && d.open) d.open = false;
   });
+  var toc = document.querySelector('.docs-toc');
+  if (toc) {
+    var wide = function () { return window.innerWidth > 900; };
+    var apply = function () { toc.open = wide(); };
+    apply();
+    window.addEventListener('resize', apply);
+  }
 })();
 </script>
 </body>
