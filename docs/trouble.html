@@ -106,5 +106,19 @@
 </footer>
 
 <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+<script>/* nav-drop-close */
+(function () {
+  function panel() { return document.querySelector('.nav-drop'); }
+  document.addEventListener('click', function (event) {
+    var d = panel();
+    if (d && d.open && !d.contains(event.target)) d.open = false;
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Escape') return;
+    var d = panel();
+    if (d && d.open) d.open = false;
+  });
+})();
+</script>
 </body>
 </html>
