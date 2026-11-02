@@ -15,7 +15,7 @@
 <link rel="icon" href="../app-icon.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="zh-CN" href="https://cinearm.top/basics.html">
 <link rel="alternate" hreflang="en" href="https://cinearm.top/en/basics.html">
-<link rel="stylesheet" href="../assets/site.css?v=27">
+<link rel="stylesheet" href="../assets/site.css?v=28">
 </head>
 <body>
 
@@ -67,6 +67,7 @@
       <a href="#pendant">Pendant &amp; official software</a>
       <a href="#host">Host software</a>
       <a href="#connect">Connecting</a>
+      <a href="#antishake">Shake suppression</a>
       <a href="#words">Glossary</a>
     </nav>
   </div>
@@ -267,9 +268,56 @@
   </div>
 </section>
 
+<section id="antishake">
+  <div class="wrap">
+    <h2 class="h2">6. Let us define “shake suppression”</h2>
+    <p class="sub">
+      The term gets used very loosely. Trajectory smoothing and speed curves are <b>ordinary motion planning</b>,
+      not shake suppression. Real suppression lives inside the control cabinet, not on the computer.
+    </p>
+
+    <figure class="shot">
+      <img src="../assets/img/velocity-compare.jpg" alt="Velocity, acceleration and jerk comparison between a segmented S-curve and quintic smoothing" loading="lazy" width="1600" height="1271">
+    </figure>
+    <p class="note">
+      A comparison like the one above — the same joint moving 30° in 4 s, two smoothing algorithms —
+      is <b>motion planning</b>. It makes the move smoother, it does not remove vibration.
+    </p>
+
+    <div class="table-wrap" style="margin-top:26px">
+      <table>
+        <thead><tr><th>What you hear</th><th>What it actually is</th><th>Where it runs</th></tr></thead>
+        <tbody>
+          <tr><td class="model">Trajectory smoothing, S-curve, quintic</td><td>Motion planning</td><td>Host software</td></tr>
+          <tr><td class="model">Speed curve, easing</td><td>Motion planning</td><td>Host software</td></tr>
+          <tr><td class="model">“Shake suppression”</td><td>Servo-level vibration control</td><td><b>Cabinet firmware</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warn" style="margin-top:26px">
+      <span class="tag">One hard conclusion</span>
+      <p><b>Any setup where the computer plans the trajectory and the cabinet executes it has no shake suppression.</b>
+         Host software decides where and how fast; whether it vibrates on the way is settled by the cabinet's servo loop.</p>
+      <p>In other words: <b>suppression belongs to the cabinet, and the cabinet belongs to the arm maker.</b>
+         Unless a vendor can genuinely modify the cabinet firmware with the manufacturer, “our shake-suppression algorithm” usually
+         means a smoother curve.</p>
+    </div>
+
+    <h3 style="margin:44px 0 12px;font-size:18px">How to test it in the room</h3>
+    <p class="sub" style="margin-bottom:18px">Asking a turnkey vendor “do you have shake suppression?” proves nothing. Ask for a comparison:</p>
+    <div class="detail-grid">
+      <div class="detail"><b>Same move, two senders</b><span>Send it once from <b>host software</b>, then once from the <b>official pendant</b> — same arm, same speed, same path.</span></div>
+      <div class="detail"><b>Compare</b><span>If both vibrate identically, suppression lives in the cabinet and applies to everyone — that is real. If only the pendant is steady, the host path has none.</span></div>
+      <div class="detail"><b>Sharper question</b><span>Ask whether suppression can be switched off and re-run. If it can be disabled and gets visibly worse, the feature is real and configurable.</span></div>
+      <div class="detail"><b>Do not get lost in terms</b><span>“Smoothing”, “vibration control”, “anti-shake” get mixed together. Ask: does this change the path, or the servo? Changing the path is planning.</span></div>
+    </div>
+  </div>
+</section>
+
 <section id="words">
   <div class="wrap">
-    <h2 class="h2">6. Words people ask about</h2>
+    <h2 class="h2">7. Words people ask about</h2>
     <div class="glossary">
       <div><b>Payload</b>Mass the tip can carry (camera plus plate), in kg.</div>
       <div><b>Reach / radius</b>Furthest the tip can go — how far the shot can stretch.</div>

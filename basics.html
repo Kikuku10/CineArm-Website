@@ -15,7 +15,7 @@
 <link rel="icon" href="app-icon.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="zh-CN" href="https://cinearm.top/basics.html">
 <link rel="alternate" hreflang="en" href="https://cinearm.top/en/basics.html">
-<link rel="stylesheet" href="assets/site.css?v=27">
+<link rel="stylesheet" href="assets/site.css?v=28">
 </head>
 <body>
 
@@ -67,6 +67,7 @@
       <a href="#pendant">示教器与官方软件</a>
       <a href="#host">上位机软件</a>
       <a href="#connect">怎么连</a>
+      <a href="#antishake">防抖算法</a>
       <a href="#words">名词表</a>
     </nav>
   </div>
@@ -308,9 +309,57 @@
   </div>
 </section>
 
+<section id="antishake">
+  <div class="wrap">
+    <h2 class="h2">六、说清楚「防抖算法」</h2>
+    <p class="sub">
+      这个词被用得太随意了。轨迹平滑、速度曲线，都是<b>正常的路径规划</b>，不是防抖。
+      真正的防抖在控制柜里，不在电脑上。
+    </p>
+
+    <figure class="shot">
+      <img src="assets/img/velocity-compare.jpg" alt="同一段运动下，分段 S 曲线与五次平滑的速度、加速度、加加速度对比" loading="lazy" width="1600" height="1271">
+    </figure>
+    <p class="note">
+      像上面这种对比 —— 同一关节走 30°、同样 4 秒，比较两种平滑算法的速度/加速度曲线 ——
+      这属于<b>路径规划</b>，做的是「让运动更顺」，不是「消除抖动」。
+    </p>
+
+    <div class="table-wrap" style="margin-top:26px">
+      <table>
+        <thead><tr><th>你听到的说法</th><th>实际属于什么</th><th>在哪一层做</th></tr></thead>
+        <tbody>
+          <tr><td class="model">轨迹平滑、S 曲线、五次平滑</td><td>路径规划</td><td>上位机软件</td></tr>
+          <tr><td class="model">速度曲线、缓入缓出</td><td>路径规划</td><td>上位机软件</td></tr>
+          <tr><td class="model">「防抖算法」</td><td>伺服控制层面的振动抑制</td><td><b>控制柜固件</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warn" style="margin-top:26px">
+      <span class="tag">一条硬结论</span>
+      <p><b>凡是「电脑算好轨迹、发给控制柜执行」的方案，都没有防抖算法。</b>
+         上位机只能决定“往哪儿走、走多快”，走起来抖不抖，由控制柜的伺服环路决定。</p>
+      <p>换句话说：<b>防抖属于控制柜，控制柜属于机械臂厂家。</b>除非真的有能力和厂家一起改控制柜固件，
+         否则所谓的「我们的防抖算法」多半只是把曲线调得更平滑一点。</p>
+    </div>
+
+    <h3 style="margin:44px 0 12px;font-size:18px">怎么当面验证</h3>
+    <p class="sub" style="margin-bottom:18px">
+      问配套的影视机械臂商家「你们有防抖算法吗」，口头回答没有意义。让他做一个对比实验：
+    </p>
+    <div class="detail-grid">
+      <div class="detail"><b>同一段轨迹，两种发法</b><span>先用<b>上位机软件</b>发一遍，再用<b>厂家示教器</b>发一遍，机器、速度、路径完全相同。</span></div>
+      <div class="detail"><b>看差异</b><span>如果两边抖得一样 —— 说明防抖在控制柜里（谁发都一样），那才是真的；如果只有示教器那边稳，说明上位机这条路没有防抖。</span></div>
+      <div class="detail"><b>更狠一点的问法</b><span>问能不能单独关掉防抖再跑一遍。能关、并且关掉后明显更抖，才证明这项功能真实存在且可配置。</span></div>
+      <div class="detail"><b>别被术语绕住</b><span>「平滑」「抑振」「防抖」经常混用。追问一句：这是改轨迹，还是改伺服？改轨迹的就是路径规划。</span></div>
+    </div>
+  </div>
+</section>
+
 <section id="words">
   <div class="wrap">
-    <h2 class="h2">六、几个常被问到的词</h2>
+    <h2 class="h2">七、几个常被问到的词</h2>
     <div class="glossary">
       <div><b>负载</b>末端能带多重（含相机与转接板），单位 kg。</div>
       <div><b>臂展 / 半径</b>末端能到达的最远距离，决定镜头能伸多远。</div>
