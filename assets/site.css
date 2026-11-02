@@ -31,25 +31,32 @@ nav a.cta:hover{border-color:var(--accent);color:var(--accent-soft)}
 nav a.lang{font-size:12.5px;letter-spacing:.06em;padding:4px 11px;border-radius:8px;
   border:1px solid var(--line);color:var(--muted)}
 nav a.lang:hover{border-color:var(--accent);color:var(--accent-soft)}
-/* 手机端：折叠菜单（<details>，无 JS） */
+/* 手机端：三道杠在品牌左侧（<details>，无 JS） */
+.bar{gap:14px}
+.brand{margin-right:auto}
 .nav-drop{display:none}
 @media (max-width:760px){
-  nav{gap:12px;font-size:14px}
-  nav .hide-sm{display:none}
-  .nav-drop{display:block;position:relative}
-  .nav-drop summary{list-style:none;cursor:pointer;padding:7px 13px;border:1px solid var(--line-strong);
-    border-radius:8px;font-size:13.5px;color:var(--muted);white-space:nowrap}
+  .bar{height:62px;padding:0}
+  .nav-drop{display:block;position:relative;order:-1}
+  .nav-drop summary{display:flex;align-items:center;justify-content:center;width:38px;height:38px;
+    border:1px solid var(--line-strong);border-radius:10px;cursor:pointer;list-style:none;
+    -webkit-tap-highlight-color:transparent}
   .nav-drop summary::-webkit-details-marker{display:none}
-  .nav-drop summary::after{content:" ▾";font-size:10px;opacity:.7}
-  .nav-drop[open] summary{color:var(--accent-soft);border-color:rgba(0,169,166,.55)}
-  .nav-drop[open] summary::after{content:" ▴"}
-  .nav-drop__panel{position:absolute;right:0;top:calc(100% + 10px);z-index:40;min-width:186px;
+  .nav-drop .bars{display:block;width:16px}
+  .nav-drop .bars i{display:block;height:2px;border-radius:2px;background:var(--muted);margin:3px 0;transition:.15s}
+  .nav-drop .bars i:first-child{margin-top:0}
+  .nav-drop .bars i:last-child{margin-bottom:0}
+  .nav-drop[open] summary{border-color:rgba(0,169,166,.55)}
+  .nav-drop[open] .bars i{background:var(--accent-soft)}
+  .nav-drop__panel{position:absolute;left:0;top:calc(100% + 10px);z-index:40;min-width:190px;
     display:flex;flex-direction:column;padding:8px;border-radius:14px;
     background:#2b2b31;border:1px solid var(--line-strong);
     box-shadow:0 22px 48px -22px rgba(0,0,0,.95)}
   .nav-drop__panel a{display:block;padding:11px 14px;border-radius:9px;font-size:14.5px;color:var(--text)}
   .nav-drop__panel a:hover,.nav-drop__panel a:active{background:rgba(255,255,255,.06)}
   .nav-drop__panel a[aria-current="page"]{color:var(--accent-soft)}
+  nav{gap:10px;font-size:14px}
+  nav .hide-sm{display:none}
 }
 @media (max-width:760px){ [id]{scroll-margin-top:84px} }
 
