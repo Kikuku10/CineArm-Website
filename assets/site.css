@@ -31,7 +31,20 @@ nav a.cta:hover{border-color:var(--accent);color:var(--accent-soft)}
 nav a.lang{font-size:12.5px;letter-spacing:.06em;padding:4px 11px;border-radius:8px;
   border:1px solid var(--line);color:var(--muted)}
 nav a.lang:hover{border-color:var(--accent);color:var(--accent-soft)}
-@media (max-width:760px){ nav .hide-sm{display:none} }
+/* 手机端：品牌一行，导航独立一行，可横向滑动 */
+@media (max-width:760px){
+  .bar{height:auto;flex-direction:column;align-items:flex-start;gap:2px;padding:12px 0 0}
+  .brand{font-size:16px}
+  nav{width:100%;overflow-x:auto;overflow-y:hidden;gap:18px;font-size:13.5px;
+    padding:10px 20px 12px 0;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+    -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent);
+    mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent)}
+  nav::-webkit-scrollbar{display:none}
+  nav .hide-sm{display:inline-block}
+  nav a{white-space:nowrap;flex:none}
+  nav a.cta{padding:6px 14px;font-size:13.5px}
+}
+@media (max-width:760px){ [id]{scroll-margin-top:120px} }
 
 /* hero */
 .hero{position:relative;padding:100px 0 84px;overflow:hidden}
