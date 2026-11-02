@@ -15,7 +15,7 @@
 <link rel="icon" href="../app-icon.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="zh-CN" href="https://cinearm.top/basics.html">
 <link rel="alternate" hreflang="en" href="https://cinearm.top/en/basics.html">
-<link rel="stylesheet" href="../assets/site.css?v=28">
+<link rel="stylesheet" href="../assets/site.css?v=29">
 </head>
 <body>
 
@@ -280,9 +280,36 @@
       <img src="../assets/img/velocity-compare.jpg" alt="Velocity, acceleration and jerk comparison between a segmented S-curve and quintic smoothing" loading="lazy" width="1600" height="1271">
     </figure>
     <p class="note">
-      A comparison like the one above — the same joint moving 30° in 4 s, two smoothing algorithms —
+      A comparison like the one above — the same joint moving 30° in 4 s, two smoothing methods —
       is <b>motion planning</b>. It makes the move smoother, it does not remove vibration.
     </p>
+
+    <h3 style="margin:44px 0 12px;font-size:18px">Two different things both called “smoothing”</h3>
+    <div class="compare">
+      <div>
+        <h4>Path smoothing (CP smoothing)</h4>
+        <ul>
+          <li>If three points form a corner, smoothing makes the move <b>round the second point</b> instead of stopping there and turning</li>
+          <li>The cost: <b>the path no longer passes exactly through that point</b></li>
+          <li>The amount is adjustable — more smoothing, more deviation</li>
+          <li>If that corner was “skim past the edge of the object”, it gets shaved off</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Speed-curve smoothing (S-curve, quintic)</h4>
+        <ul>
+          <li><b>The path shape is unchanged</b> — still the same straight segments</li>
+          <li>What changes is speed over time: softer start, gentler stop</li>
+          <li>Fixes “jerky start, abrupt stop”, not “corners rounded off”</li>
+          <li>Adjusts acceleration and jerk, not position</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:22px">
+      <span class="tag">In one line</span>
+      <p><b>Path smoothing changes where it goes; speed-curve smoothing changes how fast it goes.</b> Both are motion planning,
+         neither is shake suppression — suppression changes how the servo follows.</p>
+    </div>
 
     <div class="table-wrap" style="margin-top:26px">
       <table>

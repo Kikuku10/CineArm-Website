@@ -15,7 +15,7 @@
 <link rel="icon" href="app-icon.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="zh-CN" href="https://cinearm.top/basics.html">
 <link rel="alternate" hreflang="en" href="https://cinearm.top/en/basics.html">
-<link rel="stylesheet" href="assets/site.css?v=28">
+<link rel="stylesheet" href="assets/site.css?v=29">
 </head>
 <body>
 
@@ -321,9 +321,36 @@
       <img src="assets/img/velocity-compare.jpg" alt="同一段运动下，分段 S 曲线与五次平滑的速度、加速度、加加速度对比" loading="lazy" width="1600" height="1271">
     </figure>
     <p class="note">
-      像上面这种对比 —— 同一关节走 30°、同样 4 秒，比较两种平滑算法的速度/加速度曲线 ——
+      像上面这种对比 —— 同一关节走 30°、同样 4 秒，比较两种平滑的速度/加速度曲线 ——
       这属于<b>路径规划</b>，做的是「让运动更顺」，不是「消除抖动」。
     </p>
+
+    <h3 style="margin:44px 0 12px;font-size:18px">「平滑」其实有两种，别混着听</h3>
+    <div class="compare">
+      <div>
+        <h4>轨迹平滑（CP 平滑）</h4>
+        <ul>
+          <li>三个点是一条折角的话，开启平滑后<b>在第二个点附近走圆角</b>，不是到点停一下再转向</li>
+          <li>代价是<b>轨迹偏离原来的拐点</b> —— 走得顺，但那个点不再精确到达</li>
+          <li>平滑量可以调，调得越大，偏离越多</li>
+          <li>拍片时如果那个拐点是「擦过物体边缘」的关键位置，就会被磨掉</li>
+        </ul>
+      </div>
+      <div>
+        <h4>速度曲线平滑（S 曲线、五次平滑）</h4>
+        <ul>
+          <li><b>路径形状不变</b>，仍然是那条折角线</li>
+          <li>改的是速度随时间怎么变：起步更柔、收尾更缓</li>
+          <li>解决的是「起步猛、停下顿」，不是「拐角被切圆」</li>
+          <li>调的是加速度和加加速度，不是位置</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:22px">
+      <span class="tag">一句话分清</span>
+      <p><b>轨迹平滑改的是“走哪儿”，速度曲线平滑改的是“走多快”。</b>两者都是路径规划，都不是防抖 ——
+         防抖改的是伺服怎么跟。</p>
+    </div>
 
     <div class="table-wrap" style="margin-top:26px">
       <table>
