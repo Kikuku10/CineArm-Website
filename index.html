@@ -409,9 +409,12 @@
   fetch("https://api.github.com/repos/" + REPO + "/releases?per_page=20")
     .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error("http")); })
     .then(function (list) {
-      var published = list.filter(function (x) { return !x.draft; })
-        .sort(function (a, b) { return new Date(b.published_at) - new Date(a.published_at); });
-      var rel = published[0];
+      // 只跳过草稿（draft）；预发布（prerelease）也算，取发布时间最新的一个
+      var usable = list.filter(function (x) { return !x.draft; })
+        .sort(function (a, b) {
+          return new Date(b.published_at || b.created_at) - new Date(a.published_at || a.created_at);
+        });
+      var rel = usable[0];
       if (!rel) return;
       var tag = rel.tag_name.replace(/^v/, "");
       // 版本号：首屏徽标 + 下载说明
