@@ -18,7 +18,7 @@
 <link rel="alternate" hreflang="zh-CN" href="https://cinearm.top/">
 <link rel="alternate" hreflang="en" href="https://cinearm.top/en/">
 <link rel="alternate" hreflang="x-default" href="https://cinearm.top/">
-<link rel="stylesheet" href="../assets/site.css?v=29">
+<link rel="stylesheet" href="../assets/site.css?v=30">
 </head>
 <body>
 
@@ -58,7 +58,7 @@
 
 <div class="hero">
   <div class="wrap hero-inner">
-    <span class="eyebrow"><span class="dot"></span>v0.1.46 · macOS · Windows · iPad</span>
+    <span class="eyebrow"><span class="dot"></span>v0.1.49 · macOS · Windows · iPad</span>
     <h1>Cinema moves<br><em>without a cinema budget</em></h1>
     <p class="lede">
       A used collaborative arm and CineArm are enough to make a repeatable camera move — positions, timing,
@@ -331,35 +331,35 @@
 </section>
 
 <section id="download">
-  <!-- Bump the four 0.1.46 occurrences below and the file sizes when a new version ships. -->
+  <!-- Bump the four 0.1.49 occurrences below and the file sizes when a new version ships. -->
   <div class="wrap">
     <h2 class="h2">Download</h2>
-    <p class="sub">Current version v0.1.46. All three platforms ship together, and the app can check for updates itself.</p>
+    <p class="sub" data-version-note>Current version v0.1.49. All three platforms ship together, and the app can check for updates itself.</p>
     <div class="dl-grid">
       <div class="dl">
         <div class="os">macOS</div>
         <div class="name">Apple Silicon</div>
-        <div class="meta">macOS 14 or later · ~109 MB</div>
+        <div class="meta">macOS 14 or later · ~118 MB</div>
         <a class="btn btn-ghost"
-           href="https://github.com/Kikuku10/CineArm-Releases/releases/download/v0.1.46/CineArm-macOS-AppleSilicon-0.1.46.zip">Download .zip</a>
+           data-dl="macos" href="https://github.com/Kikuku10/CineArm-Releases/releases/download/v0.1.49/CineArm-macOS-AppleSilicon-0.1.49.zip">Download .zip</a>
       </div>
       <div class="dl">
         <div class="os">Windows</div>
         <div class="name">x64 installer</div>
-        <div class="meta">Windows 10/11 x64 · ~346 MB</div>
+        <div class="meta">Windows 10/11 x64 · ~367 MB</div>
         <a class="btn btn-ghost"
-           href="https://github.com/Kikuku10/CineArm-Releases/releases/download/v0.1.46/CineArm-Windows-0.1.46-x64-setup.exe">Download .exe</a>
+           data-dl="windows" href="https://github.com/Kikuku10/CineArm-Releases/releases/download/v0.1.49/CineArm-Windows-0.1.49-x64-setup.exe">Download .exe</a>
       </div>
       <div class="dl">
         <div class="os">iPad</div>
         <div class="name">Sideload package</div>
-        <div class="meta">Requires your own signing · ~94 MB</div>
+        <div class="meta">Requires your own signing · ~101 MB</div>
         <a class="btn btn-ghost"
-           href="https://github.com/Kikuku10/CineArm-Releases/releases/download/v0.1.46/CineArm-iPad-0.1.46-Sideload.ipa">Download .ipa</a>
+           data-dl="ipad" href="https://github.com/Kikuku10/CineArm-Releases/releases/download/v0.1.49/CineArm-iPad-0.1.49-Sideload.ipa">Download .ipa</a>
       </div>
     </div>
     <p class="note">
-      Checksums: <a href="https://github.com/Kikuku10/CineArm-Releases/releases/download/v0.1.46/SHA256SUMS.txt">SHA256SUMS.txt</a>
+      Checksums: <a data-dl="sha" href="https://github.com/Kikuku10/CineArm-Releases/releases/download/v0.1.49/SHA256SUMS.txt">SHA256SUMS.txt</a>
       · all previous versions and notes live in
       <a href="https://github.com/Kikuku10/CineArm-Releases/releases">CineArm-Releases</a>.
     </p>
@@ -401,6 +401,46 @@
     apply();
     window.addEventListener('resize', apply);
   }
+})();
+</script>
+<script>/* release-sync */
+(function () {
+  var REPO = "Kikuku10/CineArm-Releases";
+  var note = document.querySelector("[data-version-note]");
+  if (!note || !window.fetch) return;
+  fetch("https://api.github.com/repos/" + REPO + "/releases?per_page=20")
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error("http")); })
+    .then(function (list) {
+      var published = list.filter(function (x) { return !x.draft; })
+        .sort(function (a, b) { return new Date(b.published_at) - new Date(a.published_at); });
+      var rel = published[0];
+      if (!rel) return;
+      var tag = rel.tag_name.replace(/^v/, "");
+      // 版本号：首屏徽标 + 下载说明
+      [document.querySelector(".hero .eyebrow"), note].forEach(function (node) {
+        if (node) node.innerHTML = node.innerHTML.replace(/\d+\.\d+\.\d+/g, tag);
+      });
+      // 下载链接与体积
+      var patterns = {
+        macos: /macOS.*\.zip$/i,
+        windows: /Windows.*\.exe$/i,
+        ipad: /iPad.*\.ipa$/i,
+        sha: /SHA256SUMS\.txt$/i
+      };
+      rel.assets.forEach(function (asset) {
+        Object.keys(patterns).forEach(function (key) {
+          if (!patterns[key].test(asset.name)) return;
+          var link = document.querySelector('[data-dl="' + key + '"]');
+          if (!link) return;
+          link.href = asset.browser_download_url;
+          var meta = link.parentElement && link.parentElement.querySelector(".meta");
+          if (meta && key !== "sha") {
+            meta.textContent = meta.textContent.replace(/[\d.]+\s*MB/i, Math.round(asset.size / 1000000) + " MB");
+          }
+        });
+      });
+    })
+    .catch(function () { /* 网络或限流时保留静态值 */ });
 })();
 </script>
 </body>
