@@ -16,7 +16,7 @@
 <link rel="icon" href="../app-icon.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="zh-CN" href="https://cinearm.top/guide.html">
 <link rel="alternate" hreflang="en" href="https://cinearm.top/en/guide.html">
-<link rel="stylesheet" href="../assets/site.css?v=33">
+<link rel="stylesheet" href="../assets/site.css?v=34">
 </head>
 <body>
 
@@ -69,7 +69,6 @@
       <b>This is not a pitch for DIY</b>: if you want to save time and effort, paying for a complete package makes sense —
       I only want to make clear where that money is worth spending.
     </p>
-    <p class="note" style="margin:-10px 0 22px">Want the full story of one machine? <a href="story.html">My CR10A story →</a></p>
     <nav class="toc">
       <a href="#story">What happened</a>
       <a href="#modules">Four modules</a>
@@ -104,34 +103,70 @@
 <section id="story" class="first">
   <div class="wrap">
     <h2 class="h2">1. What actually happened</h2>
-    <p class="sub">Start with my mistakes — every lesson below came out of them.</p>
+    <p class="sub">From a turnkey kit to returning a CR10A — every lesson below came out of this.</p>
     <div class="flow">
       <div class="step"><div class="num">01</div><div>
         <h3>Bought a film-arm kit</h3>
-        <p>A Nova 5 with bundled software and accessories. It looked complete. <b>Later I learned that new kits run the same playbook</b> — you buy the arm, the rest is your problem.</p>
+        <p>Nova 5 plus bundled software and accessories. It looked complete; I assumed I could shoot the same day. <b>New kits run the same playbook</b> — you buy the arm, the rest is your problem.</p>
       </div></div>
       <div class="step"><div class="num">02</div><div>
         <h3>The software disappointed</h3>
-        <p>It could set nodes, speed and smoothing — the same things the official pendant software already does. I wanted an editable speed curve, a lock onto the subject and follow-focus linkage. It could not. It was a large teach pendant.</p>
+        <p>Nodes, speed and smoothing — the same things the official pendant already does. I wanted an editable speed curve, a target lock and follow-focus linkage; it could not do those.</p>
       </div></div>
       <div class="step"><div class="num">03</div><div>
         <h3>Account rebinding was worse</h3>
-        <p>The login was still tied to the previous owner's number and could not be changed; switching computers hit a binding limit. <b>Specific to turnkey kits</b> — an arm bought alone has no account to bind.</p>
+        <p>The login was tied to the previous owner's number and could not be changed; switching computers hit a binding limit. <b>Specific to turnkey kits</b> — an arm alone has no such account.</p>
       </div></div>
       <div class="step"><div class="num">04</div><div>
         <h3>Accessories were questionable</h3>
-        <p>The bundled camera plate locked on a single thin screw. I never trusted it — eventually I drew my own and open-sourced it.</p>
+        <p>The bundled camera plate locked on a single thin screw. I drew my own and open-sourced that CAD.</p>
       </div></div>
       <div class="step"><div class="num">05</div><div>
-        <h3>Sold the Nova 5, bought a CR10A</h3>
-        <p>After a while I sold the Nova 5 and paid 25k CNY for a lab-retired CR10A — 10 kg payload, 1300 mm reach, far more comfortable with a mid-size body.</p>
+        <h3>Sold the Nova 5, bought a used CR10A for 25k</h3>
+        <p>10 kg payload, 1300 mm reach, far more comfortable with a mid-size body. The seller said it was fully functional — that arm became my most expensive lesson.</p>
       </div></div>
       <div class="step"><div class="num">06</div><div>
-        <h3>A month lost to the base</h3>
-        <p>The arm arrived with no base, so it could not even start. Two factories, wrong dimensions, welded sub-plates, corners cut — a full month gone. Harder than writing the software from scratch.</p>
+        <h3>It arrived mismatched</h3>
+        <p>Arm label and cabinet information disagreed, the firmware was old and the official software read an empty serial. The cabinet was a <b>CC262</b>, the all-in-one type.</p>
+      </div></div>
+      <div class="step"><div class="num">07</div><div>
+        <h3>No base, so I built one</h3>
+        <p>Two 113 kg steel plates, nearly 150 kg total. Two factories, both machined it wrong, a full month gone — harder than writing the software.</p>
+      </div></div>
+      <div class="step"><div class="num">08</div><div>
+        <h3>Mounted at last — and it really shook</h3>
+        <p>With the base stable, J3 showed a <b>repeated impact</b> as its velocity crossed zero, plus a hop mid-move. The official pendant reproduced it, ruling out my software.</p>
+      </div></div>
+      <div class="step"><div class="num">09</div><div>
+        <h3>Evidence, negotiation, return</h3>
+        <p>Video, microphone recordings of the joint noise, and a written J3 reversal report with raw data. The seller first proposed a 20% penalty; it ended as a return with a <b>23,799 CNY</b> refund, return freight on me.</p>
       </div></div>
     </div>
-    <p class="note">A kit saves procurement time, but “can it shoot what I want” is a different question.</p>
+    <p class="note">
+      Outcome: the arm went back and I shot nothing that month. A friend's used unit at 18k was steadier.
+      A kit saves procurement time, but “can it shoot what I want” is a different question — new or used.
+    </p>
+
+    <h3 style="margin:46px 0 12px;font-size:18px">Four things that arm taught me</h3>
+    <div class="detail-grid">
+      <div class="detail"><b>1. Test a used arm in person</b><span>Not whether it moves, but <b>slow arcs and velocity reversals</b>. The fault only appeared in specific motion.</span></div>
+      <div class="detail"><b>2. Separate vibration sources — a hop is not vibration</b><span>Base stiffness, camera stabilisation and arm compliance all shake the image; <b>an impact at zero velocity</b> is usually hardware.</span></div>
+      <div class="detail"><b>3. Collect evidence from day one</b><span>Video, audio, raw data, reproducible steps. “It shakes a lot” gets nowhere; curves and waveforms do.</span></div>
+      <div class="detail"><b>4. Base and account matter more than the arm</b><span>No base means no boot, the wrong cabinet means missing data, and an account can stay locked to the previous owner.</span></div>
+    </div>
+
+    <h3 style="margin:46px 0 12px;font-size:18px">And where things stand</h3>
+    <div class="detail-grid">
+      <div class="detail"><b>The enthusiasm is gone</b><span>After the return I am taking a break. A month of troubleshooting and negotiating was harder than writing the code.</span></div>
+      <div class="detail"><b>No arm right now</b><span>Not a single one. Hardware-related changes will be slow and may miss things.</span></div>
+      <div class="detail"><b>Still file bugs</b><span>Use <a href="https://github.com/Kikuku10/CineArm-Releases/issues">GitHub Issues</a> or the WeChat group. I fix them, but cannot promise dates.</span></div>
+      <div class="detail"><b>Built for love, updated slowly</b><span>Free, closed source, one maintainer. Better to say it now than leave you waiting.</span></div>
+    </div>
+    <div class="callout warn" style="margin-top:22px">
+      <span class="tag">So</span>
+      <p>If you are waiting on a feature or a reply, it is probably not being ignored — it just has not come up yet.
+        Use what works; if you cannot wait, do not wait for me.</p>
+    </div>
   </div>
 </section>
 
@@ -406,7 +441,6 @@
       <a href="../index.html">Home</a>
       <a href="../basics.html">Basics</a>
       <a href="../guide.html">Guide</a>
-      <a href="../story.html">Story</a>
       <a href="../faq.html">FAQ</a>
       <a href="../disclaimer.html">Disclaimer</a>
       <a href="https://github.com/Kikuku10/CineArm-Website">Source</a>
