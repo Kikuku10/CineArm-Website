@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My CR10A story and where things stand — CineArm</title>
+<meta name="description" content="The full story of a used CR10A: the cabinet, the base, the J3 impact, the evidence, the return — and the current state: no arm, slow updates.">
+<meta name="theme-color" content="#212126">
+<meta property="og:title" content="My CR10A story">
+<meta property="og:description" content="25k CNY for a used CR10A, a month of troubleshooting, then a return. No arm right now.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cinearm.top/en/story.html">
+<meta property="og:image" content="https://cinearm.top/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../app-icon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="zh-CN" href="https://cinearm.top/story.html">
+<link rel="alternate" hreflang="en" href="https://cinearm.top/en/story.html">
+<link rel="stylesheet" href="../assets/site.css?v=33">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <details class="nav-drop">
+      <summary aria-label="Menu" title="Menu"><span class="bars"><i></i><i></i><i></i></span></summary>
+      <div class="nav-drop__panel">
+        <a href="../features.html">Features</a>
+        <a href="../robots.html">Arms</a>
+        <a href="../devices.html">Devices</a>
+        <a href="../basics.html">Basics</a>
+        <a href="../guide.html">Guide</a>
+        <a href="../faq.html">FAQ</a>
+        <a href="../sponsor.html">Sponsor</a>
+        <a href="../index.html#download">Download</a>
+      </div>
+    </details>
+    <a class="brand" href="../index.html">
+      <img class="mark" src="../app-icon.svg" alt="" width="28" height="28">
+      CineArm
+    </a>
+    <nav>
+      <a class="hide-sm" href="../features.html">Features</a>
+      <a class="hide-sm" href="../robots.html">Arms</a>
+      <a class="hide-sm" href="../devices.html">Devices</a>
+      <a class="hide-sm" href="../basics.html">Basics</a>
+      <a class="hide-sm" href="../guide.html">Guide</a>
+      <a class="hide-sm" href="../faq.html">FAQ</a>
+      <a class="hide-sm" href="../sponsor.html">Sponsor</a>
+      <a class="hide-sm" href="../index.html#download">Download</a>
+      <a class="lang" href="../story.html" hreflang="zh-CN">中文</a>
+      <a class="cta" href="https://github.com/Kikuku10/CineArm-Releases/releases">Releases</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow"><span class="dot"></span>One machine, documented</span>
+    <h1 class="sm">My CR10A story</h1>
+    <p class="lede">
+      I paid <b>25,000 CNY</b> for a used CR10A, spent over a month chasing problems, and returned it for a
+      <b>23,799 CNY</b> refund. This is not a complaint — the process itself is the most useful buying guide I have.
+    </p>
+  </div>
+</div>
+
+<section class="first">
+  <div class="wrap">
+    <h2 class="h2">Timeline</h2>
+    <div class="flow">
+      <div class="step"><div class="num">01</div><div>
+        <h3>10 October: bought</h3>
+        <p>A used CR10A for 25,000 CNY from an industrial robotics company clearing idle assets. Described as fully functional.</p>
+      </div></div>
+      <div class="step"><div class="num">02</div><div>
+        <h3>It arrived with mismatched details</h3>
+        <p>The arm label and the cabinet information did not agree; the firmware was old and the official software read an empty serial. The cabinet was a <b>CC262</b> — the all-in-one type with the PSU inside.</p>
+      </div></div>
+      <div class="step"><div class="num">03</div><div>
+        <h3>No base, so I built one</h3>
+        <p>Two steel plates at 113 kg each, plus other steel, close to 150 kg total. Two factories, both machined it wrong — that episode has its own section in the <a href="guide.html#modules">buying guide</a>.</p>
+      </div></div>
+      <div class="step"><div class="num">04</div><div>
+        <h3>Mounted at last — and it really did shake</h3>
+        <p>With the base stable, J3 showed a <b>repeated impact</b> whenever its velocity crossed zero, and a hop mid-move. The official pendant reproduced it too — which ruled out my software.</p>
+      </div></div>
+      <div class="step"><div class="num">05</div><div>
+        <h3>Building evidence</h3>
+        <p>Video, microphone recordings of the joint noise (J3 on start, J2 too), and a written J3 reversal report with raw data — all with reproducible steps.</p>
+      </div></div>
+      <div class="step"><div class="num">06</div><div>
+        <h3>A month of negotiation, then a return</h3>
+        <p>The seller first proposed a 20% penalty (5,000 CNY). After back and forth it ended as a return: a <b>23,799 CNY</b> refund (25,000 − 1,000 depreciation − 201 freight), with me paying the return shipping.</p>
+      </div></div>
+    </div>
+    <p class="note">
+      Outcome: the arm went back and I shot nothing that month. A friend's used unit, bought for 18k, was steadier.
+    </p>
+  </div>
+</section>
+
+<section id="lessons">
+  <div class="wrap">
+    <h2 class="h2">Four things this arm taught me</h2>
+    <div class="detail-grid">
+      <div class="detail"><b>1. Test a used arm in person</b><span>Not whether it moves, but <b>slow arcs and velocity reversals</b>. The fault only appeared in specific motion.</span></div>
+      <div class="detail"><b>2. Separate vibration sources — but a hop is not vibration</b><span>Base stiffness, camera stabilisation and arm compliance all shake the image; <b>an impact at zero velocity</b> is usually hardware. Do not let “your base is too light” close the conversation.</span></div>
+      <div class="detail"><b>3. Collect evidence from day one</b><span>Video, audio, raw data, reproducible steps. “It shakes a lot” gets nowhere; curves and waveforms do.</span></div>
+      <div class="detail"><b>4. Base and account matter more than the arm</b><span>No base means no boot, the wrong cabinet means missing data, and an account can stay locked to the previous owner. Ask before paying.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="now">
+  <div class="wrap">
+    <h2 class="h2">Where things stand</h2>
+    <p class="sub">Not the most flattering update, but it should be said.</p>
+    <div class="detail-grid">
+      <div class="detail"><b>The enthusiasm is gone</b><span>After the return I am taking a break. A month of troubleshooting, negotiating and waiting was harder than writing the code.</span></div>
+      <div class="detail"><b>No arm right now</b><span>Not a single one. Features can only be checked on the virtual arm, so hardware-related changes will be slow and may miss things.</span></div>
+      <div class="detail"><b>Still file bugs</b><span>Use <a href="https://github.com/Kikuku10/CineArm-Releases/issues">GitHub Issues</a> or the WeChat group. I will fix them, but I cannot promise dates.</span></div>
+      <div class="detail"><b>Built for love, updated slowly</b><span>Free, closed source, one maintainer. Days are otherwise occupied, so releases are slow — better to say it now than leave you waiting.</span></div>
+    </div>
+    <div class="callout">
+      <span class="tag">所以</span>
+      <p>If you are waiting on a feature or a reply, it is probably not being ignored — it just has not come up yet.
+        Use what works; if you cannot wait, do not wait for me. Blunt, but more honest than silence.</p>
+    </div>
+    <p class="note">
+      <a href="guide.html">Read the buying guide →</a> · <a href="sponsor.html">Sponsor and support →</a> · <a href="plans.html">Pricing →</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="y">2026</span> CineArm · cinearm.top</span>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../basics.html">Basics</a>
+      <a href="../guide.html">Guide</a>
+      <a href="../story.html">Story</a>
+      <a href="../faq.html">FAQ</a>
+      <a href="../disclaimer.html">Disclaimer</a>
+      <a href="https://github.com/Kikuku10/CineArm-Website">Source</a>
+    </nav>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+<script>/* nav-drop-close */
+(function () {
+  function menu() { return document.querySelector('.nav-drop'); }
+  document.addEventListener('click', function (event) {
+    var d = menu();
+    if (d && d.open && !d.contains(event.target)) d.open = false;
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Escape') return;
+    var d = menu();
+    if (d && d.open) d.open = false;
+  });
+  var toc = document.querySelector('.docs-toc');
+  if (toc) {
+    var wide = function () { return window.innerWidth > 900; };
+    var apply = function () { toc.open = wide(); };
+    apply();
+    window.addEventListener('resize', apply);
+  }
+})();
+</script>
+</body>
+</html>
