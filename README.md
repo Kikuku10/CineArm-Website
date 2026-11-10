@@ -31,7 +31,8 @@
 | `devices.html` | 支持的设备：跟焦马达、索尼相机控制 |
 | `basics.html` | 入门科普：机械臂由什么组成、控制柜、示教器、防抖算法 |
 | `guide.html` | 避坑指南：二手选购、验机、价格区间、真实踩坑记录 |
-| `plans.html` | 免费版与 Studio 对比 |
+| `plans.html` | 全部免费：价格说明与开源情况 |
+| `sponsor.html` | 赞助名单与赞助方式 |
 | `faq.html` | 常见问题（一条一句答案） |
 | `disclaimer.html` | 免责声明 |
 | `shortcuts.html` | 快捷键速查卡（A4 打印） |
@@ -94,7 +95,8 @@ A personal site about shooting with a collaborative robot arm — not a company 
 | `devices.html` | Supported focus motors and Sony camera control |
 | `basics.html` | How an arm works: cabinet types, teach pendants, what “shake suppression” really means |
 | `guide.html` | Used-arm buying guide: inspection, price bands, real mistakes |
-| `plans.html` | Free vs Studio comparison |
+| `plans.html` | Free in full: pricing and open-source notes |
+| `sponsor.html` | Sponsor list and how to contribute |
 | `faq.html` | Short answers to the questions people ask most |
 | `en/` | Full English mirror of every page |
 
