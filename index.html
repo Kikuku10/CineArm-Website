@@ -17,7 +17,7 @@
 <link rel="alternate" hreflang="zh-CN" href="https://cinearm.top/">
 <link rel="alternate" hreflang="en" href="https://cinearm.top/en/">
 <link rel="alternate" hreflang="x-default" href="https://cinearm.top/">
-<link rel="stylesheet" href="assets/site.css?v=35">
+<link rel="stylesheet" href="assets/site.css?v=36">
 </head>
 <body>
 
@@ -57,7 +57,7 @@
 
 <div class="hero">
   <div class="wrap hero-inner">
-    <span class="eyebrow"><span class="dot"></span>v0.1.49 · macOS · Windows · iPad</span>
+    <span class="eyebrow"><span class="dot"></span>v0.1.53 · macOS · Windows · iPad</span>
     <h1>电影级的运镜<br><em>不必电影级的预算</em></h1>
     <p class="lede">
       一台几万块的协作机械臂，加上 CineArm，就能把机位、到达时间、镜头朝向和焦点排成一条可复现的镜头。
@@ -318,32 +318,29 @@
   <!-- 版本号与下载链接由页面脚本按 GitHub Releases 自动同步；这里保留一份静态兜底 -->
   <div class="wrap">
     <h2 class="h2">下载</h2>
-    <p class="sub" data-version-note>当前版本 v0.1.49，三端同步更新，App 里可以直接检查更新。</p>
+    <p class="sub" data-version-note>当前版本 v0.1.53，三端同步更新，App 里可以直接检查更新。</p>
     <div class="dl-grid">
       <div class="dl">
         <div class="os">macOS</div>
         <div class="name">Apple Silicon</div>
-        <div class="meta">macOS 14 或更高 · 约 118 MB</div>
-        <a class="btn btn-ghost"
-           data-dl="macos" href="https://github.com/Kikuku10/CineArm-Releases/releases/download/v0.1.49/CineArm-macOS-AppleSilicon-0.1.49.zip">下载 .zip</a>
+        <div class="meta">macOS 14 或更高 · 约 91 MB</div>
+        <a class="btn btn-ghost" data-dl="macos" href="https://github.com/Kikuku10/CineArm-Releases/releases/tag/v0.1.53">查看并下载</a>
       </div>
       <div class="dl">
         <div class="os">Windows</div>
         <div class="name">x64 安装包</div>
-        <div class="meta">Windows 10/11 x64 · 约 367 MB</div>
-        <a class="btn btn-ghost"
-           data-dl="windows" href="https://github.com/Kikuku10/CineArm-Releases/releases/download/v0.1.49/CineArm-Windows-0.1.49-x64-setup.exe">下载 .exe</a>
+        <div class="meta">Windows 10/11 x64 · 约 340 MB</div>
+        <a class="btn btn-ghost" data-dl="windows" href="https://github.com/Kikuku10/CineArm-Releases/releases/tag/v0.1.53">查看并下载</a>
       </div>
       <div class="dl">
         <div class="os">iPad</div>
         <div class="name">自签安装包</div>
-        <div class="meta">需自行签名 · 约 101 MB</div>
-        <a class="btn btn-ghost"
-           data-dl="ipad" href="https://github.com/Kikuku10/CineArm-Releases/releases/download/v0.1.49/CineArm-iPad-0.1.49-Sideload.ipa">下载 .ipa</a>
+        <div class="meta">需自行签名 · 约 75 MB</div>
+        <a class="btn btn-ghost" data-dl="ipad" href="https://github.com/Kikuku10/CineArm-Releases/releases/tag/v0.1.53">查看并下载</a>
       </div>
     </div>
     <p class="note">
-      校验文件：<a data-dl="sha" href="https://github.com/Kikuku10/CineArm-Releases/releases/download/v0.1.49/SHA256SUMS.txt">SHA256SUMS.txt</a>
+      校验文件：<a data-dl="sha" href="https://github.com/Kikuku10/CineArm-Releases/releases/tag/v0.1.53">SHA256SUMS.txt</a>
       · 全部历史版本与更新说明见
       <a href="https://github.com/Kikuku10/CineArm-Releases/releases">CineArm-Releases</a>。
     </p>
@@ -387,23 +384,24 @@
         if (node) node.innerHTML = node.innerHTML.replace(/\d+\.\d+\.\d+/g, tag);
       });
       // 下载链接与体积
+      // 下载按钮统一跳到该版本页面（不直链文件），只更新版本页地址与体积
+      var tagPage = rel.html_url || ("https://github.com/Kikuku10/CineArm-Releases/releases/tag/" + rel.tag_name);
       var patterns = {
         macos: /macOS.*\.zip$/i,
         windows: /Windows.*\.exe$/i,
         ipad: /iPad.*\.ipa$/i,
         sha: /SHA256SUMS\.txt$/i
       };
-      rel.assets.forEach(function (asset) {
-        Object.keys(patterns).forEach(function (key) {
-          if (!patterns[key].test(asset.name)) return;
-          var link = document.querySelector('[data-dl="' + key + '"]');
-          if (!link) return;
-          link.href = asset.browser_download_url;
-          var meta = link.parentElement && link.parentElement.querySelector(".meta");
-          if (meta && key !== "sha") {
-            meta.textContent = meta.textContent.replace(/[\d.]+\s*MB/i, Math.round(asset.size / 1000000) + " MB");
-          }
-        });
+      Object.keys(patterns).forEach(function (key) {
+        var link = document.querySelector('[data-dl="' + key + '"]');
+        if (!link) return;
+        link.href = tagPage;
+        if (key === "sha") return;
+        var asset = rel.assets.filter(function (a) { return patterns[key].test(a.name); })[0];
+        var meta = link.parentElement && link.parentElement.querySelector(".meta");
+        if (asset && meta) {
+          meta.textContent = meta.textContent.replace(/[\d.]+\s*MB/i, Math.round(asset.size / 1000000) + " MB");
+        }
       });
     })
     .catch(function () { /* 网络或限流时保留静态值 */ });
